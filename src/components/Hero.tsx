@@ -48,12 +48,6 @@ const Hero = () => {
 
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <p className="text-2xl md:text-3xl font-light text-black leading-relaxed tracking-wide max-w-5xl mx-auto mb-16">
-              126 Monarch Bay Drive represents the absolute pinnacle of California coastal luxury—a singular architectural achievement within Dana Point's most coveted guard-gated sanctuary.
-            </p>
-          </div>
-          
           {/* Key Features with Icons - matching inner page style */}
           <div className="mt-24">
             <h2 className="text-5xl font-light text-black mb-20 text-center tracking-wide">Distinctive Features</h2>
