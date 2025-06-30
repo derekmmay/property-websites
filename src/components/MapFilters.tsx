@@ -17,37 +17,37 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
       title: "Luxury Amenities",
       icon: Building,
       filters: [
-        { id: "luxury-hotels", label: "5-Star Hotels", color: "bg-amber-500" },
-        { id: "private-clubs", label: "Private Clubs", color: "bg-amber-600" },
-        { id: "luxury-spas", label: "Luxury Spas", color: "bg-amber-400" },
-        { id: "marinas", label: "Private Marinas", color: "bg-blue-500" }
+        { id: "luxury-hotels", label: "5-Star Hotels", color: "bg-black" },
+        { id: "private-clubs", label: "Private Clubs", color: "bg-black" },
+        { id: "luxury-spas", label: "Luxury Spas", color: "bg-black" },
+        { id: "marinas", label: "Private Marinas", color: "bg-black" }
       ]
     },
     {
       title: "Transportation",
       icon: Car,
       filters: [
-        { id: "ev-charging", label: "EV Charging", color: "bg-green-500" },
-        { id: "airports", label: "Private Aviation", color: "bg-slate-500" },
-        { id: "commute-hubs", label: "Transit Hubs", color: "bg-gray-500" }
+        { id: "ev-charging", label: "EV Charging", color: "bg-black" },
+        { id: "airports", label: "Private Aviation", color: "bg-black" },
+        { id: "commute-hubs", label: "Transit Hubs", color: "bg-black" }
       ]
     },
     {
       title: "Lifestyle",
       icon: ShoppingBag,
       filters: [
-        { id: "luxury-shopping", label: "High-End Retail", color: "bg-purple-500" },
-        { id: "fine-dining", label: "Fine Dining", color: "bg-red-500" },
-        { id: "golf-courses", label: "Golf Courses", color: "bg-green-600" }
+        { id: "luxury-shopping", label: "High-End Retail", color: "bg-black" },
+        { id: "fine-dining", label: "Fine Dining", color: "bg-black" },
+        { id: "golf-courses", label: "Golf Courses", color: "bg-black" }
       ]
     },
     {
       title: "Demographics",
       icon: GraduationCap,
       filters: [
-        { id: "high-income", label: "$200K+ Income", color: "bg-yellow-600" },
-        { id: "education", label: "Top Schools", color: "bg-indigo-500" },
-        { id: "professionals", label: "Executive Areas", color: "bg-gray-700" }
+        { id: "high-income", label: "$200K+ Income", color: "bg-black" },
+        { id: "education", label: "Top Schools", color: "bg-black" },
+        { id: "professionals", label: "Executive Areas", color: "bg-black" }
       ]
     }
   ];
@@ -79,7 +79,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
               variant="outline" 
               size="sm" 
               onClick={clearAllFilters}
-              className="text-xs"
+              className="text-xs hover:bg-black hover:text-white transition-colors"
             >
               Clear All
             </Button>
@@ -88,7 +88,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
             variant="ghost"
             size="sm"
             onClick={onClose}
-            className="h-8 w-8 p-0"
+            className="h-8 w-8 p-0 hover:bg-black hover:text-white transition-colors"
           >
             <X className="h-4 w-4" />
           </Button>
@@ -104,15 +104,15 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
                 <IconComponent className="w-4 h-4 text-gray-600" />
                 <h4 className="text-sm font-medium text-gray-800">{category.title}</h4>
               </div>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {category.filters.map((filter) => (
                   <button
                     key={filter.id}
                     onClick={() => handleFilterToggle(filter.id)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
+                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer min-h-[44px] touch-manipulation ${
                       activeFilters.includes(filter.id)
-                        ? `${filter.color} text-white shadow-md scale-105`
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'bg-black text-white shadow-lg scale-105 border-2 border-black'
+                        : 'bg-white text-black border-2 border-black hover:bg-black hover:text-white'
                     }`}
                   >
                     {filter.label}
@@ -136,7 +136,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
                 <Badge 
                   key={filterId} 
                   variant="secondary" 
-                  className="text-xs px-2 py-1"
+                  className="text-xs px-2 py-1 bg-black text-white"
                 >
                   {filter.label}
                 </Badge>
