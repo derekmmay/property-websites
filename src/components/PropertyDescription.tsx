@@ -1,7 +1,7 @@
 
 const PropertyDescription = () => {
   return (
-    <div className="space-y-10">
+    <div className="space-y-16">
       {/* Main Header */}
       <div className="text-center space-y-8">
         <h2 className="text-6xl md:text-7xl font-extralight text-black tracking-[-0.02em] leading-none">
@@ -13,7 +13,7 @@ const PropertyDescription = () => {
       </div>
 
       {/* Property Stats Row */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-8">
         <div className="text-center">
           <div className="text-4xl font-extralight text-black mb-2">$13,500,000</div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Sales Price</div>
