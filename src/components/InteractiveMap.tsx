@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { useMapbox } from '@/hooks/useMapbox';
+import { useAdvancedMapbox } from '@/hooks/useAdvancedMapbox';
 
 interface InteractiveMapProps {
   latitude?: number;
@@ -9,6 +9,7 @@ interface InteractiveMapProps {
   zoom?: number;
   className?: string;
   isInteractive?: boolean;
+  activeFilters?: string[];
 }
 
 const InteractiveMap: React.FC<InteractiveMapProps> = ({ 
@@ -16,16 +17,18 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   longitude = -117.7018, 
   zoom = 15,
   className = "w-full h-96",
-  isInteractive = true
+  isInteractive = true,
+  activeFilters = []
 }) => {
   const [apiKey] = useState<string>('pk.eyJ1IjoiZGVyZWttbWF5IiwiYSI6ImNtY2ptMXcxZjA0cGQybXB2NnphemRhNWkifQ.gBYDOal4M8tAzN7BIo6UTg');
   
-  const { mapContainer } = useMapbox({
+  const { mapContainer } = useAdvancedMapbox({
     latitude,
     longitude,
     zoom,
     apiKey,
-    isInteractive
+    isInteractive,
+    activeFilters
   });
 
   return (

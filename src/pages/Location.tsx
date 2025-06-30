@@ -64,6 +64,7 @@ const Location = () => {
           zoom={15}
           className="w-full h-full"
           isInteractive={isMapInteractive}
+          activeFilters={activeFilters}
         />
         
         {/* Map Controls Overlay - Only show when interactive mode is on */}
@@ -87,7 +88,7 @@ const Location = () => {
                   variant="outline"
                   className="px-6 py-2 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8 transition-all duration-300 bg-black/50 text-white hover:bg-black/70"
                 >
-                  Prime Coastal Position
+                  Explore Interactive Map
                 </Button>
               </div>
               <h1 className="text-6xl md:text-8xl font-extralight mb-12 tracking-[-0.02em] leading-none">

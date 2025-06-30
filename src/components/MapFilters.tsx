@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -13,40 +12,33 @@ interface MapFiltersProps {
 const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, onClose }) => {
   const filterCategories = [
     {
+      title: "Real Estate Market",
+      icon: Building,
+      filters: [
+        { id: "high-income", label: "Property Values", color: "bg-black" },
+        { id: "education", label: "Top Schools", color: "bg-black" },
+        { id: "professionals", label: "Executive Areas", color: "bg-black" }
+      ]
+    },
+    {
       title: "Luxury Amenities",
       icon: Building,
       filters: [
         { id: "luxury-hotels", label: "5-Star Hotels", color: "bg-black" },
         { id: "private-clubs", label: "Private Clubs", color: "bg-black" },
         { id: "luxury-spas", label: "Luxury Spas", color: "bg-black" },
-        { id: "marinas", label: "Private Marinas", color: "bg-black" }
-      ]
-    },
-    {
-      title: "Transportation",
-      icon: Car,
-      filters: [
-        { id: "ev-charging", label: "EV Charging", color: "bg-black" },
-        { id: "airports", label: "Private Aviation", color: "bg-black" },
-        { id: "commute-hubs", label: "Transit Hubs", color: "bg-black" }
-      ]
-    },
-    {
-      title: "Lifestyle",
-      icon: ShoppingBag,
-      filters: [
-        { id: "luxury-shopping", label: "High-End Retail", color: "bg-black" },
+        { id: "marinas", label: "Private Marinas", color: "bg-black" },
         { id: "fine-dining", label: "Fine Dining", color: "bg-black" },
         { id: "golf-courses", label: "Golf Courses", color: "bg-black" }
       ]
     },
     {
-      title: "Demographics",
-      icon: GraduationCap,
+      title: "Transportation & Utilities",
+      icon: Car,
       filters: [
-        { id: "high-income", label: "$200K+ Income", color: "bg-black" },
-        { id: "education", label: "Top Schools", color: "bg-black" },
-        { id: "professionals", label: "Executive Areas", color: "bg-black" }
+        { id: "ev-charging", label: "EV Charging", color: "bg-black" },
+        { id: "airports", label: "Private Aviation", color: "bg-black" },
+        { id: "commute-hubs", label: "Transit Hubs", color: "bg-black" }
       ]
     }
   ];
