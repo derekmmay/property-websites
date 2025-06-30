@@ -1,6 +1,4 @@
-
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -36,18 +34,15 @@ const Footer = () => {
           <div>
             {/* Contact Info */}
             <div className="mb-8">
-              <h4 className="text-lg font-medium mb-6 tracking-wide">Contact</h4>
+              <h4 className="text-lg font-medium mb-6 tracking-wide">Susan Chase</h4>
               <div className="space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Phone className="w-5 h-5 text-gray-400" />
+                <div className="flex items-center">
                   <span className="text-gray-300">(949) 949-9499</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="w-5 h-5 text-gray-400" />
+                <div className="flex items-center">
                   <span className="text-gray-300">susan@compass.com</span>
                 </div>
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-gray-400 mt-1" />
+                <div className="flex items-start">
                   <span className="text-gray-300">
                     DRE License #123456
                   </span>
@@ -55,7 +50,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Compass Logo and Property Info */}
+            {/* Compass Logo */}
             <div>
               <div className="flex items-center space-x-3 mb-6">
                 <img 
@@ -64,7 +59,6 @@ const Footer = () => {
                   className="h-16 w-auto"
                 />
               </div>
-              <h3 className="text-2xl font-light mb-6 tracking-wide">126 Monarch Bay</h3>
             </div>
           </div>
 
