@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import PropertyStats from "./PropertyStats";
+import { Shield, Waves, MapPin, Star } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -55,11 +56,55 @@ const Hero = () => {
             <p className="text-xl text-gray-500 font-light tracking-wide mb-12">
               Priced to reflect unparalleled luxury
             </p>
-            <p className="text-2xl md:text-3xl font-light text-black leading-relaxed tracking-wide max-w-5xl mx-auto">
+            <p className="text-2xl md:text-3xl font-light text-black leading-relaxed tracking-wide max-w-5xl mx-auto mb-16">
               126 Monarch Bay Drive represents the absolute pinnacle of California coastal luxury—a singular architectural achievement within Dana Point's most coveted guard-gated sanctuary.
             </p>
           </div>
           
+          <PropertyStats />
+          
+          {/* Key Features with Icons - matching inner page style */}
+          <div className="mt-24">
+            <h2 className="text-5xl font-light text-black mb-20 text-center tracking-wide">Distinctive Features</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
+                  <Shield className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-light text-black mb-6">Guard-Gated Security</h3>
+                <p className="text-gray-600 font-light leading-relaxed">
+                  24/7 private security within the exclusive Monarch Bay enclave
+                </p>
+              </div>
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
+                  <Waves className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-light text-black mb-6">Ocean Views</h3>
+                <p className="text-gray-600 font-light leading-relaxed">
+                  Panoramic Pacific Ocean and Catalina Island vistas from every room
+                </p>
+              </div>
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
+                  <MapPin className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-light text-black mb-6">Prime Location</h3>
+                <p className="text-gray-600 font-light leading-relaxed">
+                  Minutes from luxury amenities, golf, and private beach access
+                </p>
+              </div>
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
+                  <Star className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-light text-black mb-6">Luxury Amenities</h3>
+                <p className="text-gray-600 font-light leading-relaxed">
+                  Wine cellar, putting green, spa, and entertainment spaces
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>
