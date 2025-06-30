@@ -35,9 +35,9 @@ const Data = () => {
 
       {/* Main Content */}
       <main className="bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-12">
+            <TabsList className="grid w-full grid-cols-4 mb-8">
               <TabsTrigger value="overview">Market Overview</TabsTrigger>
               <TabsTrigger value="history">Property History</TabsTrigger>
               <TabsTrigger value="details">Property Details</TabsTrigger>
