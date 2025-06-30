@@ -64,11 +64,18 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-3">
               <span className="text-gray-400 text-sm">Website created by:</span>
-              <img 
-                src="/lovable-uploads/84f43fff-7a9a-4259-b8f7-9393caadff14.png" 
-                alt="BroSynk Logo" 
-                className="h-6 w-auto"
-              />
+              <a 
+                href="https://brandsynk.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+              >
+                <img 
+                  src="/lovable-uploads/84f43fff-7a9a-4259-b8f7-9393caadff14.png" 
+                  alt="BroSynk Logo" 
+                  className="h-6 w-auto"
+                />
+              </a>
             </div>
             <p className="text-gray-400 text-sm">
               © 2025 All rights reserved
