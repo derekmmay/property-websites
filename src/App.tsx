@@ -8,6 +8,7 @@ import Overview from "./pages/Overview";
 import Location from "./pages/Location";
 import Lifestyle from "./pages/Lifestyle";
 import Schools from "./pages/Schools";
+import Data from "./pages/Data";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -24,6 +25,7 @@ const App = () => (
           <Route path="/location" element={<Location />} />
           <Route path="/lifestyle" element={<Lifestyle />} />
           <Route path="/schools" element={<Schools />} />
+          <Route path="/data" element={<Data />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
