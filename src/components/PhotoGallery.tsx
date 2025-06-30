@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -127,8 +126,23 @@ const PhotoGallery = () => {
     setSelectedImage(null);
   };
 
+  // Define different entrance directions for variety
+  const getEntranceDirection = (index: number) => {
+    const directions = [
+      'translate-x-[-200px] translate-y-[-100px] rotate-[-15deg]', // From top-left
+      'translate-x-[200px] translate-y-[-150px] rotate-[20deg]',   // From top-right
+      'translate-x-[-150px] translate-y-[100px] rotate-[12deg]',   // From bottom-left
+      'translate-x-[180px] translate-y-[120px] rotate-[-18deg]',   // From bottom-right
+      'translate-y-[-200px] rotate-[8deg]',                        // From top
+      'translate-x-[-250px] rotate-[-10deg]',                      // From left
+      'translate-x-[250px] rotate-[15deg]',                        // From right
+      'translate-y-[200px] rotate-[-12deg]',                       // From bottom
+    ];
+    return directions[index % directions.length];
+  };
+
   return (
-    <section id="photo-gallery" className="py-24 bg-white">
+    <section id="photo-gallery" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-light text-black mb-6 tracking-wide">Private Gallery</h2>
@@ -137,7 +151,7 @@ const PhotoGallery = () => {
           </p>
         </div>
 
-        {/* Scattered Grid Layout with Staggered Animations */}
+        {/* Scattered Grid Layout with Flutter Animations */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[200px]">
           {photos.slice(0, 16).map((photo, index) => {
             const gridClasses = [
@@ -159,18 +173,21 @@ const PhotoGallery = () => {
               "col-span-6 row-span-1", // Wide
             ];
 
+            const entranceTransform = getEntranceDirection(index);
+
             return (
               <Card
                 key={index}
-                className={`${gridClasses[index]} relative overflow-hidden cursor-pointer group border-0 shadow-lg hover:shadow-2xl transition-all duration-700 ${
+                className={`${gridClasses[index]} relative overflow-hidden cursor-pointer group border-0 shadow-lg hover:shadow-2xl transition-all duration-1000 ${
                   isVisible 
-                    ? 'animate-in slide-in-from-bottom-8 fade-in' 
-                    : 'opacity-0 translate-y-8'
+                    ? 'opacity-100 translate-x-0 translate-y-0 rotate-0' 
+                    : `opacity-0 ${entranceTransform}`
                 }`}
                 style={{
-                  animationDelay: `${index * 100}ms`,
-                  animationDuration: '800ms',
-                  animationFillMode: 'both'
+                  animationDelay: `${index * 150}ms`,
+                  transitionDelay: `${index * 150}ms`,
+                  transitionDuration: '1200ms',
+                  transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
                 }}
                 onClick={() => openLightbox(index)}
               >
@@ -185,12 +202,14 @@ const PhotoGallery = () => {
                   <p className="text-xs opacity-80">{photo.category}</p>
                 </div>
                 
-                {/* Floating animation effect */}
+                {/* Enhanced floating animation effects */}
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute top-2 right-2 w-2 h-2 bg-white/30 rounded-full animate-pulse" 
                        style={{ animationDelay: `${index * 200}ms` }}></div>
                   <div className="absolute bottom-4 left-4 w-1 h-1 bg-white/40 rounded-full animate-pulse" 
                        style={{ animationDelay: `${index * 300}ms` }}></div>
+                  <div className="absolute top-1/2 left-2 w-1.5 h-1.5 bg-white/20 rounded-full animate-pulse" 
+                       style={{ animationDelay: `${index * 400}ms` }}></div>
                 </div>
               </Card>
             );
