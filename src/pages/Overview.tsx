@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import PropertyStats from "@/components/PropertyStats";
 import PropertyDescription from "@/components/PropertyDescription";
 import PhotoGallery from "@/components/PhotoGallery";
 import AgentInfo from "@/components/AgentInfo";
@@ -17,9 +16,7 @@ const Overview = () => {
       <Hero />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <PropertyStats />
-        
-        <div className="mt-24 grid grid-cols-1 lg:grid-cols-3 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           <div className="lg:col-span-2">
             <PropertyDescription />
           </div>
