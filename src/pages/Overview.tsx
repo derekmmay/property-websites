@@ -15,15 +15,7 @@ const Overview = () => {
       <Hero />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-          <div className="lg:col-span-2">
-            <PropertyDescription />
-          </div>
-          
-          <div className="space-y-12">
-            {/* Sidebar content removed */}
-          </div>
-        </div>
+        <PropertyDescription />
       </div>
       
       <div id="gallery">

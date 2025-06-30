@@ -17,95 +17,74 @@ const PropertyDescription = () => {
         </h2>
       </div>
 
-      {/* Main Content Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-16">
-        {/* Left Sidebar - Property Stats */}
-        <div className="lg:col-span-1 space-y-12">
-          <div className="space-y-8">
-            <div>
-              <div className="text-4xl font-extralight text-black mb-2">$13,500,000</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Sales Price</div>
-            </div>
-            
-            <div>
-              <div className="text-4xl font-extralight text-black mb-2">5,452</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Square Feet</div>
-            </div>
-
-            <div>
-              <div className="text-4xl font-extralight text-black mb-2">123456789</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">MLS Listing ID</div>
-            </div>
-
-            <div>
-              <div className="text-xl font-light text-black mb-2">5</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Bedrooms</div>
-            </div>
-
-            <div>
-              <div className="text-xl font-light text-black mb-2">Oceanfront Estate</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Property Type</div>
-            </div>
-
-            <div>
-              <div className="text-xl font-light text-black mb-2">5</div>
-              <div className="text-sm text-gray-600 uppercase tracking-wide">Bathrooms</div>
-            </div>
-          </div>
-
-          {/* Share Section */}
-          <div className="pt-8 border-t border-gray-200">
-            <div className="text-sm text-gray-600 uppercase tracking-wide mb-4">Share:</div>
-            <div className="flex space-x-4">
-              <button className="w-8 h-8 bg-black text-white rounded flex items-center justify-center hover:bg-gray-800 transition-colors">
-                <span className="text-xs">f</span>
-              </button>
-              <button className="w-8 h-8 bg-black text-white rounded flex items-center justify-center hover:bg-gray-800 transition-colors">
-                <span className="text-xs">x</span>
-              </button>
-              <button className="w-8 h-8 bg-black text-white rounded flex items-center justify-center hover:bg-gray-800 transition-colors">
-                <span className="text-xs">@</span>
-              </button>
-            </div>
-          </div>
+      {/* Property Stats Row */}
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-8 max-w-6xl mx-auto">
+        <div className="text-center">
+          <div className="text-4xl font-extralight text-black mb-2">$13,500,000</div>
+          <div className="text-sm text-gray-600 uppercase tracking-wide">Sales Price</div>
+        </div>
+        
+        <div className="text-center">
+          <div className="text-4xl font-extralight text-black mb-2">5,452</div>
+          <div className="text-sm text-gray-600 uppercase tracking-wide">Square Feet</div>
         </div>
 
-        {/* Main Content Area */}
-        <div className="lg:col-span-3 space-y-8">
-          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed font-light text-justify">
-            <p>
-              This estate defines a new era of California coastal luxury, where timeless Mediterranean 
-              inspiration meets contemporary refinement. Seamlessly integrating architecture with nature, 
-              the design embraces Japanese-influenced Wabi Sabi philosophy—celebrating organic textures, 
-              raw materials, and the beauty of imperfection. Set within the exclusive, guard-gated enclave of 
-              Monarch Bay, the 5-bedroom, 5-bathroom estate captures sweeping views of the Pacific Ocean 
-              and Catalina Island through floor-to-ceiling glass.
-            </p>
-            
-            <p>
-              Warm, elemental materials—including custom millwork, imported Italian stone, French oak, and 
-              limestone—flow effortlessly throughout the open-concept living spaces. The home's sculptural 
-              facade is wrapped in natural materials, offering a bold, tactile contrast against the coastal 
-              terrain. The primary suite is a secluded haven with panoramic views, a spa-inspired bath with 
-              sculptural soaking tub, and a custom walk-in closet.
-            </p>
-            
-            <p>
-              Each additional en-suite bedroom is uniquely appointed with refined finishes and artistic 
-              detailing. A dedicated wine sanctuary, built-in entertainment spaces, and seamless indoor-outdoor 
-              transitions enhance the home's livability. Outside, an infinity-edge pool, fire feature, 
-              built-in BBQ, and multiple lounge areas create the perfect setting for gathering or unwinding 
-              under the stars.
-            </p>
-            
-            <p>
-              Designed by acclaimed architects, this residence is a masterclass in elevated coastal living—where 
-              thoughtful architecture honors its environment with quiet sophistication. An adjacent half-acre 
-              parcel is also available, offering the opportunity to preserve the home's sense of space and views. 
-              The property includes approved plans for a 1,500-square-foot addition, providing the option to 
-              build a complementary retreat or simply maintain the surrounding natural landscape.
-            </p>
-          </div>
+        <div className="text-center">
+          <div className="text-2xl font-light text-black mb-2">5</div>
+          <div className="text-sm text-gray-600 uppercase tracking-wide">Bedrooms</div>
+        </div>
+
+        <div className="text-center">
+          <div className="text-2xl font-light text-black mb-2">5</div>
+          <div className="text-sm text-gray-600 uppercase tracking-wide">Bathrooms</div>
+        </div>
+
+        <div className="text-center">
+          <div className="text-xl font-light text-black mb-2">Oceanfront</div>
+          <div className="text-sm text-gray-600 uppercase tracking-wide">Property Type</div>
+        </div>
+
+        <div className="text-center">
+          <div className="text-xl font-light text-black mb-2">123456789</div>
+          <div className="text-sm text-gray-600 uppercase tracking-wide">MLS ID</div>
+        </div>
+      </div>
+
+      {/* Main Content Area - Full Width */}
+      <div className="max-w-6xl mx-auto">
+        <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed font-light text-justify">
+          <p>
+            This estate defines a new era of California coastal luxury, where timeless Mediterranean 
+            inspiration meets contemporary refinement. Seamlessly integrating architecture with nature, 
+            the design embraces Japanese-influenced Wabi Sabi philosophy—celebrating organic textures, 
+            raw materials, and the beauty of imperfection. Set within the exclusive, guard-gated enclave of 
+            Monarch Bay, the 5-bedroom, 5-bathroom estate captures sweeping views of the Pacific Ocean 
+            and Catalina Island through floor-to-ceiling glass.
+          </p>
+          
+          <p>
+            Warm, elemental materials—including custom millwork, imported Italian stone, French oak, and 
+            limestone—flow effortlessly throughout the open-concept living spaces. The home's sculptural 
+            facade is wrapped in natural materials, offering a bold, tactile contrast against the coastal 
+            terrain. The primary suite is a secluded haven with panoramic views, a spa-inspired bath with 
+            sculptural soaking tub, and a custom walk-in closet.
+          </p>
+          
+          <p>
+            Each additional en-suite bedroom is uniquely appointed with refined finishes and artistic 
+            detailing. A dedicated wine sanctuary, built-in entertainment spaces, and seamless indoor-outdoor 
+            transitions enhance the home's livability. Outside, an infinity-edge pool, fire feature, 
+            built-in BBQ, and multiple lounge areas create the perfect setting for gathering or unwinding 
+            under the stars.
+          </p>
+          
+          <p>
+            Designed by acclaimed architects, this residence is a masterclass in elevated coastal living—where 
+            thoughtful architecture honors its environment with quiet sophistication. An adjacent half-acre 
+            parcel is also available, offering the opportunity to preserve the home's sense of space and views. 
+            The property includes approved plans for a 1,500-square-foot addition, providing the option to 
+            build a complementary retreat or simply maintain the surrounding natural landscape.
+          </p>
         </div>
       </div>
 
