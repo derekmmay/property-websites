@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -7,6 +7,7 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 const PhotoGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
 
   const photos = [
     {
@@ -91,6 +92,24 @@ const PhotoGallery = () => {
     }
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    const galleryElement = document.getElementById('photo-gallery');
+    if (galleryElement) {
+      observer.observe(galleryElement);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const nextImage = () => {
     setCurrentIndex((prev) => (prev + 1) % photos.length);
   };
@@ -109,7 +128,7 @@ const PhotoGallery = () => {
   };
 
   return (
-    <section className="py-24 bg-white">
+    <section id="photo-gallery" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-light text-black mb-6 tracking-wide">Private Gallery</h2>
@@ -118,7 +137,7 @@ const PhotoGallery = () => {
           </p>
         </div>
 
-        {/* Scattered Grid Layout */}
+        {/* Scattered Grid Layout with Staggered Animations */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[200px]">
           {photos.slice(0, 16).map((photo, index) => {
             const gridClasses = [
@@ -143,18 +162,35 @@ const PhotoGallery = () => {
             return (
               <Card
                 key={index}
-                className={`${gridClasses[index]} relative overflow-hidden cursor-pointer group border-0 shadow-lg hover:shadow-2xl transition-all duration-500`}
+                className={`${gridClasses[index]} relative overflow-hidden cursor-pointer group border-0 shadow-lg hover:shadow-2xl transition-all duration-700 ${
+                  isVisible 
+                    ? 'animate-in slide-in-from-bottom-8 fade-in' 
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                  animationDuration: '800ms',
+                  animationFillMode: 'both'
+                }}
                 onClick={() => openLightbox(index)}
               >
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300 z-10"></div>
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500 z-10"></div>
                 <img
                   src={photo.url}
                   alt={photo.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 group-hover:rotate-1"
                 />
-                <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
                   <p className="text-sm font-medium">{photo.title}</p>
                   <p className="text-xs opacity-80">{photo.category}</p>
+                </div>
+                
+                {/* Floating animation effect */}
+                <div className="absolute inset-0 pointer-events-none">
+                  <div className="absolute top-2 right-2 w-2 h-2 bg-white/30 rounded-full animate-pulse" 
+                       style={{ animationDelay: `${index * 200}ms` }}></div>
+                  <div className="absolute bottom-4 left-4 w-1 h-1 bg-white/40 rounded-full animate-pulse" 
+                       style={{ animationDelay: `${index * 300}ms` }}></div>
                 </div>
               </Card>
             );
@@ -163,12 +199,12 @@ const PhotoGallery = () => {
 
         {/* Lightbox Modal */}
         {selectedImage !== null && (
-          <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center">
+          <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center animate-in fade-in duration-300">
             <div className="relative w-full h-full flex items-center justify-center p-4">
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute top-4 right-4 text-white hover:bg-white/10 z-10"
+                className="absolute top-4 right-4 text-white hover:bg-white/10 z-10 transition-all duration-300 hover:scale-110"
                 onClick={closeLightbox}
               >
                 <X className="w-6 h-6" />
@@ -177,7 +213,7 @@ const PhotoGallery = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 z-10"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 z-10 transition-all duration-300 hover:scale-110"
                 onClick={prevImage}
               >
                 <ChevronLeft className="w-8 h-8" />
@@ -186,19 +222,19 @@ const PhotoGallery = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 z-10"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:bg-white/10 z-10 transition-all duration-300 hover:scale-110"
                 onClick={nextImage}
               >
                 <ChevronRight className="w-8 h-8" />
               </Button>
 
-              <div className="max-w-6xl max-h-full">
+              <div className="max-w-6xl max-h-full animate-in zoom-in-50 duration-500">
                 <img
                   src={photos[currentIndex].url}
                   alt={photos[currentIndex].title}
-                  className="max-w-full max-h-full object-contain"
+                  className="max-w-full max-h-full object-contain transition-all duration-500"
                 />
-                <div className="text-center mt-4 text-white">
+                <div className="text-center mt-4 text-white animate-in slide-in-from-bottom-4 duration-500">
                   <h3 className="text-2xl font-light mb-2">{photos[currentIndex].title}</h3>
                   <p className="text-gray-300">{photos[currentIndex].category}</p>
                   <p className="text-sm text-gray-400 mt-2">
