@@ -1,8 +1,26 @@
 
 const PropertyDescription = () => {
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       <h2 className="text-3xl font-light text-gray-800">Extraordinary Ocean Living</h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80"
+            alt="Luxury living room with ocean view"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+          <img 
+            src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+            alt="Modern luxury kitchen"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+      
       <div className="prose prose-lg text-gray-600">
         <p>
           126 Monarch Bay Drive represents the pinnacle of luxury coastal living within Dana Point's 
@@ -21,6 +39,14 @@ const PropertyDescription = () => {
           sun-drenched decks. The resort-style backyard features lush landscaping, spa, built-in BBQ, 
           outdoor fireplace, and a unique five-hole putting green.
         </p>
+      </div>
+      
+      <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
+        <img 
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2153&q=80"
+          alt="Luxury outdoor patio with ocean view"
+          className="w-full h-full object-cover"
+        />
       </div>
     </div>
   );

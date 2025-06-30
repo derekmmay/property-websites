@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -20,6 +19,14 @@ const Overview = () => {
           <PropertyDescription />
           
           <div className="space-y-8">
+            <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
+              <img 
+                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+                alt="Luxury master bedroom"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
             <Card className="border-0 shadow-lg">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-light mb-6 text-gray-800">Property Highlights</h3>

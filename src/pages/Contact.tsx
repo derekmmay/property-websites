@@ -14,7 +14,7 @@ const Contact = () => {
       <div 
         className="relative h-64 flex items-center justify-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.5)), url('https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.5)), url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
         }}
       >
         <div className="text-center text-white">
@@ -28,6 +28,14 @@ const Contact = () => {
           <div>
             <h2 className="text-3xl font-light mb-8 text-gray-800">Contact Information</h2>
             <AgentInfo />
+            
+            <div className="relative h-64 rounded-lg overflow-hidden shadow-lg mb-8">
+              <img 
+                src="https://images.unsplash.com/photo-1613977257363-707ba9348227?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Luxury property exterior"
+                className="w-full h-full object-cover"
+              />
+            </div>
             
             <Card className="border-0 shadow-lg mt-8">
               <CardContent className="p-8">

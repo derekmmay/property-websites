@@ -12,7 +12,7 @@ const Location = () => {
       <div 
         className="relative h-64 flex items-center justify-center"
         style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.5)), url('https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.5)), url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
         }}
       >
         <div className="text-center text-white">
@@ -25,6 +25,15 @@ const Location = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
             <h2 className="text-3xl font-light mb-6 text-gray-800">Monarch Bay Excellence</h2>
+            
+            <div className="relative h-64 rounded-lg overflow-hidden shadow-lg mb-6">
+              <img 
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
+                alt="Luxury waterfront community"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
             <div className="prose prose-lg text-gray-600">
               <p>
                 Monarch Bay represents one of Southern California's most exclusive oceanfront enclaves, 
