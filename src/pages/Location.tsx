@@ -98,6 +98,34 @@ const Location = () => {
           </div>
         </div>
 
+        {/* Mediterranean Climate Excellence */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-light text-black mb-16 tracking-wide">Mediterranean Climate Excellence</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-8 h-8 bg-white rounded-full shadow-inner"></div>
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Year-Round Sunshine</h3>
+              <p className="text-gray-600 font-light leading-relaxed">275+ pristine days of California sunshine with mild Mediterranean climate perfection</p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-2 h-8 bg-white rounded-full"></div>
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Optimal Temperatures</h3>
+              <p className="text-gray-600 font-light leading-relaxed">Average highs 77°F, lows 50°F. Consistently comfortable luxury living conditions</p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-slate-400 to-gray-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-6 h-2 bg-white rounded-full"></div>
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Pacific Influence</h3>
+              <p className="text-gray-600 font-light leading-relaxed">Natural climate moderation with refreshing ocean breezes and coastal serenity</p>
+            </div>
+          </div>
+        </div>
+
         {/* Map and Destinations Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
           <LocationMap />
