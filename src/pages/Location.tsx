@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
+import MapFilters from "@/components/MapFilters";
 import ClimateInfo from "@/components/ClimateInfo";
 import Footer from "@/components/Footer";
 import { MapPin, Clock, Car, Plane, Shield, Waves } from "lucide-react";
@@ -9,9 +10,18 @@ import { Button } from "@/components/ui/button";
 
 const Location = () => {
   const [isMapInteractive, setIsMapInteractive] = useState(false);
+  const [activeFilters, setActiveFilters] = useState<string[]>([]);
 
   const toggleMapInteractivity = () => {
     setIsMapInteractive(!isMapInteractive);
+  };
+
+  const handleFilterChange = (filters: string[]) => {
+    setActiveFilters(filters);
+    // Enable interactive mode when filters are applied
+    if (filters.length > 0 && !isMapInteractive) {
+      setIsMapInteractive(true);
+    }
   };
 
   return (
@@ -28,7 +38,15 @@ const Location = () => {
           isInteractive={isMapInteractive}
         />
         
-        {/* Overlay content */}
+        {/* Map Controls Overlay */}
+        <div className="absolute top-20 left-4 z-10 max-w-sm">
+          <MapFilters 
+            activeFilters={activeFilters}
+            onFilterChange={handleFilterChange}
+          />
+        </div>
+        
+        {/* Main Overlay content */}
         <div className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none">
           <div className="text-center text-white z-10 max-w-4xl mx-auto px-4 pointer-events-auto">
             <div className="mb-8">
