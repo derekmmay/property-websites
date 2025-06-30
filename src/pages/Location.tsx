@@ -42,6 +42,31 @@ const Location = () => {
         </div>
       </div>
 
+      {/* Travel Times - moved right under hero */}
+      <div className="bg-gray-50 py-20">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Seamless Connectivity</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-extralight text-black mb-4">2 min</div>
+              <p className="text-gray-600 font-light">Beach Access</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-extralight text-black mb-4">20 min</div>
+              <p className="text-gray-600 font-light">John Wayne Airport</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-extralight text-black mb-4">45 min</div>
+              <p className="text-gray-600 font-light">Beverly Hills</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-extralight text-black mb-4">60 min</div>
+              <p className="text-gray-600 font-light">LAX Airport</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-24">
         
@@ -69,31 +94,6 @@ const Location = () => {
               </div>
               <h3 className="text-2xl font-light text-black mb-4">Central Location</h3>
               <p className="text-gray-600 font-light leading-relaxed">Equidistant from Los Angeles and San Diego metropolitan areas</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Travel Times */}
-        <div className="bg-gray-50 py-20 mb-24 -mx-4 px-4">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Seamless Connectivity</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-extralight text-black mb-4">2 min</div>
-                <p className="text-gray-600 font-light">Beach Access</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-extralight text-black mb-4">20 min</div>
-                <p className="text-gray-600 font-light">John Wayne Airport</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-extralight text-black mb-4">45 min</div>
-                <p className="text-gray-600 font-light">Beverly Hills</p>
-              </div>
-              <div className="text-center">
-                <div className="text-4xl font-extralight text-black mb-4">60 min</div>
-                <p className="text-gray-600 font-light">LAX Airport</p>
-              </div>
             </div>
           </div>
         </div>
