@@ -6,7 +6,6 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import PropertyDescription from "@/components/PropertyDescription";
 import PhotoGallery from "@/components/PhotoGallery";
-import AgentInfo from "@/components/AgentInfo";
 import Footer from "@/components/Footer";
 
 const Overview = () => {
@@ -22,8 +21,6 @@ const Overview = () => {
           </div>
           
           <div className="space-y-12">
-            <AgentInfo />
-            
             <Card className="border-0 shadow-xl bg-gray-50">
               <CardContent className="p-12">
                 <h3 className="text-3xl font-light mb-8 text-black">Property Details</h3>

@@ -1,6 +1,5 @@
 
 import Navigation from "@/components/Navigation";
-import AgentInfo from "@/components/AgentInfo";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Footer from "@/components/Footer";
@@ -99,10 +98,8 @@ const Contact = () => {
             </div>
           </div>
           
-          {/* Agent Information */}
+          {/* Property Location and Disclaimer */}
           <div className="space-y-12">
-            <AgentInfo />
-            
             {/* Property Location */}
             <Card className="border-0 shadow-xl bg-black text-white">
               <CardContent className="p-10">
