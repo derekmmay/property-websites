@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import PropertyStats from "./PropertyStats";
@@ -60,9 +59,6 @@ const Hero = () => {
             </p>
           </div>
           
-          <div className="mt-20">
-            <PropertyStats />
-          </div>
         </div>
       </div>
     </>
