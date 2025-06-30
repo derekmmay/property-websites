@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Shield, Waves, MapPin, Star } from "lucide-react";
@@ -24,9 +23,6 @@ const Hero = () => {
             <h1 className="text-7xl md:text-9xl font-extralight mb-12 tracking-[-0.02em] text-white leading-none">
               126 Monarch Bay
             </h1>
-            <p className="text-2xl md:text-3xl mb-8 font-light tracking-wide opacity-95">
-              Dana Point, California
-            </p>
             <p className="text-lg mb-16 max-w-4xl mx-auto opacity-90 leading-relaxed font-light">
               A rare architectural masterpiece commanding panoramic Pacific Ocean views within 
               the most exclusive guard-gated enclave of Southern California's coastline.
