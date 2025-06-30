@@ -2,9 +2,9 @@
 import React from 'react';
 
 const PropertyMap = () => {
-  // Coordinates for Monarch Bay, Dana Point, CA (approximate)
-  const latitude = 33.4734;
-  const longitude = -117.7270;
+  // Coordinates for Dana Point, CA (more accurate land coordinates)
+  const latitude = 33.4669;
+  const longitude = -117.7223;
   
   return (
     <div className="w-full h-96 bg-gray-200">
