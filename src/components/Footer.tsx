@@ -7,8 +7,15 @@ const Footer = () => {
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Property Info */}
+          {/* Property Info with Compass Logo */}
           <div>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="/lovable-uploads/376fba93-4c59-443f-ab02-fa4bcda83799.png" 
+                alt="Compass Real Estate" 
+                className="h-8 w-auto"
+              />
+            </div>
             <h3 className="text-2xl font-light mb-6 tracking-wide">126 Monarch Bay</h3>
             <p className="text-gray-300 mb-4 leading-relaxed">
               An extraordinary architectural masterpiece within the exclusive guard-gated 
@@ -38,16 +45,9 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Contact Info with Compass Logo */}
+          {/* Contact Info */}
           <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/lovable-uploads/376fba93-4c59-443f-ab02-fa4bcda83799.png" 
-                alt="Compass Real Estate" 
-                className="h-8 w-auto"
-              />
-              <h4 className="text-lg font-medium tracking-wide">Contact</h4>
-            </div>
+            <h4 className="text-lg font-medium mb-6 tracking-wide">Contact</h4>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-gray-400" />
