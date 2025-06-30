@@ -13,7 +13,7 @@ const Data = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="relative h-screen flex items-center justify-center bg-black">
+      <div className="relative h-[120vh] flex items-center justify-center bg-black">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
