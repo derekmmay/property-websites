@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
 
@@ -13,7 +12,7 @@ const Footer = () => {
               <img 
                 src="/lovable-uploads/376fba93-4c59-443f-ab02-fa4bcda83799.png" 
                 alt="Compass Real Estate" 
-                className="h-8 w-auto"
+                className="h-12 w-auto"
               />
             </div>
             <h3 className="text-2xl font-light mb-6 tracking-wide">126 Monarch Bay</h3>
