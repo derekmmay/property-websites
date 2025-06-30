@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -15,7 +14,7 @@ const Contact = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80')`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80')`
           }}
         />
         
