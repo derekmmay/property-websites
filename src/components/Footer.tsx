@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -34,10 +35,10 @@ const Footer = () => {
           <div>
             {/* Contact Info */}
             <div className="mb-8">
-              <h4 className="text-xl font-medium mb-6 tracking-wide">Susan Chase</h4>
+              <h4 className="text-3xl font-medium mb-6 tracking-wide">Susan Chase</h4>
               <div className="space-y-4">
                 <div className="flex items-center">
-                  <span className="text-gray-300">(949) 949-9499</span>
+                  <span className="text-gray-300 text-xl">(949) 949-9499</span>
                 </div>
                 <div className="flex items-center">
                   <span className="text-gray-300">susan@compass.com</span>
@@ -56,7 +57,7 @@ const Footer = () => {
                 <img 
                   src="/lovable-uploads/9935b2a7-c9a4-4e38-b0e8-15f3e21f8dc4.png" 
                   alt="Compass Real Estate" 
-                  className="h-16 w-auto"
+                  className="h-8 w-auto"
                 />
               </div>
             </div>
