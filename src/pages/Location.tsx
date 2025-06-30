@@ -1,6 +1,6 @@
 
 import Navigation from "@/components/Navigation";
-import LocationMap from "@/components/LocationMap";
+import InteractiveMap from "@/components/InteractiveMap";
 import ClimateInfo from "@/components/ClimateInfo";
 import Footer from "@/components/Footer";
 import { MapPin, Clock, Car, Plane, Shield, Waves } from "lucide-react";
@@ -10,9 +10,30 @@ const Location = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Map Section */}
-      <div className="h-screen">
-        <LocationMap />
+      {/* Hero Map Section - Now with Interactive Map */}
+      <div className="h-screen relative">
+        <InteractiveMap 
+          latitude={33.4734}
+          longitude={-117.7018}
+          zoom={15}
+          className="w-full h-full"
+        />
+        {/* Overlay content */}
+        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+          <div className="text-center text-white z-10 max-w-4xl mx-auto px-4">
+            <div className="mb-8">
+              <span className="inline-block px-6 py-2 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8">
+                Prime Coastal Position
+              </span>
+            </div>
+            <h1 className="text-6xl md:text-8xl font-extralight mb-12 tracking-[-0.02em] leading-none">
+              Unrivaled Location
+            </h1>
+            <p className="text-2xl md:text-3xl mb-8 font-light tracking-wide">
+              Dana Point's Most Exclusive Address
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Travel Times - moved right under hero */}
