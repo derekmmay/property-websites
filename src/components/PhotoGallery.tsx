@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,6 +7,7 @@ const PhotoGallery = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [heroVisible, setHeroVisible] = useState(false);
 
   const photos = [
     {
@@ -96,7 +96,8 @@ const PhotoGallery = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsVisible(true);
+          setHeroVisible(true);
+          setTimeout(() => setIsVisible(true), 800); // Delay the grid animation
         }
       },
       { threshold: 0.1 }
@@ -127,17 +128,16 @@ const PhotoGallery = () => {
     setSelectedImage(null);
   };
 
-  // Define different entrance directions for variety
   const getEntranceDirection = (index: number) => {
     const directions = [
-      'translate-x-[-200px] translate-y-[-100px] rotate-[-15deg]', // From top-left
-      'translate-x-[200px] translate-y-[-150px] rotate-[20deg]',   // From top-right
-      'translate-x-[-150px] translate-y-[100px] rotate-[12deg]',   // From bottom-left
-      'translate-x-[180px] translate-y-[120px] rotate-[-18deg]',   // From bottom-right
-      'translate-y-[-200px] rotate-[8deg]',                        // From top
-      'translate-x-[-250px] rotate-[-10deg]',                      // From left
-      'translate-x-[250px] rotate-[15deg]',                        // From right
-      'translate-y-[200px] rotate-[-12deg]',                       // From bottom
+      'translate-x-[-200px] translate-y-[-100px] rotate-[-15deg]',
+      'translate-x-[200px] translate-y-[-150px] rotate-[20deg]',
+      'translate-x-[-150px] translate-y-[100px] rotate-[12deg]',
+      'translate-x-[180px] translate-y-[120px] rotate-[-18deg]',
+      'translate-y-[-200px] rotate-[8deg]',
+      'translate-x-[-250px] rotate-[-10deg]',
+      'translate-x-[250px] rotate-[15deg]',
+      'translate-y-[200px] rotate-[-12deg]',
     ];
     return directions[index % directions.length];
   };
@@ -145,9 +145,36 @@ const PhotoGallery = () => {
   return (
     <section id="photo-gallery" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Image - Full Width */}
+        <div className="mb-16">
+          <Card
+            className={`relative overflow-hidden cursor-pointer group border-0 shadow-2xl h-[70vh] transition-all duration-1500 ${
+              heroVisible 
+                ? 'opacity-100 translate-y-0 scale-100' 
+                : 'opacity-0 translate-y-12 scale-95'
+            }`}
+            style={{
+              transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+            }}
+            onClick={() => openLightbox(0)}
+          >
+            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500 z-10"></div>
+            <img
+              src={photos[0].url}
+              alt={photos[0].title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
+              <p className="text-2xl font-light mb-2">{photos[0].title}</p>
+              <p className="text-lg opacity-80">{photos[0].category}</p>
+            </div>
+          </Card>
+        </div>
+
         {/* Scattered Grid Layout with Flutter Animations */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[200px]">
-          {photos.slice(0, 16).map((photo, index) => {
+          {photos.slice(1, 16).map((photo, index) => {
+            const actualIndex = index + 1; // Adjust for sliced array
             const gridClasses = [
               "col-span-6 row-span-2", // Large
               "col-span-3 row-span-1", // Small
@@ -164,14 +191,13 @@ const PhotoGallery = () => {
               "col-span-4 row-span-1", // Medium
               "col-span-8 row-span-1", // Extra wide
               "col-span-6 row-span-2", // Large
-              "col-span-6 row-span-1", // Wide
             ];
 
             const entranceTransform = getEntranceDirection(index);
 
             return (
               <Card
-                key={index}
+                key={actualIndex}
                 className={`${gridClasses[index]} relative overflow-hidden cursor-pointer group border-0 shadow-lg hover:shadow-2xl transition-all duration-1000 ${
                   isVisible 
                     ? 'opacity-100 translate-x-0 translate-y-0 rotate-0' 
@@ -183,7 +209,7 @@ const PhotoGallery = () => {
                   transitionDuration: '1200ms',
                   transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
                 }}
-                onClick={() => openLightbox(index)}
+                onClick={() => openLightbox(actualIndex)}
               >
                 <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500 z-10"></div>
                 <img
