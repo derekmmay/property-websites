@@ -4,11 +4,6 @@ const PropertyDescription = () => {
     <div className="space-y-20">
       {/* Main Header */}
       <div className="text-center space-y-8">
-        <div className="inline-block px-8 py-3 bg-black/5 border border-black/10 rounded-full">
-          <span className="text-sm tracking-[0.3em] uppercase text-gray-600 font-medium">
-            Architectural Excellence
-          </span>
-        </div>
         <h2 className="text-6xl md:text-7xl font-extralight text-black tracking-[-0.02em] leading-none">
           126 Monarch Bay Drive
           <span className="block text-2xl md:text-3xl text-gray-600 font-light mt-4">
@@ -18,7 +13,7 @@ const PropertyDescription = () => {
       </div>
 
       {/* Property Stats Row */}
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-8 max-w-6xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
         <div className="text-center">
           <div className="text-4xl font-extralight text-black mb-2">$13,500,000</div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Sales Price</div>
@@ -37,16 +32,6 @@ const PropertyDescription = () => {
         <div className="text-center">
           <div className="text-2xl font-light text-black mb-2">5</div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Bathrooms</div>
-        </div>
-
-        <div className="text-center">
-          <div className="text-xl font-light text-black mb-2">Oceanfront</div>
-          <div className="text-sm text-gray-600 uppercase tracking-wide">Property Type</div>
-        </div>
-
-        <div className="text-center">
-          <div className="text-xl font-light text-black mb-2">123456789</div>
-          <div className="text-sm text-gray-600 uppercase tracking-wide">MLS ID</div>
         </div>
       </div>
 
