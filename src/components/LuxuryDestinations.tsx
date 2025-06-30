@@ -22,7 +22,7 @@ const LuxuryDestinations = () => {
       distance: "Adjacent • 2 minutes",
       description: "AAA Five-Diamond resort & spa sanctuary",
       type: "Hospitality",
-      gradient: "ocean-gradient"
+      gradient: "platinum-gradient"
     },
     {
       title: "The Ritz-Carlton",
@@ -36,7 +36,7 @@ const LuxuryDestinations = () => {
       distance: "2 miles • 5 minutes",
       description: "Private yacht marina & Catalina Express",
       type: "Marine",
-      gradient: "ocean-gradient"
+      gradient: "luxury-gradient"
     },
     {
       title: "Monarch Beach Golf",

@@ -31,8 +31,8 @@ const Navigation = () => {
                 to={item.path}
                 className={`px-3 py-2 text-sm font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? "text-blue-900 border-b-2 border-blue-900"
-                    : "text-gray-700 hover:text-blue-900"
+                    ? "text-black border-b-2 border-black"
+                    : "text-gray-700 hover:text-black"
                 }`}
               >
                 {item.name}
@@ -67,8 +67,8 @@ const Navigation = () => {
                   to={item.path}
                   className={`block px-3 py-2 text-base font-medium transition-colors duration-200 ${
                     location.pathname === item.path
-                      ? "text-blue-900 bg-blue-50"
-                      : "text-gray-700 hover:text-blue-900 hover:bg-gray-50"
+                      ? "text-black bg-gray-50"
+                      : "text-gray-700 hover:text-black hover:bg-gray-50"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
