@@ -1,52 +1,61 @@
 
 const PropertyDescription = () => {
   return (
-    <div className="space-y-8">
-      <h2 className="text-3xl font-light text-gray-800">Extraordinary Ocean Living</h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-          <img 
-            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80"
-            alt="Luxury living room with ocean view"
-            className="w-full h-full object-cover"
-          />
+    <div className="space-y-12">
+      <div className="space-y-8">
+        <h2 className="text-4xl font-light text-black tracking-wide">Architectural Excellence</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="relative h-80 rounded-none overflow-hidden shadow-2xl group">
+            <img 
+              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80"
+              alt="Grand living room with panoramic ocean views"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          </div>
+          <div className="relative h-80 rounded-none overflow-hidden shadow-2xl group">
+            <img 
+              src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+              alt="Bespoke gourmet kitchen with premium appliances"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+          </div>
         </div>
-        <div className="relative h-64 rounded-lg overflow-hidden shadow-lg">
-          <img 
-            src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
-            alt="Modern luxury kitchen"
-            className="w-full h-full object-cover"
-          />
+        
+        <div className="prose prose-xl text-gray-700 leading-relaxed font-light max-w-none">
+          <p className="text-xl mb-8">
+            126 Monarch Bay Drive represents the absolute pinnacle of California coastal luxury—a 
+            singular architectural achievement within Dana Point's most coveted guard-gated sanctuary.
+          </p>
+          <p className="mb-8">
+            This custom estate, masterfully conceived in 1979 and reimagined through extensive 
+            renovations in 2003, offers 5,452 square feet of uncompromising sophistication across 
+            three meticulously designed levels. Every room captures breathtaking panoramic vistas 
+            of the Pacific Ocean and Catalina Island.
+          </p>
+          <p className="mb-8">
+            The residence showcases an extraordinary 1,500-square-foot addition housing the grand 
+            primary suite—a private sanctuary that seamlessly marries timeless coastal elegance 
+            with contemporary luxury. Premium amenities include a temperature-controlled 1,200-bottle 
+            wine sanctuary, Sub-Zero and Thermador culinary suite, and expansive entertainment 
+            spaces flowing to sun-drenched ocean-facing terraces.
+          </p>
         </div>
-      </div>
-      
-      <div className="prose prose-lg text-gray-600">
-        <p>
-          126 Monarch Bay Drive represents the pinnacle of luxury coastal living within Dana Point's 
-          most exclusive guard-gated community. This custom architectural masterpiece, originally 
-          built in 1979 and extensively remodeled in 2003, offers 5,452 square feet of sophisticated 
-          living space across three levels.
-        </p>
-        <p>
-          The home's elevated position captures breathtaking panoramic views of the Pacific Ocean 
-          and Catalina Island from virtually every major room. An extensive 1,500 square foot addition 
-          created a grand primary suite, seamlessly blending timeless coastal elegance with modern luxury.
-        </p>
-        <p>
-          Exceptional amenities include a gourmet kitchen with premium Sub-Zero, Bosch, and Thermador 
-          appliances, a custom 1,200-bottle wine room, and a spacious entertainment area opening to 
-          sun-drenched decks. The resort-style backyard features lush landscaping, spa, built-in BBQ, 
-          outdoor fireplace, and a unique five-hole putting green.
-        </p>
-      </div>
-      
-      <div className="relative h-80 rounded-lg overflow-hidden shadow-lg">
-        <img 
-          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2153&q=80"
-          alt="Luxury outdoor patio with ocean view"
-          className="w-full h-full object-cover"
-        />
+        
+        <div className="relative h-96 rounded-none overflow-hidden shadow-2xl group">
+          <img 
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2153&q=80"
+            alt="Private oceanfront terrace with infinity views"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+          <div className="absolute bottom-8 left-8 text-white">
+            <h3 className="text-2xl font-light mb-2">Resort-Style Outdoor Living</h3>
+            <p className="text-white/90 font-light">Private terraces with unobstructed Pacific views</p>
+          </div>
+        </div>
       </div>
     </div>
   );
