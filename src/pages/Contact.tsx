@@ -1,3 +1,4 @@
+
 import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -48,6 +49,26 @@ const Contact = () => {
 
             {/* Contact Methods */}
             <div className="space-y-8">
+              {/* Featured Calendar Scheduling Card */}
+              <Card className="border-0 shadow-2xl bg-black text-white hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-1">
+                <CardContent className="p-10">
+                  <div className="flex items-start space-x-6">
+                    <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
+                      <Calendar className="w-7 h-7 text-black" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-3xl font-light text-white mb-3">Schedule Private Tour</h3>
+                      <p className="text-white/80 mb-6 text-lg leading-relaxed">
+                        Book an exclusive viewing appointment at your convenience
+                      </p>
+                      <Button className="bg-white hover:bg-gray-100 text-black px-10 py-4 text-lg font-light tracking-wide h-auto">
+                        View Available Times
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
               <Card className="border-0 shadow-xl bg-gray-50 hover:shadow-2xl transition-all duration-500">
                 <CardContent className="p-8">
                   <div className="flex items-start space-x-6">
@@ -77,40 +98,23 @@ const Contact = () => {
                   </div>
                 </CardContent>
               </Card>
-
-              <Card className="border-0 shadow-xl bg-gray-50 hover:shadow-2xl transition-all duration-500">
-                <CardContent className="p-8">
-                  <div className="flex items-start space-x-6">
-                    <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center">
-                      <Calendar className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-2xl font-light text-black mb-2">Private Viewing</h3>
-                      <p className="text-gray-600 mb-4">Exclusive tours by appointment only</p>
-                      <Button className="bg-black hover:bg-gray-800 text-white px-8 py-3 text-base font-light tracking-wide">
-                        Schedule Tour
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
             </div>
           </div>
           
           {/* Property Location and Disclaimer */}
           <div className="space-y-12">
-            {/* Property Location */}
-            <Card className="border-0 shadow-xl bg-black text-white">
-              <CardContent className="p-10">
-                <div className="flex items-start space-x-6">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-black" />
+            {/* Property Location - Made smaller and less prominent */}
+            <Card className="border-0 shadow-lg bg-gray-100">
+              <CardContent className="p-8">
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl font-light mb-4">Property Address</h3>
-                    <p className="text-white/80 mb-2">126 Monarch Bay Drive</p>
-                    <p className="text-white/80 mb-2">Dana Point, CA 92660</p>
-                    <p className="text-white/60 text-sm">Guard-Gated Monarch Bay Community</p>
+                    <h3 className="text-xl font-light mb-3 text-gray-800">Property Location</h3>
+                    <p className="text-gray-600 mb-1 text-sm">126 Monarch Bay Drive</p>
+                    <p className="text-gray-600 mb-1 text-sm">Dana Point, CA 92660</p>
+                    <p className="text-gray-500 text-xs">Guard-Gated Monarch Bay Community</p>
                   </div>
                 </div>
               </CardContent>
