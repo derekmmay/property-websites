@@ -22,13 +22,24 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const map = useRef<mapboxgl.Map | null>(null);
   const [apiKey, setApiKey] = useState<string>('pk.eyJ1IjoiZGVyZWttbWF5IiwiYSI6ImNtY2ptMXcxZjA0cGQybXB2NnphemRhNWkifQ.gBYDOal4M8tAzN7BIo6UTg');
   const [mapInitialized, setMapInitialized] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
   const initializeMap = () => {
-    if (!mapContainer.current || !apiKey.trim()) return;
+    if (!mapContainer.current || !apiKey.trim()) {
+      console.log('Missing container or API key');
+      return;
+    }
 
     try {
+      console.log('Initializing map with coordinates:', { latitude, longitude, zoom });
+      
       // Set the access token
       mapboxgl.accessToken = apiKey.trim();
+      
+      // Clean up existing map
+      if (map.current) {
+        map.current.remove();
+      }
       
       // Initialize map
       map.current = new mapboxgl.Map({
@@ -37,6 +48,18 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
         center: [longitude, latitude],
         zoom: zoom,
         pitch: 45,
+      });
+
+      // Add event listeners for debugging
+      map.current.on('load', () => {
+        console.log('Map loaded successfully');
+        setMapInitialized(true);
+        setError('');
+      });
+
+      map.current.on('error', (e) => {
+        console.error('Map error:', e);
+        setError('Map failed to load. Please check your API key.');
       });
 
       // Add navigation controls
@@ -61,39 +84,74 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
       // Add atmosphere effects
       map.current.on('style.load', () => {
-        map.current?.setFog({
-          color: 'rgb(255, 255, 255)',
-          'high-color': 'rgb(200, 200, 225)',
-          'horizon-blend': 0.2,
-        });
+        if (map.current) {
+          map.current.setFog({
+            color: 'rgb(255, 255, 255)',
+            'high-color': 'rgb(200, 200, 225)',
+            'horizon-blend': 0.2,
+          });
+        }
       });
 
-      setMapInitialized(true);
     } catch (error) {
       console.error('Error initializing map:', error);
-      alert('Invalid API key. Please check your Mapbox public token.');
+      setError('Failed to initialize map. Please check your API key.');
     }
   };
 
   // Auto-initialize the map on component mount with the default API key
   useEffect(() => {
-    if (apiKey && !mapInitialized) {
+    console.log('useEffect triggered, apiKey:', apiKey, 'mapInitialized:', mapInitialized);
+    if (apiKey && !mapInitialized && !map.current) {
       initializeMap();
     }
     
     return () => {
-      map.current?.remove();
+      if (map.current) {
+        map.current.remove();
+        map.current = null;
+      }
     };
-  }, []);
+  }, [apiKey, mapInitialized]);
+
+  if (error) {
+    return (
+      <div className={`${className} bg-red-50 border border-red-200 rounded-lg flex flex-col items-center justify-center p-8`}>
+        <div className="text-center max-w-md">
+          <h3 className="text-lg font-medium text-red-900 mb-4">Map Error</h3>
+          <p className="text-sm text-red-600 mb-6">{error}</p>
+          <div className="space-y-4">
+            <Input
+              type="text"
+              placeholder="Enter Mapbox public token (pk.eyJ1...)"
+              value={apiKey}
+              onChange={(e) => setApiKey(e.target.value)}
+              className="w-full"
+            />
+            <Button 
+              onClick={() => {
+                setError('');
+                setMapInitialized(false);
+                initializeMap();
+              }}
+              disabled={!apiKey.trim()}
+              className="w-full"
+            >
+              Retry Map
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!mapInitialized) {
     return (
       <div className={`${className} bg-gray-100 border border-gray-200 rounded-lg flex flex-col items-center justify-center p-8`}>
         <div className="text-center max-w-md">
-          <h3 className="text-lg font-medium text-gray-900 mb-4">Interactive Map</h3>
+          <h3 className="text-lg font-medium text-gray-900 mb-4">Loading Map...</h3>
           <p className="text-sm text-gray-600 mb-6">
-            Enter your Mapbox public token to view the interactive map. 
-            Get your token at <a href="https://mapbox.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">mapbox.com</a>
+            Initializing interactive map with Mapbox
           </p>
           <div className="space-y-4">
             <Input
