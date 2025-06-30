@@ -20,11 +20,6 @@ const PropertyDescription = () => {
         </div>
         
         <div className="text-center">
-          <div className="text-4xl font-extralight text-black mb-2">5,452</div>
-          <div className="text-sm text-gray-600 uppercase tracking-wide">Square Feet</div>
-        </div>
-
-        <div className="text-center">
           <div className="text-2xl font-light text-black mb-2">5</div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Bedrooms</div>
         </div>
@@ -32,6 +27,11 @@ const PropertyDescription = () => {
         <div className="text-center">
           <div className="text-2xl font-light text-black mb-2">5</div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Bathrooms</div>
+        </div>
+
+        <div className="text-center">
+          <div className="text-4xl font-extralight text-black mb-2">5,452</div>
+          <div className="text-sm text-gray-600 uppercase tracking-wide">Square Feet</div>
         </div>
       </div>
 
