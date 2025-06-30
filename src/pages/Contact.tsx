@@ -11,10 +11,15 @@ const Contact = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      <div className="relative h-64 bg-gradient-to-r from-gray-900 to-slate-800 flex items-center justify-center">
+      <div 
+        className="relative h-64 flex items-center justify-center"
+        style={{
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.5)), url('https://images.unsplash.com/photo-1527576539890-dfa815648363?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+        }}
+      >
         <div className="text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-light mb-4">Get In Touch</h1>
-          <p className="text-xl opacity-90">Schedule Your Private Showing</p>
+          <h1 className="text-4xl md:text-6xl font-light mb-4 font-playfair tracking-wide">Get In Touch</h1>
+          <p className="text-xl opacity-90 font-light tracking-wide">Schedule Your Private Showing</p>
         </div>
       </div>
 
