@@ -16,7 +16,7 @@ const Data = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('/lovable-uploads/c7bd3545-bf9d-403a-9fe3-75e0e8f93c33.png')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2600&q=80')",
           }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
