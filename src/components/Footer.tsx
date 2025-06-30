@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -80,11 +79,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-white">
-      {/* Map Section */}
-      <div className="w-full h-64">
-        <div ref={mapContainer} className="w-full h-full" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info and Compass Logo */}
