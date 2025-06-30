@@ -1,7 +1,7 @@
 
 const PropertyDescription = () => {
   return (
-    <div className="space-y-16">
+    <div className="space-y-16 pt-16 px-4 sm:px-6 lg:px-8">
       {/* Main Header */}
       <div className="text-center space-y-8">
         <h2 className="text-6xl md:text-7xl font-extralight text-black tracking-[-0.02em] leading-none">
