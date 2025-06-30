@@ -1,30 +1,55 @@
 
+import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
 import ClimateInfo from "@/components/ClimateInfo";
 import Footer from "@/components/Footer";
 import { MapPin, Clock, Car, Plane, Shield, Waves } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Location = () => {
+  const [isMapInteractive, setIsMapInteractive] = useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
       
       {/* Hero Map Section - Now with Interactive Map */}
       <div className="h-screen relative">
-        <InteractiveMap 
-          latitude={33.4734}
-          longitude={-117.7018}
-          zoom={15}
-          className="w-full h-full"
-        />
-        {/* Overlay content */}
-        <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
-          <div className="text-center text-white z-10 max-w-4xl mx-auto px-4">
+        {isMapInteractive ? (
+          <InteractiveMap 
+            latitude={33.4734}
+            longitude={-117.7018}
+            zoom={15}
+            className="w-full h-full"
+          />
+        ) : (
+          <div className="w-full h-full bg-gray-200 overflow-hidden">
+            <iframe
+              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3317.8!2d-117.7018!3d33.4734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzPCsDI4JzI0LjIiTiAxMTfCsDQzJzM3LjIiVw!5e0!3m2!1sen!2sus!4v1640995200000!5m2!1sen!2sus&maptype=roadmap&style=feature:all|saturation:-100|lightness:20`}
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: 'grayscale(100%) contrast(120%)' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="126 Monarch Bay Property Location"
+              className="w-full h-full"
+            />
+          </div>
+        )}
+        
+        {/* Overlay content with clickable button */}
+        <div className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none">
+          <div className="text-center text-white z-10 max-w-4xl mx-auto px-4 pointer-events-auto">
             <div className="mb-8">
-              <span className="inline-block px-6 py-2 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8">
-                Prime Coastal Position
-              </span>
+              <Button
+                onClick={() => setIsMapInteractive(!isMapInteractive)}
+                className="px-6 py-2 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8 hover:bg-black/70 transition-colors text-white"
+                variant="ghost"
+              >
+                {isMapInteractive ? 'Switch to Static View' : 'Prime Coastal Position'}
+              </Button>
             </div>
             <h1 className="text-6xl md:text-8xl font-extralight mb-12 tracking-[-0.02em] leading-none">
               Unrivaled Location
