@@ -22,7 +22,7 @@ const Contact = () => {
         <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
           <div className="max-w-4xl mx-auto px-4">
             <h1 className="text-7xl md:text-8xl font-extralight mb-8 tracking-[-0.02em] text-white leading-none">
-              Private Showing
+              Private Viewing
             </h1>
             <p className="text-xl md:text-2xl mb-6 opacity-95 font-light tracking-wide">
               Exclusive Access to 126 Monarch Bay
