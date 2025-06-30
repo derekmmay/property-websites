@@ -30,15 +30,10 @@ const Hero = () => {
               A rare architectural masterpiece commanding panoramic Pacific Ocean views within 
               the most exclusive guard-gated enclave of Southern California's coastline.
             </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex justify-center">
               <Link to="/contact">
                 <Button size="lg" className="bg-black hover:bg-gray-900 text-white px-16 py-6 text-lg font-light tracking-wide transition-all duration-300 hover:scale-105 border border-white/20">
                   Private Viewing
-                </Button>
-              </Link>
-              <Link to="#gallery">
-                <Button variant="outline" size="lg" className="border-white/40 text-white hover:bg-white/10 px-16 py-6 text-lg font-light tracking-wide transition-all duration-300 hover:scale-105">
-                  View Gallery
                 </Button>
               </Link>
             </div>
@@ -57,6 +52,14 @@ const Hero = () => {
           </div>
           <p className="text-xl text-gray-500 mt-4 font-light tracking-wide">
             Priced to reflect unparalleled luxury
+          </p>
+        </div>
+      </div>
+
+      <div className="bg-white py-20">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="text-2xl md:text-3xl font-light text-black leading-relaxed tracking-wide">
+            126 Monarch Bay Drive represents the absolute pinnacle of California coastal luxury—a singular architectural achievement within Dana Point's most coveted guard-gated sanctuary.
           </p>
         </div>
       </div>
