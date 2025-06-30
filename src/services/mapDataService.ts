@@ -154,13 +154,13 @@ export const schoolData: SchoolData[] = [
   }
 ];
 
-// Travel time isochrone data (mock GeoJSON)
+// Travel time isochrone data (properly typed GeoJSON)
 export const travelTimeIsochrones = {
   "15min": {
-    type: "Feature",
+    type: "Feature" as const,
     properties: { time: 15, color: "#ff6b6b" },
     geometry: {
-      type: "Polygon",
+      type: "Polygon" as const,
       coordinates: [[
         [-117.720, 33.460],
         [-117.720, 33.490],
@@ -171,10 +171,10 @@ export const travelTimeIsochrones = {
     }
   },
   "30min": {
-    type: "Feature", 
+    type: "Feature" as const, 
     properties: { time: 30, color: "#4ecdc4" },
     geometry: {
-      type: "Polygon",
+      type: "Polygon" as const,
       coordinates: [[
         [-117.740, 33.440],
         [-117.740, 33.510],
