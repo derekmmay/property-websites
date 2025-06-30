@@ -40,24 +40,25 @@ const Schools = () => {
         </div>
       </div>
 
-      {/* Education Stats */}
-      <div className="bg-white py-20 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+      {/* Education Excellence Stats */}
+      <div className="bg-gray-50 py-20">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Academic Excellence</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-5xl font-extralight text-black mb-4">98%</div>
+              <div className="text-4xl font-extralight text-black mb-4">98%</div>
               <p className="text-gray-600 font-light">College Acceptance Rate</p>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extralight text-black mb-4">A+</div>
+              <div className="text-4xl font-extralight text-black mb-4">A+</div>
               <p className="text-gray-600 font-light">Average School Rating</p>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extralight text-black mb-4">15:1</div>
+              <div className="text-4xl font-extralight text-black mb-4">15:1</div>
               <p className="text-gray-600 font-light">Student-Teacher Ratio</p>
             </div>
             <div className="text-center">
-              <div className="text-5xl font-extralight text-black mb-4">12</div>
+              <div className="text-4xl font-extralight text-black mb-4">12</div>
               <p className="text-gray-600 font-light">Top Universities Nearby</p>
             </div>
           </div>
@@ -66,20 +67,18 @@ const Schools = () => {
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-24">
-        <h2 className="text-5xl font-light mb-16 text-black text-center tracking-wide">
-          Distinguished Institutions
-        </h2>
-
+        
         {/* Elementary Schools */}
-        <div className="mb-20">
-          <div className="flex items-center mb-12">
+        <div className="mb-24">
+          <div className="flex items-center justify-center mb-16">
             <GraduationCap className="w-8 h-8 text-black mr-4" />
-            <h3 className="text-3xl font-light text-black">Elementary Education</h3>
+            <h3 className="text-4xl font-light text-black">Elementary Education</h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-white to-gray-50">
-              <CardContent className="p-10">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 bg-white overflow-hidden">
+              <CardContent className="p-8">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h4 className="text-2xl font-light text-black mb-2">Monarch Beach Elementary</h4>
@@ -92,18 +91,18 @@ const Schools = () => {
                 </div>
                 <div className="flex flex-wrap gap-2 mb-6">
                   <Badge variant="secondary" className="bg-black text-white">Academics: A+</Badge>
-                  <Badge variant="secondary" className="bg-gray-100 text-black">Diversity: A</Badge>
                   <Badge variant="secondary" className="bg-gray-100 text-black">STEM Excellence</Badge>
                 </div>
                 <p className="text-gray-600 leading-relaxed font-light">
                   Consistently ranked among California's top elementary schools, offering innovative 
-                  STEAM programs, multilingual education, and personalized learning experiences.
+                  STEAM programs and personalized learning experiences.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-white to-gray-50">
-              <CardContent className="p-10">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 bg-white overflow-hidden">
+              <CardContent className="p-8">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-blue-600"></div>
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h4 className="text-2xl font-light text-black mb-2">Sea View Elementary</h4>
@@ -116,12 +115,11 @@ const Schools = () => {
                 </div>
                 <div className="flex flex-wrap gap-2 mb-6">
                   <Badge variant="secondary" className="bg-black text-white">Arts: A+</Badge>
-                  <Badge variant="secondary" className="bg-gray-100 text-black">Athletics: A</Badge>
                   <Badge variant="secondary" className="bg-gray-100 text-black">Technology</Badge>
                 </div>
                 <p className="text-gray-600 leading-relaxed font-light">
                   Award-winning programs in creative arts, environmental science, and technology 
-                  integration with exceptional support for gifted and talented students.
+                  integration with exceptional support for gifted students.
                 </p>
               </CardContent>
             </Card>
@@ -129,15 +127,16 @@ const Schools = () => {
         </div>
 
         {/* Secondary Schools */}
-        <div className="mb-20">
-          <div className="flex items-center mb-12">
+        <div className="mb-24">
+          <div className="flex items-center justify-center mb-16">
             <BookOpen className="w-8 h-8 text-black mr-4" />
-            <h3 className="text-3xl font-light text-black">Secondary Education</h3>
+            <h3 className="text-4xl font-light text-black">Secondary Education</h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-white to-gray-50">
-              <CardContent className="p-10">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 bg-white overflow-hidden">
+              <CardContent className="p-8">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-500 to-slate-600"></div>
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h4 className="text-2xl font-light text-black mb-2">Marco Forster Middle School</h4>
@@ -151,17 +150,17 @@ const Schools = () => {
                 <div className="flex flex-wrap gap-2 mb-6">
                   <Badge variant="secondary" className="bg-black text-white">Academics: A</Badge>
                   <Badge variant="secondary" className="bg-gray-100 text-black">Leadership: A+</Badge>
-                  <Badge variant="secondary" className="bg-gray-100 text-black">Innovation</Badge>
                 </div>
                 <p className="text-gray-600 leading-relaxed font-light">
-                  Comprehensive middle school experience with advanced placement preparation, 
-                  extensive extracurriculars, and nationally recognized academic excellence.
+                  Comprehensive middle school experience with advanced placement preparation 
+                  and nationally recognized academic excellence.
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-white to-gray-50">
-              <CardContent className="p-10">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 bg-white overflow-hidden">
+              <CardContent className="p-8">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-slate-500 to-slate-600"></div>
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h4 className="text-2xl font-light text-black mb-2">San Clemente High School</h4>
@@ -174,12 +173,11 @@ const Schools = () => {
                 </div>
                 <div className="flex flex-wrap gap-2 mb-6">
                   <Badge variant="secondary" className="bg-black text-white">AP Programs: A+</Badge>
-                  <Badge variant="secondary" className="bg-gray-100 text-black">Athletics: A+</Badge>
                   <Badge variant="secondary" className="bg-gray-100 text-black">College Prep</Badge>
                 </div>
                 <p className="text-gray-600 leading-relaxed font-light">
-                  National Blue Ribbon School with 30+ AP courses, championship athletics, 
-                  and 98% college acceptance rate to top-tier universities.
+                  National Blue Ribbon School with 30+ AP courses and 98% college acceptance rate 
+                  to top-tier universities.
                 </p>
               </CardContent>
             </Card>
@@ -187,15 +185,15 @@ const Schools = () => {
         </div>
 
         {/* Private Schools */}
-        <div className="mb-20">
-          <div className="flex items-center mb-12">
+        <div className="mb-24">
+          <div className="flex items-center justify-center mb-16">
             <Award className="w-8 h-8 text-black mr-4" />
-            <h3 className="text-3xl font-light text-black">Private Institutions</h3>
+            <h3 className="text-4xl font-light text-black">Private Institutions</h3>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-black to-gray-800 text-white">
-              <CardContent className="p-10">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-black to-gray-800 text-white overflow-hidden">
+              <CardContent className="p-8">
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h4 className="text-2xl font-light mb-2">St. Margaret's Episcopal School</h4>
@@ -208,7 +206,6 @@ const Schools = () => {
                 </div>
                 <div className="flex flex-wrap gap-2 mb-6">
                   <Badge variant="outline" className="border-white/30 text-white">College Prep: A+</Badge>
-                  <Badge variant="outline" className="border-white/30 text-white">Arts: A+</Badge>
                   <Badge variant="outline" className="border-white/30 text-white">Global Program</Badge>
                 </div>
                 <p className="text-white/80 leading-relaxed font-light">
@@ -218,8 +215,9 @@ const Schools = () => {
               </CardContent>
             </Card>
 
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-white to-gray-50">
-              <CardContent className="p-10">
+            <Card className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 bg-white overflow-hidden">
+              <CardContent className="p-8">
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 to-amber-600"></div>
                 <div className="flex items-start justify-between mb-6">
                   <div>
                     <h4 className="text-2xl font-light text-black mb-2">Sage Hill School</h4>
@@ -232,7 +230,6 @@ const Schools = () => {
                 </div>
                 <div className="flex flex-wrap gap-2 mb-6">
                   <Badge variant="secondary" className="bg-black text-white">Innovation: A+</Badge>
-                  <Badge variant="secondary" className="bg-gray-100 text-black">STEM: A+</Badge>
                   <Badge variant="secondary" className="bg-gray-100 text-black">Entrepreneurship</Badge>
                 </div>
                 <p className="text-gray-600 leading-relaxed font-light">
@@ -245,21 +242,20 @@ const Schools = () => {
         </div>
 
         {/* Higher Education */}
-        <div>
-          <div className="flex items-center mb-12">
+        <div className="text-center">
+          <div className="flex items-center justify-center mb-16">
             <Globe className="w-8 h-8 text-black mr-4" />
-            <h3 className="text-3xl font-light text-black">Higher Education</h3>
+            <h3 className="text-4xl font-light text-black">Higher Education</h3>
           </div>
           
           <Card className="border-0 shadow-xl bg-gradient-to-r from-gray-900 to-black text-white">
             <CardContent className="p-12">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                <div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="text-left">
                   <h4 className="text-3xl font-light mb-6">University of California, Irvine</h4>
                   <p className="text-white/80 font-light mb-6">World-renowned research university • 20 miles</p>
                   <div className="flex flex-wrap gap-3 mb-8">
                     <Badge variant="outline" className="border-white/30 text-white">Research: A+</Badge>
-                    <Badge variant="outline" className="border-white/30 text-white">Innovation Hub</Badge>
                     <Badge variant="outline" className="border-white/30 text-white">Top 10 Public</Badge>
                   </div>
                   <p className="text-white/80 leading-relaxed font-light">
