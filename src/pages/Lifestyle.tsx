@@ -41,102 +41,86 @@ const Lifestyle = () => {
         </div>
       </div>
 
-      {/* Lifestyle Categories */}
-      <div className="bg-white py-24">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-5xl font-light text-black mb-16 text-center tracking-wide">Curated Experiences</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="p-10 text-center">
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8">
-                  <Waves className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-light text-black mb-6">Ocean Activities</h3>
-                <p className="text-gray-600 font-light leading-relaxed">
-                  Private beach access, world-class surfing, deep-sea fishing, and exclusive yacht charters 
-                  to Catalina Island and beyond.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="p-10 text-center">
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8">
-                  <Utensils className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-light text-black mb-6">Culinary Excellence</h3>
-                <p className="text-gray-600 font-light leading-relaxed">
-                  Michelin-starred restaurants, exclusive wine tastings, private chef experiences, 
-                  and artisanal farmers markets.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="p-10 text-center">
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8">
-                  <Palette className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-light text-black mb-6">Arts & Culture</h3>
-                <p className="text-gray-600 font-light leading-relaxed">
-                  Gallery openings, cultural festivals, live performances, and exclusive access 
-                  to Orange County's premier art scene.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="p-10 text-center">
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8">
-                  <Ship className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-light text-black mb-6">Marina Life</h3>
-                <p className="text-gray-600 font-light leading-relaxed">
-                  Dana Point Harbor, luxury yacht clubs, sailing regattas, and waterfront dining 
-                  at the region's most exclusive venues.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="p-10 text-center">
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8">
-                  <Mountain className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-light text-black mb-6">Recreation</h3>
-                <p className="text-gray-600 font-light leading-relaxed">
-                  Championship golf courses, tennis clubs, hiking trails, and exclusive 
-                  fitness facilities with ocean views.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-gradient-to-br from-gray-50 to-white">
-              <CardContent className="p-10 text-center">
-                <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8">
-                  <Sun className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-light text-black mb-6">Wellness</h3>
-                <p className="text-gray-600 font-light leading-relaxed">
-                  Luxury spas, wellness retreats, meditation gardens, and holistic health 
-                  practitioners in serene coastal settings.
-                </p>
-              </CardContent>
-            </Card>
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 py-24">
+        
+        {/* Lifestyle Categories */}
+        <div className="text-center mb-20">
+          <h2 className="text-5xl font-light text-black mb-16 tracking-wide">Curated Experiences</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                <Waves className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Ocean Activities</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Private beach access, world-class surfing, deep-sea fishing, and exclusive yacht charters 
+                to Catalina Island and beyond.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                <Utensils className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Culinary Excellence</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Michelin-starred restaurants, exclusive wine tastings, private chef experiences, 
+                and artisanal farmers markets.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                <Palette className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Arts & Culture</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Gallery openings, cultural festivals, live performances, and exclusive access 
+                to Orange County's premier art scene.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                <Ship className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Marina Life</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Dana Point Harbor, luxury yacht clubs, sailing regattas, and waterfront dining 
+                at the region's most exclusive venues.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                <Mountain className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Recreation</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Championship golf courses, tennis clubs, hiking trails, and exclusive 
+                fitness facilities with ocean views.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                <Sun className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-2xl font-light text-black mb-4">Wellness</h3>
+              <p className="text-gray-600 font-light leading-relaxed">
+                Luxury spas, wellness retreats, meditation gardens, and holistic health 
+                practitioners in serene coastal settings.
+              </p>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Events and Destinations */}
-      <div className="bg-gray-50 py-24">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div>
-              <EventsCalendar />
-            </div>
-            <div>
-              <LuxuryDestinations />
+        
+        {/* Events and Destinations Combined */}
+        <div className="bg-gray-50 py-20 mb-24 -mx-4 px-4">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+              <div>
+                <EventsCalendar />
+              </div>
+              <div>
+                <LuxuryDestinations />
+              </div>
             </div>
           </div>
         </div>
