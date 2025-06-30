@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
@@ -52,13 +53,19 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
   ];
 
   const handleFilterToggle = (filterId: string) => {
+    console.log('Filter clicked:', filterId);
+    console.log('Current active filters:', activeFilters);
+    
     const newFilters = activeFilters.includes(filterId)
       ? activeFilters.filter(f => f !== filterId)
       : [...activeFilters, filterId];
+    
+    console.log('New filters:', newFilters);
     onFilterChange(newFilters);
   };
 
   const clearAllFilters = () => {
+    console.log('Clearing all filters');
     onFilterChange([]);
   };
 
@@ -102,7 +109,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
                   <button
                     key={filter.id}
                     onClick={() => handleFilterToggle(filter.id)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                       activeFilters.includes(filter.id)
                         ? `${filter.color} text-white shadow-md scale-105`
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
