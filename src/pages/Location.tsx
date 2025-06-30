@@ -12,34 +12,9 @@ const Location = () => {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Section */}
-      <div className="relative h-screen overflow-hidden">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1504611726019-0e840e158b7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
-          }}
-        />
-        
-        <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="mb-8">
-              <span className="inline-block px-6 py-2 bg-black/30 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8">
-                Prime Coastal Position
-              </span>
-            </div>
-            <h1 className="text-7xl md:text-9xl font-extralight mb-12 tracking-[-0.02em] text-white leading-none">
-              Unrivaled Location
-            </h1>
-            <p className="text-2xl md:text-3xl mb-8 font-light tracking-wide opacity-95">
-              Dana Point's Most Exclusive Address
-            </p>
-            <p className="text-lg mb-16 max-w-4xl mx-auto opacity-90 leading-relaxed font-light">
-              Strategically positioned within the guard-gated enclave of Monarch Bay, offering unparalleled 
-              access to Southern California's most coveted destinations while maintaining absolute privacy.
-            </p>
-          </div>
-        </div>
+      {/* Hero Map Section */}
+      <div className="h-screen">
+        <LocationMap />
       </div>
 
       {/* Travel Times - moved right under hero */}
@@ -98,12 +73,7 @@ const Location = () => {
           </div>
         </div>
 
-        {/* Full Width Map */}
-        <div className="mb-16">
-          <LocationMap />
-        </div>
-
-        {/* Mediterranean Climate Excellence - moved under map */}
+        {/* Mediterranean Climate Excellence */}
         <div className="text-center mb-20">
           <h2 className="text-5xl font-light text-black mb-16 tracking-wide">Mediterranean Climate Excellence</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
