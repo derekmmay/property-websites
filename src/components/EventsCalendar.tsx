@@ -7,39 +7,39 @@ const EventsCalendar = () => {
       title: "Festival of Whales",
       month: "March",
       description: "54th Annual celebration of Gray Whale migration",
-      gradient: "ocean-gradient"
+      gradient: "from-blue-500 to-blue-600"
     },
     {
       title: "Maritime Festival",
       month: "September", 
       description: "Historic tall ships and maritime heritage celebration",
-      gradient: "luxury-gradient"
+      gradient: "from-slate-500 to-slate-600"
     },
     {
       title: "Turkey Trot",
       month: "November",
       description: "47th Annual Thanksgiving morning championship race",
-      gradient: "gold-gradient"
+      gradient: "from-amber-500 to-amber-600"
     },
     {
       title: "Holiday Boat Parade",
       month: "December",
       description: "Dana Point Harbor's illuminated maritime procession",
-      gradient: "platinum-gradient"
+      gradient: "from-gray-500 to-gray-600"
     }
   ];
 
   return (
-    <div className="mb-20">
-      <h2 className="text-4xl font-light mb-12 text-slate-800 text-center">Exclusive Community Events</h2>
+    <div className="text-center">
+      <h2 className="text-5xl font-light mb-20 text-black tracking-wide">Exclusive Community Events</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {events.map((event, index) => (
-          <Card key={index} className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/90 backdrop-blur-sm overflow-hidden">
+          <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 bg-white overflow-hidden group">
             <CardContent className="p-8 text-center relative">
-              <div className={`absolute top-0 left-0 right-0 h-1 ${event.gradient}`}></div>
-              <div className="text-3xl font-extralight text-slate-700 mb-4 font-playfair">{event.month}</div>
-              <h3 className="text-lg font-medium text-slate-800 mb-4 font-playfair">{event.title}</h3>
-              <p className="text-sm text-slate-600 leading-relaxed">{event.description}</p>
+              <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${event.gradient}`}></div>
+              <div className="text-4xl font-extralight text-gray-800 mb-6 tracking-wide">{event.month}</div>
+              <h3 className="text-xl font-medium text-black mb-4">{event.title}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">{event.description}</p>
             </CardContent>
           </Card>
         ))}

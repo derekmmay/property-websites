@@ -3,7 +3,6 @@ import Navigation from "@/components/Navigation";
 import EventsCalendar from "@/components/EventsCalendar";
 import LuxuryDestinations from "@/components/LuxuryDestinations";
 import Footer from "@/components/Footer";
-import { Card, CardContent } from "@/components/ui/card";
 import { Waves, Utensils, Palette, Ship, Mountain, Sun } from "lucide-react";
 
 const Lifestyle = () => {
@@ -45,64 +44,64 @@ const Lifestyle = () => {
       <div className="max-w-7xl mx-auto px-4 py-24">
         
         {/* Lifestyle Categories */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-light text-black mb-16 tracking-wide">Curated Experiences</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="text-center mb-32">
+          <h2 className="text-5xl font-light text-black mb-20 tracking-wide">Curated Experiences</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
                 <Waves className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-light text-black mb-4">Ocean Activities</h3>
+              <h3 className="text-2xl font-light text-black mb-6">Ocean Activities</h3>
               <p className="text-gray-600 font-light leading-relaxed">
                 Private beach access, world-class surfing, deep-sea fishing, and exclusive yacht charters 
                 to Catalina Island and beyond.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
                 <Utensils className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-light text-black mb-4">Culinary Excellence</h3>
+              <h3 className="text-2xl font-light text-black mb-6">Culinary Excellence</h3>
               <p className="text-gray-600 font-light leading-relaxed">
                 Michelin-starred restaurants, exclusive wine tastings, private chef experiences, 
                 and artisanal farmers markets.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
                 <Palette className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-light text-black mb-4">Arts & Culture</h3>
+              <h3 className="text-2xl font-light text-black mb-6">Arts & Culture</h3>
               <p className="text-gray-600 font-light leading-relaxed">
                 Gallery openings, cultural festivals, live performances, and exclusive access 
                 to Orange County's premier art scene.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
                 <Ship className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-light text-black mb-4">Marina Life</h3>
+              <h3 className="text-2xl font-light text-black mb-6">Marina Life</h3>
               <p className="text-gray-600 font-light leading-relaxed">
                 Dana Point Harbor, luxury yacht clubs, sailing regattas, and waterfront dining 
                 at the region's most exclusive venues.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
                 <Mountain className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-light text-black mb-4">Recreation</h3>
+              <h3 className="text-2xl font-light text-black mb-6">Recreation</h3>
               <p className="text-gray-600 font-light leading-relaxed">
                 Championship golf courses, tennis clubs, hiking trails, and exclusive 
                 fitness facilities with ocean views.
               </p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+            <div className="text-center group">
+              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
                 <Sun className="w-10 h-10 text-white" />
               </div>
-              <h3 className="text-2xl font-light text-black mb-4">Wellness</h3>
+              <h3 className="text-2xl font-light text-black mb-6">Wellness</h3>
               <p className="text-gray-600 font-light leading-relaxed">
                 Luxury spas, wellness retreats, meditation gardens, and holistic health 
                 practitioners in serene coastal settings.
@@ -111,18 +110,14 @@ const Lifestyle = () => {
           </div>
         </div>
         
-        {/* Events and Destinations Combined */}
-        <div className="bg-gray-50 py-20 mb-24 -mx-4 px-4">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <div>
-                <EventsCalendar />
-              </div>
-              <div>
-                <LuxuryDestinations />
-              </div>
-            </div>
-          </div>
+        {/* Events Calendar Section */}
+        <div className="mb-32">
+          <EventsCalendar />
+        </div>
+
+        {/* Luxury Destinations Section */}
+        <div className="mb-24">
+          <LuxuryDestinations />
         </div>
       </div>
       
