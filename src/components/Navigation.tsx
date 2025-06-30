@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -8,8 +7,7 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "Overview", path: "/overview" },
+    { name: "Overview", path: "/" },
     { name: "Location", path: "/location" },
     { name: "Lifestyle", path: "/lifestyle" },
     { name: "Schools", path: "/schools" },
