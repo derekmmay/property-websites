@@ -8,13 +8,15 @@ interface InteractiveMapProps {
   longitude?: number;
   zoom?: number;
   className?: string;
+  isInteractive?: boolean;
 }
 
 const InteractiveMap: React.FC<InteractiveMapProps> = ({ 
   latitude = 33.4734, 
   longitude = -117.7018, 
   zoom = 15,
-  className = "w-full h-96"
+  className = "w-full h-96",
+  isInteractive = true
 }) => {
   const [apiKey] = useState<string>('pk.eyJ1IjoiZGVyZWttbWF5IiwiYSI6ImNtY2ptMXcxZjA0cGQybXB2NnphemRhNWkifQ.gBYDOal4M8tAzN7BIo6UTg');
   
@@ -22,7 +24,8 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
     latitude,
     longitude,
     zoom,
-    apiKey
+    apiKey,
+    isInteractive
   });
 
   return (

@@ -8,9 +8,10 @@ interface UseMapboxProps {
   longitude: number;
   zoom: number;
   apiKey: string;
+  isInteractive?: boolean;
 }
 
-export const useMapbox = ({ latitude, longitude, zoom, apiKey }: UseMapboxProps) => {
+export const useMapbox = ({ latitude, longitude, zoom, apiKey, isInteractive = true }: UseMapboxProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
 
@@ -24,6 +25,7 @@ export const useMapbox = ({ latitude, longitude, zoom, apiKey }: UseMapboxProps)
     console.log('Container:', mapContainer.current);
     console.log('API Key:', apiKey.substring(0, 20) + '...');
     console.log('Coordinates:', { latitude, longitude, zoom });
+    console.log('Interactive:', isInteractive);
 
     try {
       // Set the access token
@@ -45,6 +47,7 @@ export const useMapbox = ({ latitude, longitude, zoom, apiKey }: UseMapboxProps)
         center: [longitude, latitude],
         zoom: zoom,
         pitch: MAP_CONFIG.pitch,
+        interactive: isInteractive,
       });
 
       console.log('Map instance created');
@@ -53,16 +56,18 @@ export const useMapbox = ({ latitude, longitude, zoom, apiKey }: UseMapboxProps)
       map.current.on('load', () => {
         console.log('Map loaded successfully!');
         
-        // Add navigation controls
-        if (map.current) {
+        // Add navigation controls only if interactive
+        if (map.current && isInteractive) {
           map.current.addControl(
             new mapboxgl.NavigationControl({
               visualizePitch: true,
             }),
             'top-right'
           );
+        }
 
-          // Add a marker
+        // Add a marker
+        if (map.current) {
           new mapboxgl.Marker({
             color: MAP_CONFIG.marker.color,
             scale: MAP_CONFIG.marker.scale
@@ -98,7 +103,32 @@ export const useMapbox = ({ latitude, longitude, zoom, apiKey }: UseMapboxProps)
         map.current = null;
       }
     };
-  }, [apiKey, latitude, longitude, zoom]);
+  }, [apiKey, latitude, longitude, zoom, isInteractive]);
+
+  // Update map interactivity when the prop changes
+  useEffect(() => {
+    if (map.current) {
+      console.log('Updating map interactivity:', isInteractive);
+      
+      if (isInteractive) {
+        map.current.dragPan.enable();
+        map.current.scrollZoom.enable();
+        map.current.boxZoom.enable();
+        map.current.dragRotate.enable();
+        map.current.keyboard.enable();
+        map.current.doubleClickZoom.enable();
+        map.current.touchZoomRotate.enable();
+      } else {
+        map.current.dragPan.disable();
+        map.current.scrollZoom.disable();
+        map.current.boxZoom.disable();
+        map.current.dragRotate.disable();
+        map.current.keyboard.disable();
+        map.current.doubleClickZoom.disable();
+        map.current.touchZoomRotate.disable();
+      }
+    }
+  }, [isInteractive]);
 
   return { mapContainer, map: map.current };
 };

@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -7,7 +8,11 @@ import { MapPin, Clock, Car, Plane, Shield, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Location = () => {
-  const [isMapInteractive, setIsMapInteractive] = useState(true);
+  const [isMapInteractive, setIsMapInteractive] = useState(false);
+
+  const toggleMapInteractivity = () => {
+    setIsMapInteractive(!isMapInteractive);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -20,15 +25,24 @@ const Location = () => {
           longitude={-117.7018}
           zoom={15}
           className="w-full h-full"
+          isInteractive={isMapInteractive}
         />
         
         {/* Overlay content */}
         <div className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none">
           <div className="text-center text-white z-10 max-w-4xl mx-auto px-4 pointer-events-auto">
             <div className="mb-8">
-              <span className="inline-block px-6 py-2 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8">
-                Prime Coastal Position
-              </span>
+              <Button
+                onClick={toggleMapInteractivity}
+                variant="outline"
+                className={`px-6 py-2 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8 transition-all duration-300 ${
+                  isMapInteractive 
+                    ? 'bg-white/20 text-white hover:bg-white/30' 
+                    : 'bg-black/50 text-white hover:bg-black/70'
+                }`}
+              >
+                {isMapInteractive ? 'Interactive Mode Active' : 'Prime Coastal Position'}
+              </Button>
             </div>
             <h1 className="text-6xl md:text-8xl font-extralight mb-12 tracking-[-0.02em] leading-none">
               Unrivaled Location
