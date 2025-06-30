@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 const Footer = () => {
   const [formData, setFormData] = useState({
@@ -12,6 +14,55 @@ const Footer = () => {
     phone: '',
     message: ''
   });
+
+  const mapContainer = useRef<HTMLDivElement>(null);
+  const map = useRef<mapboxgl.Map | null>(null);
+
+  useEffect(() => {
+    if (!mapContainer.current) return;
+
+    const apiKey = 'pk.eyJ1IjoiZGVyZWttbWF5IiwiYSI6ImNtY2ptMXcxZjA0cGQybXB2NnphemRhNWkifQ.gBYDOal4M8tAzN7BIo6UTg';
+    
+    try {
+      mapboxgl.accessToken = apiKey;
+      
+      if (map.current) {
+        map.current.remove();
+        map.current = null;
+      }
+      
+      map.current = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: 'mapbox://styles/mapbox/light-v11',
+        center: [-117.7018, 33.4734], // Dana Point coordinates
+        zoom: 12,
+        interactive: false, // Make it static
+        attributionControl: false
+      });
+
+      map.current.on('load', () => {
+        if (map.current) {
+          // Add a marker for the property location
+          new mapboxgl.Marker({
+            color: '#000000',
+            scale: 1.2
+          })
+            .setLngLat([-117.7018, 33.4734])
+            .addTo(map.current);
+        }
+      });
+
+    } catch (error) {
+      console.error('Error initializing map:', error);
+    }
+
+    return () => {
+      if (map.current) {
+        map.current.remove();
+        map.current = null;
+      }
+    };
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -29,6 +80,11 @@ const Footer = () => {
 
   return (
     <footer className="bg-black text-white">
+      {/* Map Section */}
+      <div className="w-full h-64">
+        <div ref={mapContainer} className="w-full h-full" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {/* Contact Info and Compass Logo */}
