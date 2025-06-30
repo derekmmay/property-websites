@@ -34,7 +34,7 @@ const Footer = () => {
           <div>
             {/* Contact Info */}
             <div className="mb-8">
-              <h4 className="text-lg font-medium mb-6 tracking-wide">Susan Chase</h4>
+              <h4 className="text-xl font-medium mb-6 tracking-wide">Susan Chase</h4>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <span className="text-gray-300">(949) 949-9499</span>
@@ -64,7 +64,7 @@ const Footer = () => {
 
           {/* Lead Form */}
           <div>
-            <h4 className="text-lg font-medium mb-6 tracking-wide">Get Property Information</h4>
+            <h4 className="text-xl font-medium mb-6 tracking-wide">Get Property Information</h4>
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
                 type="text"
