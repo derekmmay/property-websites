@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -144,13 +145,6 @@ const PhotoGallery = () => {
   return (
     <section id="photo-gallery" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-5xl font-light text-black mb-6 tracking-wide">Private Gallery</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover the architectural mastery and refined elegance of this extraordinary oceanfront estate
-          </p>
-        </div>
-
         {/* Scattered Grid Layout with Flutter Animations */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[200px]">
           {photos.slice(0, 16).map((photo, index) => {
