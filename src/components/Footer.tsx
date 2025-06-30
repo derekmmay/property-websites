@@ -38,9 +38,16 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Info with Compass Logo */}
           <div>
-            <h4 className="text-lg font-medium mb-6 tracking-wide">Contact</h4>
+            <div className="flex items-center space-x-3 mb-6">
+              <img 
+                src="/lovable-uploads/376fba93-4c59-443f-ab02-fa4bcda83799.png" 
+                alt="Compass Real Estate" 
+                className="h-8 w-auto"
+              />
+              <h4 className="text-lg font-medium tracking-wide">Contact</h4>
+            </div>
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-gray-400" />
