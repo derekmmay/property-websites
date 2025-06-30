@@ -48,12 +48,9 @@ const Hero = () => {
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <div className="text-6xl md:text-8xl font-extralight text-black tracking-wide mb-6">
+            <div className="text-8xl md:text-9xl font-extralight text-black tracking-wide mb-12">
               $13,500,000
             </div>
-            <p className="text-xl text-gray-500 font-light tracking-wide mb-12">
-              Priced to reflect unparalleled luxury
-            </p>
             <p className="text-2xl md:text-3xl font-light text-black leading-relaxed tracking-wide max-w-5xl mx-auto mb-16">
               126 Monarch Bay Drive represents the absolute pinnacle of California coastal luxury—a singular architectural achievement within Dana Point's most coveted guard-gated sanctuary.
             </p>
