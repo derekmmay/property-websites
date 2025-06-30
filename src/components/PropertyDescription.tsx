@@ -2,142 +2,148 @@
 const PropertyDescription = () => {
   return (
     <div className="space-y-20">
-      {/* Main Header with Enhanced Typography */}
+      {/* Main Header */}
       <div className="text-center space-y-8">
         <div className="inline-block px-8 py-3 bg-black/5 border border-black/10 rounded-full">
           <span className="text-sm tracking-[0.3em] uppercase text-gray-600 font-medium">
-            Architectural Masterpiece
+            Architectural Excellence
           </span>
         </div>
         <h2 className="text-6xl md:text-7xl font-extralight text-black tracking-[-0.02em] leading-none">
-          Coastal
-          <span className="block text-gray-400 italic">Excellence</span>
+          126 Monarch Bay Drive
+          <span className="block text-2xl md:text-3xl text-gray-600 font-light mt-4">
+            Dana Point, CA 92629
+          </span>
         </h2>
-        <p className="text-xl md:text-2xl text-gray-600 font-light max-w-4xl mx-auto leading-relaxed">
-          126 Monarch Bay Drive represents the absolute pinnacle of California coastal luxury—a 
-          singular architectural achievement within Dana Point's most coveted sanctuary.
-        </p>
       </div>
 
-      {/* Hero Image Grid */}
-      <div className="relative">
-        <div className="grid grid-cols-12 gap-6 h-[600px]">
-          {/* Large Main Image */}
-          <div className="col-span-12 md:col-span-8 relative overflow-hidden group">
-            <img 
-              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80"
-              alt="Grand living room with panoramic ocean views"
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-            <div className="absolute bottom-8 left-8 text-white">
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-6">
-                <h3 className="text-2xl font-light mb-2">Ocean View Living</h3>
-                <p className="text-white/90 font-light text-sm">Panoramic Pacific vistas from every room</p>
-              </div>
-            </div>
-          </div>
-          
-          {/* Side Images */}
-          <div className="col-span-12 md:col-span-4 space-y-6">
-            <div className="relative h-[285px] overflow-hidden group">
-              <img 
-                src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
-                alt="Bespoke gourmet kitchen with premium appliances"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="text-lg font-light">Gourmet Kitchen</h4>
-                <p className="text-white/80 text-xs">Premium appliances</p>
-              </div>
+      {/* Main Content Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-16">
+        {/* Left Sidebar - Property Stats */}
+        <div className="lg:col-span-1 space-y-12">
+          <div className="space-y-8">
+            <div>
+              <div className="text-4xl font-extralight text-black mb-2">$13,500,000</div>
+              <div className="text-sm text-gray-600 uppercase tracking-wide">Sales Price</div>
             </div>
             
-            <div className="relative h-[285px] overflow-hidden group">
-              <img 
-                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2153&q=80"
-                alt="Private oceanfront terrace with infinity views"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h4 className="text-lg font-light">Ocean Terraces</h4>
-                <p className="text-white/80 text-xs">Resort-style outdoor living</p>
-              </div>
+            <div>
+              <div className="text-4xl font-extralight text-black mb-2">5,452</div>
+              <div className="text-sm text-gray-600 uppercase tracking-wide">Square Feet</div>
             </div>
+
+            <div>
+              <div className="text-4xl font-extralight text-black mb-2">123456789</div>
+              <div className="text-sm text-gray-600 uppercase tracking-wide">MLS Listing ID</div>
+            </div>
+
+            <div>
+              <div className="text-xl font-light text-black mb-2">5</div>
+              <div className="text-sm text-gray-600 uppercase tracking-wide">Bedrooms</div>
+            </div>
+
+            <div>
+              <div className="text-xl font-light text-black mb-2">Oceanfront Estate</div>
+              <div className="text-sm text-gray-600 uppercase tracking-wide">Property Type</div>
+            </div>
+
+            <div>
+              <div className="text-xl font-light text-black mb-2">5</div>
+              <div className="text-sm text-gray-600 uppercase tracking-wide">Bathrooms</div>
+            </div>
+          </div>
+
+          {/* Share Section */}
+          <div className="pt-8 border-t border-gray-200">
+            <div className="text-sm text-gray-600 uppercase tracking-wide mb-4">Share:</div>
+            <div className="flex space-x-4">
+              <button className="w-8 h-8 bg-black text-white rounded flex items-center justify-center hover:bg-gray-800 transition-colors">
+                <span className="text-xs">f</span>
+              </button>
+              <button className="w-8 h-8 bg-black text-white rounded flex items-center justify-center hover:bg-gray-800 transition-colors">
+                <span className="text-xs">x</span>
+              </button>
+              <button className="w-8 h-8 bg-black text-white rounded flex items-center justify-center hover:bg-gray-800 transition-colors">
+                <span className="text-xs">@</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Content Area */}
+        <div className="lg:col-span-3 space-y-8">
+          <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed font-light text-justify">
+            <p>
+              This estate defines a new era of California coastal luxury, where timeless Mediterranean 
+              inspiration meets contemporary refinement. Seamlessly integrating architecture with nature, 
+              the design embraces Japanese-influenced Wabi Sabi philosophy—celebrating organic textures, 
+              raw materials, and the beauty of imperfection. Set within the exclusive, guard-gated enclave of 
+              Monarch Bay, the 5-bedroom, 5-bathroom estate captures sweeping views of the Pacific Ocean 
+              and Catalina Island through floor-to-ceiling glass.
+            </p>
+            
+            <p>
+              Warm, elemental materials—including custom millwork, imported Italian stone, French oak, and 
+              limestone—flow effortlessly throughout the open-concept living spaces. The home's sculptural 
+              facade is wrapped in natural materials, offering a bold, tactile contrast against the coastal 
+              terrain. The primary suite is a secluded haven with panoramic views, a spa-inspired bath with 
+              sculptural soaking tub, and a custom walk-in closet.
+            </p>
+            
+            <p>
+              Each additional en-suite bedroom is uniquely appointed with refined finishes and artistic 
+              detailing. A dedicated wine sanctuary, built-in entertainment spaces, and seamless indoor-outdoor 
+              transitions enhance the home's livability. Outside, an infinity-edge pool, fire feature, 
+              built-in BBQ, and multiple lounge areas create the perfect setting for gathering or unwinding 
+              under the stars.
+            </p>
+            
+            <p>
+              Designed by acclaimed architects, this residence is a masterclass in elevated coastal living—where 
+              thoughtful architecture honors its environment with quiet sophistication. An adjacent half-acre 
+              parcel is also available, offering the opportunity to preserve the home's sense of space and views. 
+              The property includes approved plans for a 1,500-square-foot addition, providing the option to 
+              build a complementary retreat or simply maintain the surrounding natural landscape.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Enhanced Content Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="space-y-8">
-          <div className="space-y-6">
-            <div className="w-20 h-px bg-gradient-to-r from-black to-transparent"></div>
-            <h3 className="text-4xl font-light text-black leading-tight">
-              A Legacy of
-              <span className="block text-gray-500">Architectural Vision</span>
-            </h3>
-          </div>
-          
-          <div className="prose prose-lg text-gray-700 leading-relaxed font-light max-w-none space-y-6">
-            <p>
-              This custom estate, masterfully conceived in 1979 and reimagined through extensive 
-              renovations in 2003, offers <strong className="font-medium">5,452 square feet</strong> of uncompromising 
-              sophistication across three meticulously designed levels.
-            </p>
-            <p>
-              The residence showcases an extraordinary <strong className="font-medium">1,500-square-foot addition</strong> 
-              housing the grand primary suite—a private sanctuary that seamlessly marries timeless 
-              coastal elegance with contemporary luxury.
-            </p>
-          </div>
-
-          {/* Feature Highlights */}
-          <div className="grid grid-cols-2 gap-6 pt-8">
-            <div className="text-center p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
-              <div className="text-3xl font-extralight text-black mb-2">1,200</div>
-              <p className="text-sm text-gray-600 uppercase tracking-wide">Bottle Wine Cellar</p>
-            </div>
-            <div className="text-center p-6 bg-gray-50 hover:bg-gray-100 transition-colors duration-300">
-              <div className="text-3xl font-extralight text-black mb-2">3</div>
-              <p className="text-sm text-gray-600 uppercase tracking-wide">Designed Levels</p>
-            </div>
+      {/* Feature Images Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="relative h-80 overflow-hidden group">
+          <img 
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80"
+            alt="Grand living room with panoramic ocean views"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-xl font-light mb-1">Grand living room with panoramic ocean views</h3>
           </div>
         </div>
-
-        {/* Quote Section */}
-        <div className="space-y-8">
-          <div className="border-l-4 border-gray-300 pl-8 py-6">
-            <blockquote className="text-2xl font-light text-gray-700 italic leading-relaxed mb-4">
-              "Every room captures breathtaking panoramic vistas of the Pacific Ocean and Catalina Island."
-            </blockquote>
-            <div className="text-sm text-gray-500 uppercase tracking-wide">
-              Architectural Statement
-            </div>
+        
+        <div className="relative h-80 overflow-hidden group">
+          <img 
+            src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80"
+            alt="Bespoke gourmet kitchen with premium appliances"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-xl font-light mb-1">Bespoke gourmet kitchen with premium appliances</h3>
           </div>
-
-          {/* Key Features */}
-          <div className="bg-black text-white p-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="relative z-10">
-              <h4 className="text-3xl font-light mb-8">Premium Features</h4>
-              <div className="space-y-4">
-                {[
-                  "Sub-Zero & Thermador Culinary Suite",
-                  "Temperature-Controlled Wine Sanctuary", 
-                  "Expansive Entertainment Spaces",
-                  "Sun-Drenched Ocean-Facing Terraces"
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-4 group">
-                    <div className="w-2 h-2 bg-white rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-white/90 font-light group-hover:text-white transition-colors duration-300">
-                      {feature}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+        </div>
+        
+        <div className="relative h-80 overflow-hidden group">
+          <img 
+            src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2153&q=80"
+            alt="Private oceanfront terrace with infinity views"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+          <div className="absolute bottom-6 left-6 text-white">
+            <h3 className="text-xl font-light mb-1">Private oceanfront terrace with infinity views</h3>
           </div>
         </div>
       </div>
