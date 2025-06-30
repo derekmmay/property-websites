@@ -46,44 +46,44 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="bg-black py-16">
+      <div className="bg-black py-24">
         <div className="max-w-7xl mx-auto px-4">
           {/* Key Features with Icons - black background with white text */}
-          <div className="mt-24">
-            <h2 className="text-5xl font-light text-white mb-20 text-center tracking-wide">Distinctive Features</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <h2 className="text-5xl font-light text-white mb-24 text-center tracking-wide">Distinctive Features</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16">
               <div className="text-center group">
-                <div className="flex items-center justify-center mx-auto mb-8">
+                <div className="flex items-center justify-center mx-auto mb-10">
                   <Shield className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-light text-white mb-6">Guard-Gated Security</h3>
+                <h3 className="text-2xl font-light text-white mb-8">Guard-Gated Security</h3>
                 <p className="text-gray-300 font-light leading-relaxed">
                   24/7 private security within the exclusive Monarch Bay enclave
                 </p>
               </div>
               <div className="text-center group">
-                <div className="flex items-center justify-center mx-auto mb-8">
+                <div className="flex items-center justify-center mx-auto mb-10">
                   <Waves className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-light text-white mb-6">Ocean Views</h3>
+                <h3 className="text-2xl font-light text-white mb-8">Ocean Views</h3>
                 <p className="text-gray-300 font-light leading-relaxed">
                   Panoramic Pacific Ocean and Catalina Island vistas from every room
                 </p>
               </div>
               <div className="text-center group">
-                <div className="flex items-center justify-center mx-auto mb-8">
+                <div className="flex items-center justify-center mx-auto mb-10">
                   <MapPin className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-light text-white mb-6">Prime Location</h3>
+                <h3 className="text-2xl font-light text-white mb-8">Prime Location</h3>
                 <p className="text-gray-300 font-light leading-relaxed">
                   Minutes from luxury amenities, golf, and private beach access
                 </p>
               </div>
               <div className="text-center group">
-                <div className="flex items-center justify-center mx-auto mb-8">
+                <div className="flex items-center justify-center mx-auto mb-10">
                   <Star className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-light text-white mb-6">Luxury Amenities</h3>
+                <h3 className="text-2xl font-light text-white mb-8">Luxury Amenities</h3>
                 <p className="text-gray-300 font-light leading-relaxed">
                   Wine cellar, putting green, spa, and entertainment spaces
                 </p>
