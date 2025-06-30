@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src="/lovable-uploads/f6902229-8d23-4958-ac72-17474c9f52da.png" 
+                src="/lovable-uploads/9935b2a7-c9a4-4e38-b0e8-15f3e21f8dc4.png" 
                 alt="Compass Real Estate" 
                 className="h-16 w-auto"
               />
