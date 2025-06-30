@@ -1,131 +1,160 @@
-
 import Navigation from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import Footer from "@/components/Footer";
 
 const Schools = () => {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      <div 
-        className="relative h-64 flex items-center justify-center"
-        style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.7), rgba(30, 41, 59, 0.5)), url('https://images.unsplash.com/photo-1452960962994-acf4fd70b632?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
-        }}
-      >
-        <div className="text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-light mb-4 font-playfair tracking-wide">Education Excellence</h1>
-          <p className="text-xl opacity-90 font-light tracking-wide">Top-Rated Schools & Programs</p>
+      <div className="relative h-screen">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.6), rgba(30, 41, 59, 0.4)), url('https://images.unsplash.com/photo-1543337724-5030f43ca996?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+          }}
+        />
+        
+        <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
+          <div className="max-w-5xl mx-auto px-4">
+            <h1 className="text-6xl md:text-8xl font-extralight mb-8 tracking-[0.05em] text-white">
+              Top-Rated Schools
+            </h1>
+            <p className="text-xl md:text-2xl mb-6 opacity-90 font-light tracking-wide">
+              Exemplary Academic Institutions
+            </p>
+            <p className="text-lg mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed">
+              Explore the distinguished schools and educational opportunities surrounding 126 Monarch Bay, 
+              ensuring an exceptional academic journey.
+            </p>
+          </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="mb-12">
-          <h2 className="text-3xl font-light mb-6 text-gray-800">Capistrano Unified School District</h2>
-          <p className="text-lg text-gray-600 max-w-3xl">
-            126 Monarch Bay is served by the highly regarded Capistrano Unified School District, 
-            consistently ranked among Orange County's premier educational systems.
-          </p>
-        </div>
+      <div className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-4xl font-light mb-12 text-slate-800 text-center">
+          Premier Educational Opportunities
+        </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          <Card className="border-0 shadow-lg">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/90 backdrop-blur-sm">
             <CardContent className="p-8">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-medium text-gray-800">Moulton Elementary</h3>
-                <Badge className="bg-green-100 text-green-800">8/10</Badge>
+              <h3 className="text-xl font-medium text-slate-800 mb-3">
+                Monarch Beach Elementary
+              </h3>
+              <p className="text-sm text-slate-600 mb-4">
+                Public • Grades K-5 • 0.7 miles
+              </p>
+              <div className="flex space-x-2 mb-4">
+                <Badge variant="secondary">Academics: A+</Badge>
+                <Badge variant="secondary">Diversity: A</Badge>
               </div>
-              <p className="text-gray-600 mb-4">Grades K-5 • 3.0 miles</p>
-              <p className="text-sm text-gray-500">
-                Highly rated elementary school known for strong academics and 
-                supportive community environment.
+              <p className="text-sm text-slate-500 leading-relaxed">
+                Consistently ranked among California's top elementary schools, 
+                Monarch Beach Elementary provides a nurturing and challenging academic environment.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-lg">
+          <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/90 backdrop-blur-sm">
             <CardContent className="p-8">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-medium text-gray-800">Niguel Hills Middle</h3>
-                <Badge className="bg-green-100 text-green-800">9/10</Badge>
+              <h3 className="text-xl font-medium text-slate-800 mb-3">
+                Marco Forster Middle School
+              </h3>
+              <p className="text-sm text-slate-600 mb-4">
+                Public • Grades 6-8 • 2.1 miles
+              </p>
+              <div className="flex space-x-2 mb-4">
+                <Badge variant="secondary">Academics: A</Badge>
+                <Badge variant="secondary">Clubs: A+</Badge>
               </div>
-              <p className="text-gray-600 mb-4">Grades 6-8 • 4.6 miles</p>
-              <p className="text-sm text-gray-500">
-                California Distinguished School with excellent programs and 
-                college preparatory curriculum.
+              <p className="text-sm text-slate-500 leading-relaxed">
+                Known for its comprehensive curriculum and diverse extracurricular activities, 
+                Marco Forster prepares students for high school success.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-lg">
+          <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/90 backdrop-blur-sm">
             <CardContent className="p-8">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-xl font-medium text-gray-800">Dana Hills High</h3>
-                <Badge className="bg-blue-100 text-blue-800">Premier</Badge>
+              <h3 className="text-xl font-medium text-slate-800 mb-3">
+                San Clemente High School
+              </h3>
+              <p className="text-sm text-slate-600 mb-4">
+                Public • Grades 9-12 • 3.5 miles
+              </p>
+              <div className="flex space-x-2 mb-4">
+                <Badge variant="secondary">Academics: A-</Badge>
+                <Badge variant="secondary">Sports: A+</Badge>
               </div>
-              <p className="text-gray-600 mb-4">Grades 9-12 • 1.8 miles</p>
-              <p className="text-sm text-gray-500">
-                Renowned for music and athletics programs, recently upgraded 
-                facilities, strong college preparation.
+              <p className="text-sm text-slate-500 leading-relaxed">
+                A nationally recognized high school offering a wide range of AP courses, 
+                championship sports teams, and a thriving arts program.
               </p>
             </CardContent>
           </Card>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <Card className="border-0 shadow-lg">
+          <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/90 backdrop-blur-sm">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-light mb-6 text-gray-800">Private School Options</h3>
-              <div className="space-y-4">
-                <div className="border-b border-gray-100 pb-4">
-                  <h4 className="font-medium text-gray-800">Monarch Bay Montessori Academy</h4>
-                  <p className="text-sm text-gray-600">Pre-K through 6th Grade • 0.3 miles</p>
-                  <p className="text-sm text-gray-500 mt-1">
-                    Premium Montessori education within Monarch Bay Plaza
-                  </p>
-                </div>
-                <div className="border-b border-gray-100 pb-4">
-                  <h4 className="font-medium text-gray-800">St. Anne's School</h4>
-                  <p className="text-sm text-gray-600">K-8 • Laguna Niguel</p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-gray-800">JSerra Catholic High School</h4>
-                  <p className="text-sm text-gray-600">9-12 • San Juan Capistrano</p>
-                </div>
+              <h3 className="text-xl font-medium text-slate-800 mb-3">
+                St. Margaret's Episcopal School
+              </h3>
+              <p className="text-sm text-slate-600 mb-4">
+                Private • Grades PK-12 • 6.2 miles
+              </p>
+              <div className="flex space-x-2 mb-4">
+                <Badge variant="secondary">College Prep: A+</Badge>
+                <Badge variant="secondary">Arts: A+</Badge>
               </div>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                A leading private school known for its rigorous academic program, 
+                exceptional arts offerings, and strong college placement record.
+              </p>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-lg">
+          <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/90 backdrop-blur-sm">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-light mb-6 text-gray-800">District Excellence</h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-600">Test scores consistently above state averages</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-600">Multiple California Distinguished Schools</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-600">Strong college preparation programs</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-600">Convenient school bus service</span>
-                </div>
-                <div className="flex items-start">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                  <span className="text-gray-600">Excellent extracurricular offerings</span>
-                </div>
+              <h3 className="text-xl font-medium text-slate-800 mb-3">
+                Sage Hill School
+              </h3>
+              <p className="text-sm text-slate-600 mb-4">
+                Private • Grades 9-12 • 18 miles
+              </p>
+              <div className="flex space-x-2 mb-4">
+                <Badge variant="secondary">STEM: A+</Badge>
+                <Badge variant="secondary">Global Studies: A</Badge>
               </div>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                An innovative independent high school with a focus on STEM, 
+                global studies, and experiential learning opportunities.
+              </p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-0 shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 bg-white/90 backdrop-blur-sm">
+            <CardContent className="p-8">
+              <h3 className="text-xl font-medium text-slate-800 mb-3">
+                University of California, Irvine
+              </h3>
+              <p className="text-sm text-slate-600 mb-4">
+                Public University • 20 miles
+              </p>
+              <div className="flex space-x-2 mb-4">
+                <Badge variant="secondary">Research: A+</Badge>
+                <Badge variant="secondary">Innovation: A</Badge>
+              </div>
+              <p className="text-sm text-slate-500 leading-relaxed">
+                A world-renowned research university offering a wide range of undergraduate 
+                and graduate programs, with a strong emphasis on innovation and discovery.
+              </p>
             </CardContent>
           </Card>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };

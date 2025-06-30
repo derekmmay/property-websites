@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -5,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import PropertyStats from "@/components/PropertyStats";
 import PropertyDescription from "@/components/PropertyDescription";
+import Footer from "@/components/Footer";
 
 const Overview = () => {
   return (
@@ -71,6 +73,8 @@ const Overview = () => {
           </div>
         </div>
       </div>
+      
+      <Footer />
     </div>
   );
 };
