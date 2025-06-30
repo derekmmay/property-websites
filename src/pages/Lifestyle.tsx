@@ -6,56 +6,60 @@ import ClimateInfo from "@/components/ClimateInfo";
 
 const Lifestyle = () => {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-gray-100">
       <Navigation />
       
-      <div className="relative h-64 bg-gradient-to-r from-amber-900 to-orange-800 flex items-center justify-center">
-        <div className="text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-light mb-4">Coastal Lifestyle</h1>
-          <p className="text-xl opacity-90">Year-Round Luxury Living</p>
+      <div className="relative h-64 luxury-gradient flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="text-center text-white relative z-10">
+          <h1 className="text-5xl md:text-7xl font-extralight mb-6 tracking-wide font-playfair">Coastal Lifestyle</h1>
+          <p className="text-xl opacity-90 font-light tracking-wide">Unparalleled Luxury Living</p>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <ClimateInfo />
         <EventsCalendar />
         
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Card className="border-0 shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-light mb-4 text-gray-800">Recreation</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• World-class surfing at Salt Creek</li>
-                <li>• Monarch Beach Golf Links</li>
-                <li>• Private beach club access</li>
-                <li>• Harbor boating & sailing</li>
-                <li>• Whale watching tours</li>
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm overflow-hidden">
+            <CardContent className="p-10">
+              <div className="absolute top-0 left-0 right-0 h-1 ocean-gradient"></div>
+              <h3 className="text-2xl font-light mb-6 text-slate-800 font-playfair">Elite Recreation</h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Championship surfing at Salt Creek Beach</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Monarch Beach Golf Links oceanfront course</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Exclusive private beach club privileges</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Luxury harbor yachting & sailing</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Private whale watching expeditions</li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-light mb-4 text-gray-800">Fine Dining</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• Bourbon Steak Orange County</li>
-                <li>• Raya at The Ritz-Carlton</li>
-                <li>• Salt Creek Grille</li>
-                <li>• Coastal Kitchen</li>
-                <li>• Harbor waterfront dining</li>
+          <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm overflow-hidden">
+            <CardContent className="p-10">
+              <div className="absolute top-0 left-0 right-0 h-1 gold-gradient"></div>
+              <h3 className="text-2xl font-light mb-6 text-slate-800 font-playfair">Culinary Excellence</h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Bourbon Steak Orange County</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Raya at The Ritz-Carlton Laguna</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Salt Creek Grille oceanfront dining</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Coastal Kitchen artisanal cuisine</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Harbor waterfront fine dining</li>
               </ul>
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-lg">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-light mb-4 text-gray-800">Shopping</h3>
-              <ul className="space-y-2 text-gray-600">
-                <li>• South Coast Plaza luxury retail</li>
-                <li>• Monarch Bay Plaza boutiques</li>
-                <li>• Laguna Beach art galleries</li>
-                <li>• Dana Point Lantern District</li>
-                <li>• Gelson's gourmet market</li>
+          <Card className="border-0 shadow-xl bg-white/90 backdrop-blur-sm overflow-hidden">
+            <CardContent className="p-10">
+              <div className="absolute top-0 left-0 right-0 h-1 luxury-gradient"></div>
+              <h3 className="text-2xl font-light mb-6 text-slate-800 font-playfair">Luxury Retail</h3>
+              <ul className="space-y-3 text-slate-600">
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>South Coast Plaza luxury collections</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Monarch Bay Plaza boutique shopping</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Laguna Beach art gallery district</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Dana Point Lantern District</li>
+                <li className="flex items-center"><span className="w-2 h-2 bg-slate-400 rounded-full mr-3"></span>Gelson's gourmet provisions</li>
               </ul>
             </CardContent>
           </Card>

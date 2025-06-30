@@ -8,46 +8,44 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=3011&q=80')`
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.6), rgba(30, 41, 59, 0.4)), url('https://images.unsplash.com/photo-1721322800607-8c38375eef04?ixlib=rb-4.0.3&auto=format&fit=crop&w=3011&q=80')`
         }}
       />
       
       <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
-        <div className="max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-wide">
+        <div className="max-w-5xl mx-auto px-4">
+          <h1 className="text-6xl md:text-8xl font-extralight mb-8 tracking-[0.05em] text-white">
             126 Monarch Bay
           </h1>
-          <p className="text-xl md:text-2xl mb-4 opacity-90 font-light">
-            Dana Point, CA 92660
+          <p className="text-xl md:text-2xl mb-6 opacity-90 font-light tracking-wide">
+            Dana Point, California 92660
           </p>
-          <div className="text-4xl md:text-5xl font-light mb-8 text-amber-200">
+          <div className="text-5xl md:text-6xl font-light mb-12 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 bg-clip-text text-transparent">
             $13,500,000
           </div>
-          <p className="text-lg mb-12 max-w-2xl mx-auto opacity-90">
-            An extraordinary luxury residence in the exclusive guard-gated community of Monarch Bay, 
-            featuring panoramic ocean views and world-class amenities.
+          <p className="text-lg mb-16 max-w-3xl mx-auto opacity-90 leading-relaxed">
+            An extraordinary architectural masterpiece within the exclusive guard-gated community of Monarch Bay, 
+            featuring panoramic Pacific Ocean views and unparalleled luxury amenities.
           </p>
-          <div className="space-x-4">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link to="/contact">
-              <Button size="lg" className="bg-blue-900 hover:bg-blue-800 text-white px-8 py-3">
-                Schedule Viewing
+              <Button size="lg" className="luxury-gradient hover:opacity-90 text-white px-12 py-4 text-lg font-light tracking-wide transition-all duration-300 hover:scale-105">
+                Private Viewing
               </Button>
             </Link>
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-transparent border-white text-white hover:bg-white hover:text-gray-900 px-8 py-3"
+              className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-12 py-4 text-lg font-light tracking-wide transition-all duration-300 hover:scale-105"
             >
-              Download Brochure
+              Property Portfolio
             </Button>
           </div>
         </div>
       </div>
       
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-        <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
-        </div>
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 text-white/60">
+        <div className="w-px h-16 bg-gradient-to-b from-white/60 to-transparent"></div>
       </div>
     </div>
   );
