@@ -13,11 +13,11 @@ const Data = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="relative h-[120vh] flex items-center justify-center bg-black">
+      <div className="relative h-[100vh] flex items-center justify-center bg-black">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2600&q=80')",
+            backgroundImage: "url('https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=2600&q=80')",
           }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
