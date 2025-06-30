@@ -8,7 +8,8 @@ const Navigation = () => {
   const location = useLocation();
 
   const navItems = [
-    { name: "Overview", path: "/" },
+    { name: "Home", path: "/" },
+    { name: "Overview", path: "/overview" },
     { name: "Location", path: "/location" },
     { name: "Lifestyle", path: "/lifestyle" },
     { name: "Schools", path: "/schools" },
@@ -19,10 +20,6 @@ const Navigation = () => {
     <nav className="absolute top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-2xl font-light text-white tracking-wide">
-            126 MONARCH BAY
-          </Link>
-
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
