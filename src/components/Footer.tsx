@@ -14,7 +14,6 @@ const Footer = () => {
               An extraordinary architectural masterpiece within the exclusive guard-gated 
               community of Monarch Bay, Dana Point.
             </p>
-            <div className="text-3xl font-light text-white mb-4">$13,500,000</div>
           </div>
 
           {/* Navigation */}
