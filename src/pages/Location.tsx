@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
 import MapFilters from "@/components/MapFilters";
@@ -12,6 +12,20 @@ const Location = () => {
   const [isMapInteractive, setIsMapInteractive] = useState(false);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [showFilters, setShowFilters] = useState(false);
+
+  // Prevent body scroll when interactive map is active
+  useEffect(() => {
+    if (isMapInteractive) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMapInteractive]);
 
   const toggleMapInteractivity = () => {
     const newInteractiveState = !isMapInteractive;
@@ -43,7 +57,7 @@ const Location = () => {
       <Navigation />
       
       {/* Hero Map Section - Interactive Map Only */}
-      <div className="h-screen relative">
+      <div className={`h-screen relative ${isMapInteractive ? 'fixed inset-0 z-40' : ''}`}>
         <InteractiveMap 
           latitude={33.4734}
           longitude={-117.7018}
@@ -54,7 +68,7 @@ const Location = () => {
         
         {/* Map Controls Overlay - Only show when interactive mode is on */}
         {isMapInteractive && showFilters && (
-          <div className="absolute top-20 left-4 z-10 max-w-sm">
+          <div className="absolute top-20 left-4 z-50 max-w-sm">
             <MapFilters 
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}
@@ -88,7 +102,7 @@ const Location = () => {
 
         {/* Interactive Mode Toggle Button - Only show when in interactive mode */}
         {isMapInteractive && (
-          <div className="absolute top-4 right-4 z-10">
+          <div className="absolute top-4 right-4 z-50">
             <Button
               onClick={toggleMapInteractivity}
               variant="outline"
@@ -100,67 +114,72 @@ const Location = () => {
         )}
       </div>
 
-      {/* Travel Times - moved right under hero */}
-      <div className="bg-gray-50 py-20">
-        <div className="max-w-5xl mx-auto px-4">
-          <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Seamless Connectivity</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-4xl font-extralight text-black mb-4">2 min</div>
-              <p className="text-gray-600 font-light">Beach Access</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-extralight text-black mb-4">20 min</div>
-              <p className="text-gray-600 font-light">John Wayne Airport</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-extralight text-black mb-4">45 min</div>
-              <p className="text-gray-600 font-light">Beverly Hills</p>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-extralight text-black mb-4">60 min</div>
-              <p className="text-gray-600 font-light">LAX Airport</p>
+      {/* Content below - only visible when not in interactive mode */}
+      {!isMapInteractive && (
+        <>
+          {/* Travel Times - moved right under hero */}
+          <div className="bg-gray-50 py-20">
+            <div className="max-w-5xl mx-auto px-4">
+              <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Seamless Connectivity</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div className="text-center">
+                  <div className="text-4xl font-extralight text-black mb-4">2 min</div>
+                  <p className="text-gray-600 font-light">Beach Access</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-extralight text-black mb-4">20 min</div>
+                  <p className="text-gray-600 font-light">John Wayne Airport</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-extralight text-black mb-4">45 min</div>
+                  <p className="text-gray-600 font-light">Beverly Hills</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-extralight text-black mb-4">60 min</div>
+                  <p className="text-gray-600 font-light">LAX Airport</p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-24">
-        
-        {/* Key Location Benefits */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-light text-black mb-16 tracking-wide">Strategic Advantages</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
-                <Shield className="w-10 h-10 text-white" />
+          {/* Main Content */}
+          <div className="max-w-7xl mx-auto px-4 py-24">
+            
+            {/* Key Location Benefits */}
+            <div className="text-center mb-20">
+              <h2 className="text-5xl font-light text-black mb-16 tracking-wide">Strategic Advantages</h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Shield className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-light text-black mb-4">Guard-Gated Security</h3>
+                  <p className="text-gray-600 font-light leading-relaxed">24/7 private security within the exclusive Monarch Bay enclave</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Waves className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-light text-black mb-4">Private Beach Access</h3>
+                  <p className="text-gray-600 font-light leading-relaxed">Exclusive coastline access with pristine beaches and water activities</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <MapPin className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-light text-black mb-4">Central Location</h3>
+                  <p className="text-gray-600 font-light leading-relaxed">Equidistant from Los Angeles and San Diego metropolitan areas</p>
+                </div>
               </div>
-              <h3 className="text-2xl font-light text-black mb-4">Guard-Gated Security</h3>
-              <p className="text-gray-600 font-light leading-relaxed">24/7 private security within the exclusive Monarch Bay enclave</p>
             </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
-                <Waves className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-light text-black mb-4">Private Beach Access</h3>
-              <p className="text-gray-600 font-light leading-relaxed">Exclusive coastline access with pristine beaches and water activities</p>
-            </div>
-            <div className="text-center">
-              <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
-                <MapPin className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-2xl font-light text-black mb-4">Central Location</h3>
-              <p className="text-gray-600 font-light leading-relaxed">Equidistant from Los Angeles and San Diego metropolitan areas</p>
-            </div>
+
+            {/* Climate Information */}
+            <ClimateInfo />
           </div>
-        </div>
-
-        {/* Climate Information */}
-        <ClimateInfo />
-      </div>
-      
-      <Footer />
+          
+          <Footer />
+        </>
+      )}
     </div>
   );
 };
