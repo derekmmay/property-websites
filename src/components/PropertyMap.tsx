@@ -2,9 +2,9 @@
 import React from 'react';
 
 const PropertyMap = () => {
-  // Coordinates for Dana Point Harbor area (on land)
-  const latitude = 33.4618;
-  const longitude = -117.6989;
+  // Coordinates for Dana Point city center (definitely on land!)
+  const latitude = 33.4734;
+  const longitude = -117.7018;
   
   return (
     <div className="w-full h-96 bg-gray-200">
