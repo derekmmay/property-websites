@@ -1,7 +1,5 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import PropertyStats from "./PropertyStats";
 import { Shield, Waves, MapPin, Star } from "lucide-react";
 
 const Hero = () => {
@@ -60,8 +58,6 @@ const Hero = () => {
               126 Monarch Bay Drive represents the absolute pinnacle of California coastal luxury—a singular architectural achievement within Dana Point's most coveted guard-gated sanctuary.
             </p>
           </div>
-          
-          <PropertyStats />
           
           {/* Key Features with Icons - matching inner page style */}
           <div className="mt-24">
