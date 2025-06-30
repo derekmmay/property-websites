@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import PropertyStats from "./PropertyStats";
@@ -45,13 +46,13 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="bg-white py-32">
+      <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-20">
+          <div className="text-center mb-12">
             <div className="text-6xl md:text-8xl font-extralight text-black tracking-wide mb-6">
               $13,500,000
             </div>
-            <p className="text-xl text-gray-500 font-light tracking-wide mb-16">
+            <p className="text-xl text-gray-500 font-light tracking-wide mb-12">
               Priced to reflect unparalleled luxury
             </p>
             <p className="text-2xl md:text-3xl font-light text-black leading-relaxed tracking-wide max-w-5xl mx-auto">
