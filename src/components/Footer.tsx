@@ -1,68 +1,117 @@
+
 import { Link } from "react-router-dom";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useState } from "react";
 
 const Footer = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    // Handle form submission here
+  };
+
   return (
     <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {/* Property Info with Compass Logo */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Contact Info and Compass Logo */}
           <div>
-            <div className="flex items-center space-x-3 mb-6">
-              <img 
-                src="/lovable-uploads/9935b2a7-c9a4-4e38-b0e8-15f3e21f8dc4.png" 
-                alt="Compass Real Estate" 
-                className="h-16 w-auto"
+            {/* Contact Info */}
+            <div className="mb-8">
+              <h4 className="text-lg font-medium mb-6 tracking-wide">Contact</h4>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <Phone className="w-5 h-5 text-gray-400" />
+                  <span className="text-gray-300">(949) 949-9499</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="w-5 h-5 text-gray-400" />
+                  <span className="text-gray-300">susan@compass.com</span>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <MapPin className="w-5 h-5 text-gray-400 mt-1" />
+                  <span className="text-gray-300">
+                    DRE License #123456
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Compass Logo and Property Info */}
+            <div>
+              <div className="flex items-center space-x-3 mb-6">
+                <img 
+                  src="/lovable-uploads/9935b2a7-c9a4-4e38-b0e8-15f3e21f8dc4.png" 
+                  alt="Compass Real Estate" 
+                  className="h-16 w-auto"
+                />
+              </div>
+              <h3 className="text-2xl font-light mb-6 tracking-wide">126 Monarch Bay</h3>
+            </div>
+          </div>
+
+          {/* Lead Form */}
+          <div>
+            <h4 className="text-lg font-medium mb-6 tracking-wide">Get Property Information</h4>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                type="text"
+                name="name"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={handleInputChange}
+                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                required
               />
-            </div>
-            <h3 className="text-2xl font-light mb-6 tracking-wide">126 Monarch Bay</h3>
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              An extraordinary architectural masterpiece within the exclusive guard-gated 
-              community of Monarch Bay, Dana Point.
-            </p>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <h4 className="text-lg font-medium mb-6 tracking-wide">Explore</h4>
-            <nav className="space-y-3">
-              <Link to="/" className="block text-gray-300 hover:text-white transition-colors">
-                Overview
-              </Link>
-              <Link to="/location" className="block text-gray-300 hover:text-white transition-colors">
-                Location
-              </Link>
-              <Link to="/lifestyle" className="block text-gray-300 hover:text-white transition-colors">
-                Lifestyle
-              </Link>
-              <Link to="/schools" className="block text-gray-300 hover:text-white transition-colors">
-                Schools
-              </Link>
-              <Link to="/contact" className="block text-gray-300 hover:text-white transition-colors">
-                Contact
-              </Link>
-            </nav>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-medium mb-6 tracking-wide">Contact</h4>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-300">(949) 949-9499</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-gray-400" />
-                <span className="text-gray-300">susan@compass.com</span>
-              </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-gray-400 mt-1" />
-                <span className="text-gray-300">
-                  DRE License #123456
-                </span>
-              </div>
-            </div>
+              <Input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleInputChange}
+                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+                required
+              />
+              <Input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400"
+              />
+              <Textarea
+                name="message"
+                placeholder="Message (optional)"
+                value={formData.message}
+                onChange={handleInputChange}
+                className="bg-gray-800 border-gray-600 text-white placeholder:text-gray-400 min-h-[100px]"
+              />
+              <Button 
+                type="submit"
+                className="w-full bg-white text-black hover:bg-gray-200 font-medium"
+              >
+                Request Information
+              </Button>
+            </form>
           </div>
         </div>
 
