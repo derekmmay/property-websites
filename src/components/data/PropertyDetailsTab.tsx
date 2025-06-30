@@ -96,25 +96,25 @@ const PropertyDetailsTab = () => {
 
         <Card>
           <CardHeader>
-            <CardTitle>Community Features</CardTitle>
+            <CardTitle>Building Systems</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Gated Community</span>
-                <Badge variant="default">Yes</Badge>
+                <span className="text-gray-600">HVAC System</span>
+                <Badge variant="default">Multi-Zone</Badge>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">24/7 Security</span>
-                <Badge variant="default">Yes</Badge>
+                <span className="text-gray-600">Smart Home Features</span>
+                <Badge variant="default">Integrated</Badge>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Ocean Access</span>
-                <Badge variant="default">Private</Badge>
+                <span className="text-gray-600">Solar System</span>
+                <Badge variant="default">Owned</Badge>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-600">Beach Club</span>
-                <Badge variant="default">Included</Badge>
+                <span className="text-gray-600">Wine Storage</span>
+                <Badge variant="default">Climate Controlled</Badge>
               </div>
             </div>
           </CardContent>
