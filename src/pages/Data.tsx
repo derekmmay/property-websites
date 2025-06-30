@@ -37,11 +37,19 @@ const Data = () => {
       <main className="bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
-              <TabsTrigger value="overview">Market Overview</TabsTrigger>
-              <TabsTrigger value="history">Property History</TabsTrigger>
-              <TabsTrigger value="details">Property Details</TabsTrigger>
-              <TabsTrigger value="utilities">Utilities</TabsTrigger>
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8 h-auto p-2 gap-2 md:gap-0">
+              <TabsTrigger value="overview" className="text-xs sm:text-sm py-3 px-2">
+                Market Overview
+              </TabsTrigger>
+              <TabsTrigger value="history" className="text-xs sm:text-sm py-3 px-2">
+                Property History
+              </TabsTrigger>
+              <TabsTrigger value="details" className="text-xs sm:text-sm py-3 px-2">
+                Property Details
+              </TabsTrigger>
+              <TabsTrigger value="utilities" className="text-xs sm:text-sm py-3 px-2">
+                Utilities
+              </TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview">
