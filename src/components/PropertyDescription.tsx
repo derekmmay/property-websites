@@ -106,37 +106,37 @@ const PropertyDescription = () => {
           </div>
         </div>
 
-        {/* Stats and Features */}
+        {/* Quote Section */}
         <div className="space-y-8">
-          <div className="bg-black text-white p-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"></div>
-            <div className="relative z-10">
-              <h4 className="text-3xl font-light mb-8">Premium Amenities</h4>
-              <div className="space-y-4">
-                {[
-                  "Sub-Zero & Thermador Culinary Suite",
-                  "Temperature-Controlled Wine Sanctuary", 
-                  "Expansive Entertainment Spaces",
-                  "Sun-Drenched Ocean-Facing Terraces"
-                ].map((amenity, index) => (
-                  <div key={index} className="flex items-center space-x-4 group">
-                    <div className="w-2 h-2 bg-white rounded-full group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="text-white/90 font-light group-hover:text-white transition-colors duration-300">
-                      {amenity}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Quote Section */}
           <div className="border-l-4 border-gray-300 pl-8 py-6">
             <blockquote className="text-2xl font-light text-gray-700 italic leading-relaxed mb-4">
               "Every room captures breathtaking panoramic vistas of the Pacific Ocean and Catalina Island."
             </blockquote>
             <div className="text-sm text-gray-500 uppercase tracking-wide">
               Architectural Statement
+            </div>
+          </div>
+
+          {/* Key Features */}
+          <div className="bg-black text-white p-12 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"></div>
+            <div className="relative z-10">
+              <h4 className="text-3xl font-light mb-8">Premium Features</h4>
+              <div className="space-y-4">
+                {[
+                  "Sub-Zero & Thermador Culinary Suite",
+                  "Temperature-Controlled Wine Sanctuary", 
+                  "Expansive Entertainment Spaces",
+                  "Sun-Drenched Ocean-Facing Terraces"
+                ].map((feature, index) => (
+                  <div key={index} className="flex items-center space-x-4 group">
+                    <div className="w-2 h-2 bg-white rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                    <span className="text-white/90 font-light group-hover:text-white transition-colors duration-300">
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
