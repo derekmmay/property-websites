@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -11,9 +10,19 @@ import { Button } from "@/components/ui/button";
 const Location = () => {
   const [isMapInteractive, setIsMapInteractive] = useState(false);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
+  const [showFilters, setShowFilters] = useState(false);
 
   const toggleMapInteractivity = () => {
-    setIsMapInteractive(!isMapInteractive);
+    const newInteractiveState = !isMapInteractive;
+    setIsMapInteractive(newInteractiveState);
+    
+    // Show filters when enabling interactive mode, hide when disabling
+    if (newInteractiveState) {
+      setShowFilters(true);
+    } else {
+      setShowFilters(false);
+      setActiveFilters([]); // Clear filters when disabling interactive mode
+    }
   };
 
   const handleFilterChange = (filters: string[]) => {
@@ -22,6 +31,10 @@ const Location = () => {
     if (filters.length > 0 && !isMapInteractive) {
       setIsMapInteractive(true);
     }
+  };
+
+  const handleCloseFilters = () => {
+    setShowFilters(false);
   };
 
   return (
@@ -38,13 +51,16 @@ const Location = () => {
           isInteractive={isMapInteractive}
         />
         
-        {/* Map Controls Overlay */}
-        <div className="absolute top-20 left-4 z-10 max-w-sm">
-          <MapFilters 
-            activeFilters={activeFilters}
-            onFilterChange={handleFilterChange}
-          />
-        </div>
+        {/* Map Controls Overlay - Only show when interactive mode is on */}
+        {isMapInteractive && showFilters && (
+          <div className="absolute top-20 left-4 z-10 max-w-sm">
+            <MapFilters 
+              activeFilters={activeFilters}
+              onFilterChange={handleFilterChange}
+              onClose={handleCloseFilters}
+            />
+          </div>
+        )}
         
         {/* Main Overlay content */}
         <div className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none">

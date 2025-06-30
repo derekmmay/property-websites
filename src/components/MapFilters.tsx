@@ -1,16 +1,16 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Badge } from '@/components/ui/badge';
-import { Car, ShoppingBag, Restaurant, Clock, DollarSign, Zap, Plane, Building, GraduationCap } from 'lucide-react';
+import { Car, ShoppingBag, UtensilsCrossed, Clock, DollarSign, Zap, Plane, Building, GraduationCap, X } from 'lucide-react';
 
 interface MapFiltersProps {
   activeFilters: string[];
   onFilterChange: (filters: string[]) => void;
+  onClose: () => void;
 }
 
-const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange }) => {
+const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, onClose }) => {
   const filterCategories = [
     {
       title: "Luxury Amenities",
@@ -66,16 +66,26 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange }
     <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 shadow-lg">
       <div className="flex items-center justify-between mb-6">
         <h3 className="text-lg font-medium text-black tracking-wide">Area Insights</h3>
-        {activeFilters.length > 0 && (
-          <Button 
-            variant="outline" 
-            size="sm" 
-            onClick={clearAllFilters}
-            className="text-xs"
+        <div className="flex items-center gap-2">
+          {activeFilters.length > 0 && (
+            <Button 
+              variant="outline" 
+              size="sm" 
+              onClick={clearAllFilters}
+              className="text-xs"
+            >
+              Clear All
+            </Button>
+          )}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={onClose}
+            className="h-8 w-8 p-0"
           >
-            Clear All
+            <X className="h-4 w-4" />
           </Button>
-        )}
+        </div>
       </div>
 
       <div className="space-y-6">
