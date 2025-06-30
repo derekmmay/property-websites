@@ -20,26 +20,19 @@ const Hero = () => {
           <p className="text-xl md:text-2xl mb-6 opacity-90 font-light tracking-wide">
             Dana Point, California 92660
           </p>
-          <div className="text-5xl md:text-6xl font-light mb-12 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-200 bg-clip-text text-transparent">
+          <div className="text-5xl md:text-6xl font-light mb-12 text-white">
             $13,500,000
           </div>
           <p className="text-lg mb-16 max-w-3xl mx-auto opacity-90 leading-relaxed">
             An extraordinary architectural masterpiece within the exclusive guard-gated community of Monarch Bay, 
             featuring panoramic Pacific Ocean views and unparalleled luxury amenities.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex justify-center">
             <Link to="/contact">
               <Button size="lg" className="luxury-gradient hover:opacity-90 text-white px-12 py-4 text-lg font-light tracking-wide transition-all duration-300 hover:scale-105">
-                Private Viewing
+                Schedule Tour
               </Button>
             </Link>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-12 py-4 text-lg font-light tracking-wide transition-all duration-300 hover:scale-105"
-            >
-              Property Portfolio
-            </Button>
           </div>
         </div>
       </div>
