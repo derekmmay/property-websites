@@ -106,7 +106,7 @@ const Location = () => {
             <Button
               onClick={toggleMapInteractivity}
               variant="outline"
-              className="px-4 py-2 bg-white/90 backdrop-blur-sm border border-gray/20 rounded-full text-sm text-black hover:bg-white transition-all duration-300"
+              className="px-6 py-3 bg-white/95 backdrop-blur-sm border-2 border-black rounded-xl text-sm font-medium text-black hover:bg-black hover:text-white transition-all duration-300 shadow-lg min-h-[48px] touch-manipulation"
             >
               Exit Interactive Mode
             </Button>
