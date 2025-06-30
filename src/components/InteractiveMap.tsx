@@ -20,7 +20,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 }) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [apiKey, setApiKey] = useState<string>('');
+  const [apiKey, setApiKey] = useState<string>('pk.eyJ1IjoiZGVyZWttbWF5IiwiYSI6ImNtY2ptMXcxZjA0cGQybXB2NnphemRhNWkifQ.gBYDOal4M8tAzN7BIo6UTg');
   const [mapInitialized, setMapInitialized] = useState<boolean>(false);
 
   const initializeMap = () => {
@@ -75,7 +75,12 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
     }
   };
 
+  // Auto-initialize the map on component mount with the default API key
   useEffect(() => {
+    if (apiKey && !mapInitialized) {
+      initializeMap();
+    }
+    
     return () => {
       map.current?.remove();
     };
