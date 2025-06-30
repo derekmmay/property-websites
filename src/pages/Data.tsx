@@ -5,6 +5,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MarketOverviewTab from "@/components/data/MarketOverviewTab";
 import PropertyHistoryTab from "@/components/data/PropertyHistoryTab";
 import PropertyDetailsTab from "@/components/data/PropertyDetailsTab";
+import UtilitiesTab from "@/components/data/UtilitiesTab";
 
 const Data = () => {
   return (
@@ -36,10 +37,11 @@ const Data = () => {
       <main className="bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <Tabs defaultValue="overview" className="w-full">
-            <TabsList className="grid w-full grid-cols-3 mb-12">
+            <TabsList className="grid w-full grid-cols-4 mb-12">
               <TabsTrigger value="overview">Market Overview</TabsTrigger>
               <TabsTrigger value="history">Property History</TabsTrigger>
               <TabsTrigger value="details">Property Details</TabsTrigger>
+              <TabsTrigger value="utilities">Utilities</TabsTrigger>
             </TabsList>
 
             <TabsContent value="overview">
@@ -52,6 +54,10 @@ const Data = () => {
 
             <TabsContent value="details">
               <PropertyDetailsTab />
+            </TabsContent>
+
+            <TabsContent value="utilities">
+              <UtilitiesTab />
             </TabsContent>
           </Tabs>
         </div>
