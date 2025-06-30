@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
 import { Badge } from '@/components/ui/badge';
 import { Car, ShoppingBag, UtensilsCrossed, Clock, DollarSign, Zap, Plane, Building, GraduationCap, X } from 'lucide-react';
 
@@ -62,6 +61,15 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
     
     console.log('New filters:', newFilters);
     onFilterChange(newFilters);
+    
+    // Show visual feedback that filter is working
+    const filterElement = document.querySelector(`[data-filter="${filterId}"]`);
+    if (filterElement) {
+      filterElement.classList.add('animate-pulse');
+      setTimeout(() => {
+        filterElement.classList.remove('animate-pulse');
+      }, 200);
+    }
   };
 
   const clearAllFilters = () => {
@@ -98,26 +106,42 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
       <div className="space-y-6">
         {filterCategories.map((category) => {
           const IconComponent = category.icon;
+          const categoryHasActiveFilters = category.filters.some(filter => activeFilters.includes(filter.id));
+          
           return (
             <div key={category.title} className="space-y-3">
               <div className="flex items-center gap-2">
-                <IconComponent className="w-4 h-4 text-gray-600" />
-                <h4 className="text-sm font-medium text-gray-800">{category.title}</h4>
+                <IconComponent className={`w-4 h-4 ${categoryHasActiveFilters ? 'text-black' : 'text-gray-600'}`} />
+                <h4 className={`text-sm font-medium ${categoryHasActiveFilters ? 'text-black' : 'text-gray-800'}`}>
+                  {category.title}
+                  {categoryHasActiveFilters && (
+                    <span className="ml-2 text-xs bg-black text-white px-2 py-1 rounded-full">
+                      {category.filters.filter(f => activeFilters.includes(f.id)).length}
+                    </span>
+                  )}
+                </h4>
               </div>
               <div className="flex flex-wrap gap-3">
-                {category.filters.map((filter) => (
-                  <button
-                    key={filter.id}
-                    onClick={() => handleFilterToggle(filter.id)}
-                    className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer min-h-[44px] touch-manipulation ${
-                      activeFilters.includes(filter.id)
-                        ? 'bg-black text-white shadow-lg scale-105 border-2 border-black'
-                        : 'bg-white text-black border-2 border-black hover:bg-black hover:text-white'
-                    }`}
-                  >
-                    {filter.label}
-                  </button>
-                ))}
+                {category.filters.map((filter) => {
+                  const isActive = activeFilters.includes(filter.id);
+                  return (
+                    <button
+                      key={filter.id}
+                      data-filter={filter.id}
+                      onClick={() => handleFilterToggle(filter.id)}
+                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer min-h-[44px] touch-manipulation ${
+                        isActive
+                          ? 'bg-black text-white shadow-lg scale-105 border-2 border-black'
+                          : 'bg-white text-black border-2 border-black hover:bg-black hover:text-white'
+                      }`}
+                    >
+                      {filter.label}
+                      {isActive && (
+                        <span className="ml-2 text-xs">✓</span>
+                      )}
+                    </button>
+                  );
+                })}
               </div>
             </div>
           );
@@ -126,7 +150,12 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
 
       {activeFilters.length > 0 && (
         <div className="mt-6 pt-4 border-t border-gray-200">
-          <p className="text-xs text-gray-600 mb-2">Active Filters:</p>
+          <div className="flex items-center justify-between mb-2">
+            <p className="text-xs text-gray-600">Active Filters:</p>
+            <span className="text-xs bg-black text-white px-2 py-1 rounded-full">
+              {activeFilters.length}
+            </span>
+          </div>
           <div className="flex flex-wrap gap-1">
             {activeFilters.map((filterId) => {
               const filter = filterCategories
@@ -136,12 +165,19 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
                 <Badge 
                   key={filterId} 
                   variant="secondary" 
-                  className="text-xs px-2 py-1 bg-black text-white"
+                  className="text-xs px-2 py-1 bg-black text-white cursor-pointer hover:bg-gray-800"
+                  onClick={() => handleFilterToggle(filterId)}
                 >
-                  {filter.label}
+                  {filter.label} ✕
                 </Badge>
               ) : null;
             })}
+          </div>
+          <div className="mt-3 p-3 bg-gray-50 rounded-lg">
+            <p className="text-xs text-gray-600 mb-1">Filter Results:</p>
+            <p className="text-sm text-black">
+              Showing {activeFilters.length} filter{activeFilters.length !== 1 ? 's' : ''} applied to the map area.
+            </p>
           </div>
         </div>
       )}
