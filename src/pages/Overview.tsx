@@ -6,6 +6,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import PropertyDescription from "@/components/PropertyDescription";
 import PhotoGallery from "@/components/PhotoGallery";
+import PropertyMap from "@/components/PropertyMap";
 import Footer from "@/components/Footer";
 
 const Overview = () => {
@@ -22,6 +23,7 @@ const Overview = () => {
         <PhotoGallery />
       </div>
       
+      <PropertyMap />
       <Footer />
     </div>
   );
