@@ -15,12 +15,12 @@ const MarketOverviewTab = () => {
                 Dana Point's luxury real estate market has shown remarkable resilience, with waterfront properties like 126 Monarch Bay Drive representing the pinnacle of coastal living. The area has experienced consistent appreciation over the past decade.
               </p>
               <div className="grid grid-cols-2 gap-4 my-6">
-                <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <div className="text-2xl font-bold text-blue-600">$2.8M</div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-black mb-4">$2.8M</div>
                   <div className="text-sm text-gray-600">Neighborhood Median</div>
                 </div>
-                <div className="text-center p-4 bg-green-50 rounded-lg">
-                  <div className="text-2xl font-bold text-green-600">28</div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-black mb-4">28</div>
                   <div className="text-sm text-gray-600">Avg Days on Market</div>
                 </div>
               </div>
@@ -41,12 +41,12 @@ const MarketOverviewTab = () => {
                 This property represents a rare opportunity in one of Southern California's most sought-after coastal enclaves. The recent comprehensive renovation positions it as a modern luxury residence while maintaining its prestigious address.
               </p>
               <div className="grid grid-cols-2 gap-4 my-6">
-                <div className="text-center p-4 bg-purple-50 rounded-lg">
-                  <div className="text-2xl font-bold text-purple-600">$2,476</div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-black mb-4">$2,476</div>
                   <div className="text-sm text-gray-600">Price per Sq Ft</div>
                 </div>
-                <div className="text-center p-4 bg-orange-50 rounded-lg">
-                  <div className="text-2xl font-bold text-orange-600">0.75</div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <div className="text-2xl font-bold text-black mb-4">0.75</div>
                   <div className="text-sm text-gray-600">Acres</div>
                 </div>
               </div>
