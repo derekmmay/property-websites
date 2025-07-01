@@ -68,9 +68,9 @@ const Location = () => {
           activeFilters={activeFilters}
         />
         
-        {/* Map Controls Overlay - Positioned to avoid zoom controls */}
+        {/* Map Controls Overlay - Positioned to avoid zoom controls on the right */}
         {isMapInteractive && showFilters && (
-          <div className="absolute top-20 left-4 z-50 max-w-xs max-h-[calc(100vh-140px)] right-20">
+          <div className="absolute top-20 left-4 z-50 max-w-xs max-h-[calc(100vh-140px)] pr-24">
             <MapFilters 
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}
