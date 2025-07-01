@@ -1,6 +1,6 @@
 
 import { useRef } from 'react';
-import mapboxgl from 'mapboxgl';
+import mapboxgl from 'mapbox-gl';
 import { propertyData, luxuryPOIs, schoolData, getPropertyValueColor } from '@/services/mapDataService';
 
 export const useMapMarkers = () => {

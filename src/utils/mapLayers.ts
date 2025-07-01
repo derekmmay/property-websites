@@ -1,5 +1,5 @@
 
-import mapboxgl from 'mapboxgl';
+import mapboxgl from 'mapbox-gl';
 import { travelTimeIsochrones, getLuxuryHeatmapData } from '@/services/mapDataService';
 
 export const addTravelTimeIsochrones = (map: mapboxgl.Map) => {
