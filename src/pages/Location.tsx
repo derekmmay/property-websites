@@ -69,9 +69,9 @@ const Location = () => {
           activeFilters={activeFilters}
         />
         
-        {/* Map Controls Overlay - Positioned to avoid zoom controls */}
+        {/* Map Controls Overlay - Top Left Corner */}
         {isMapInteractive && showFilters && (
-          <div className="absolute top-20 left-4 z-50 max-w-sm max-h-[calc(100vh-140px)]">
+          <div className="absolute top-6 left-6 z-50 max-w-sm max-h-[calc(100vh-120px)]">
             <MapFilters 
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}
@@ -103,9 +103,9 @@ const Location = () => {
           </div>
         )}
 
-        {/* Interactive Mode Exit Button - Positioned to avoid zoom controls */}
+        {/* Interactive Mode Exit Button - Top Center */}
         {isMapInteractive && (
-          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-50">
             <Button
               onClick={toggleMapInteractivity}
               variant="outline"
