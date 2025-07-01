@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -73,7 +72,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
   const handleCloseClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('Close button clicked - calling onClose');
+    console.log('Close button clicked in MapFilters');
     onClose();
   };
 
