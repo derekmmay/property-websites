@@ -103,9 +103,9 @@ const Location = () => {
           </div>
         )}
 
-        {/* Interactive Mode Exit Button - Top Center */}
+        {/* Interactive Mode Exit Button - Top Center with proper spacing from nav */}
         {isMapInteractive && (
-          <div className="absolute top-6 left-1/2 transform -translate-x-1/2 z-50">
+          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-50">
             <Button
               onClick={toggleMapInteractivity}
               variant="outline"
