@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -70,8 +69,10 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
     onFilterChange([]);
   };
 
-  const handleClose = () => {
-    console.log('Closing filters panel');
+  const handleCloseClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Close button clicked in MapFilters');
     onClose();
   };
 
@@ -93,8 +94,9 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
           <Button
             variant="ghost"
             size="sm"
-            onClick={handleClose}
+            onClick={handleCloseClick}
             className="h-8 w-8 p-0 hover:bg-black hover:text-white transition-colors"
+            type="button"
           >
             <X className="h-4 w-4" />
           </Button>

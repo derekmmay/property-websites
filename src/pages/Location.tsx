@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -49,6 +48,7 @@ const Location = () => {
   };
 
   const handleCloseFilters = () => {
+    console.log('Closing filters from Location component');
     setShowFilters(false);
   };
 
@@ -67,9 +67,9 @@ const Location = () => {
           activeFilters={activeFilters}
         />
         
-        {/* Map Controls Overlay - Only show when interactive mode is on */}
+        {/* Map Controls Overlay - Moved to avoid zoom controls */}
         {isMapInteractive && showFilters && (
-          <div className="absolute top-20 left-4 z-50 max-w-sm max-h-[calc(100vh-140px)]">
+          <div className="absolute top-20 left-4 z-50 max-w-sm max-h-[calc(100vh-140px)] mr-20">
             <MapFilters 
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}
