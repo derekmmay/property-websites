@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -67,9 +68,9 @@ const Location = () => {
           activeFilters={activeFilters}
         />
         
-        {/* Map Controls Overlay - Moved to avoid zoom controls */}
+        {/* Map Controls Overlay - Positioned to avoid zoom controls */}
         {isMapInteractive && showFilters && (
-          <div className="absolute top-20 left-4 z-50 max-w-sm max-h-[calc(100vh-140px)] mr-20">
+          <div className="absolute top-20 left-4 z-50 max-w-xs max-h-[calc(100vh-140px)] right-20">
             <MapFilters 
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}
