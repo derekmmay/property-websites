@@ -24,6 +24,9 @@ export const useAdvancedMapbox = ({
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  
+  // Track all markers for proper cleanup
+  const markersRef = useRef<mapboxgl.Marker[]>([]);
 
   useEffect(() => {
     if (!mapContainer.current || !apiKey.trim()) {
@@ -77,7 +80,7 @@ export const useAdvancedMapbox = ({
             .addTo(map.current);
         }
 
-        setupMapLayers();
+        setupStaticLayers();
       });
 
       map.current.on('style.load', () => {
@@ -98,29 +101,51 @@ export const useAdvancedMapbox = ({
     };
   }, [apiKey, latitude, longitude, zoom, isInteractive]);
 
-  const setupMapLayers = () => {
+  const clearAllMarkers = () => {
+    markersRef.current.forEach(marker => marker.remove());
+    markersRef.current = [];
+  };
+
+  const setupStaticLayers = () => {
     if (!map.current || !isMapLoaded) return;
 
-    // Add property value visualization
-    addPropertyValueLayer();
-    
-    // Add travel time isochrones
+    // Add travel time isochrones (always visible)
     addTravelTimeIsochrones();
     
-    // Add luxury amenities heatmap
-    addLuxuryHeatmap();
-    
-    // Add school markers
-    addSchoolMarkers();
-    
-    // Add 3D buildings
+    // Add 3D buildings (always visible)
     add3DBuildings();
+  };
+
+  const setupFilteredLayers = () => {
+    if (!map.current || !isMapLoaded) return;
+
+    console.log('Setting up filtered layers with filters:', activeFilters);
+    
+    // Clear existing markers
+    clearAllMarkers();
+    
+    // Add property markers if high-income filter is active or no filters
+    if (activeFilters.includes('high-income') || activeFilters.length === 0) {
+      addPropertyValueLayer();
+    }
+    
+    // Add school markers if education filter is active or no filters
+    if (activeFilters.includes('education') || activeFilters.length === 0) {
+      addSchoolMarkers();
+    }
+    
+    // Add luxury POI markers based on their categories
+    addLuxuryPOIMarkers();
+    
+    // Add luxury heatmap (always visible for context)
+    addLuxuryHeatmap();
   };
 
   const addPropertyValueLayer = () => {
     if (!map.current) return;
 
-    // Add property markers with color coding
+    console.log('Adding property value markers');
+    
     propertyData.forEach((property) => {
       const color = getPropertyValueColor(property.price);
       
@@ -144,10 +169,71 @@ export const useAdvancedMapbox = ({
                 }">${property.type.toUpperCase()}</span>
               </div>
             `)
-        );
+        )
+        .addTo(map.current!);
 
-      if (activeFilters.includes('high-income') || activeFilters.length === 0) {
-        marker.addTo(map.current!);
+      markersRef.current.push(marker);
+    });
+  };
+
+  const addSchoolMarkers = () => {
+    if (!map.current) return;
+
+    console.log('Adding school markers');
+    
+    schoolData.forEach((school) => {
+      const color = school.rating >= 9 ? '#22c55e' : school.rating >= 7 ? '#eab308' : '#ef4444';
+      
+      const marker = new mapboxgl.Marker({
+        color: color,
+        scale: 0.7
+      })
+        .setLngLat(school.coordinates)
+        .setPopup(
+          new mapboxgl.Popup({ offset: 15 })
+            .setHTML(`
+              <div class="p-2">
+                <h3 class="font-bold text-sm">${school.name}</h3>
+                <p class="text-xs text-gray-600">${school.type} school</p>
+                <p class="text-xs">Rating: ${school.rating}/10</p>
+                <p class="text-xs">${school.district}</p>
+              </div>
+            `)
+        )
+        .addTo(map.current!);
+
+      markersRef.current.push(marker);
+    });
+  };
+
+  const addLuxuryPOIMarkers = () => {
+    if (!map.current) return;
+
+    console.log('Adding luxury POI markers for filters:', activeFilters);
+    
+    luxuryPOIs.forEach((poi) => {
+      const shouldShow = activeFilters.includes(poi.category) || activeFilters.length === 0;
+      
+      if (shouldShow) {
+        const marker = new mapboxgl.Marker({
+          color: '#000',
+          scale: 0.6
+        })
+          .setLngLat(poi.coordinates)
+          .setPopup(
+            new mapboxgl.Popup({ offset: 15 })
+              .setHTML(`
+                <div class="p-2">
+                  <h3 class="font-bold text-sm">${poi.name}</h3>
+                  <p class="text-xs text-gray-600">${poi.description}</p>
+                  ${poi.rating ? `<p class="text-xs">Rating: ${'★'.repeat(poi.rating)}</p>` : ''}
+                  <p class="text-xs text-blue-600">${poi.category}</p>
+                </div>
+              `)
+          )
+          .addTo(map.current!);
+
+        markersRef.current.push(marker);
       }
     });
   };
@@ -258,56 +344,6 @@ export const useAdvancedMapbox = ({
         }
       });
     }
-
-    // Add luxury POI markers
-    luxuryPOIs.forEach((poi) => {
-      if (activeFilters.includes(poi.category) || activeFilters.length === 0) {
-        const marker = new mapboxgl.Marker({
-          color: '#000',
-          scale: 0.6
-        })
-          .setLngLat(poi.coordinates)
-          .setPopup(
-            new mapboxgl.Popup({ offset: 15 })
-              .setHTML(`
-                <div class="p-2">
-                  <h3 class="font-bold text-sm">${poi.name}</h3>
-                  <p class="text-xs text-gray-600">${poi.description}</p>
-                  ${poi.rating ? `<p class="text-xs">Rating: ${'★'.repeat(poi.rating)}</p>` : ''}
-                </div>
-              `)
-          )
-          .addTo(map.current!);
-      }
-    });
-  };
-
-  const addSchoolMarkers = () => {
-    if (!map.current) return;
-
-    schoolData.forEach((school) => {
-      if (activeFilters.includes('education') || activeFilters.length === 0) {
-        const color = school.rating >= 9 ? '#22c55e' : school.rating >= 7 ? '#eab308' : '#ef4444';
-        
-        const marker = new mapboxgl.Marker({
-          color: color,
-          scale: 0.7
-        })
-          .setLngLat(school.coordinates)
-          .setPopup(
-            new mapboxgl.Popup({ offset: 15 })
-              .setHTML(`
-                <div class="p-2">
-                  <h3 class="font-bold text-sm">${school.name}</h3>
-                  <p class="text-xs text-gray-600">${school.type} school</p>
-                  <p class="text-xs">Rating: ${school.rating}/10</p>
-                  <p class="text-xs">${school.district}</p>
-                </div>
-              `)
-          )
-          .addTo(map.current!);
-      }
-    });
   };
 
   const add3DBuildings = () => {
@@ -368,9 +404,9 @@ export const useAdvancedMapbox = ({
 
   // Update layers based on active filters
   useEffect(() => {
+    console.log('Filter change detected:', activeFilters);
     if (map.current && isMapLoaded) {
-      // Clear existing markers and re-add based on filters
-      setupMapLayers();
+      setupFilteredLayers();
     }
   }, [activeFilters, isMapLoaded]);
 
