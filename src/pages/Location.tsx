@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
@@ -27,6 +28,7 @@ const Location = () => {
   }, [isMapInteractive]);
 
   const toggleMapInteractivity = () => {
+    console.log('Toggle map interactivity clicked, current state:', isMapInteractive);
     const newInteractiveState = !isMapInteractive;
     setIsMapInteractive(newInteractiveState);
     
@@ -67,9 +69,9 @@ const Location = () => {
           activeFilters={activeFilters}
         />
         
-        {/* Map Controls Overlay - Moved to avoid zoom controls */}
+        {/* Map Controls Overlay - Positioned to avoid zoom controls */}
         {isMapInteractive && showFilters && (
-          <div className="absolute top-20 left-4 z-50 max-w-sm max-h-[calc(100vh-140px)] mr-20">
+          <div className="absolute top-20 left-4 z-50 max-w-sm max-h-[calc(100vh-140px)]">
             <MapFilters 
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}
@@ -101,13 +103,14 @@ const Location = () => {
           </div>
         )}
 
-        {/* Interactive Mode Toggle Button - Only show when in interactive mode */}
+        {/* Interactive Mode Exit Button - Positioned to avoid zoom controls */}
         {isMapInteractive && (
-          <div className="absolute top-4 right-4 z-50">
+          <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-50">
             <Button
               onClick={toggleMapInteractivity}
               variant="outline"
               className="px-6 py-3 bg-white/95 backdrop-blur-sm border-2 border-black rounded-xl text-sm font-medium text-black hover:bg-black hover:text-white transition-all duration-300 shadow-lg min-h-[48px] touch-manipulation"
+              type="button"
             >
               Exit Interactive Mode
             </Button>
