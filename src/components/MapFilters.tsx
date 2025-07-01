@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -69,9 +70,14 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
     onFilterChange([]);
   };
 
+  const handleClose = () => {
+    console.log('Closing filters panel');
+    onClose();
+  };
+
   return (
-    <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-6 shadow-lg">
-      <div className="flex items-center justify-between mb-6">
+    <div className="bg-white/95 backdrop-blur-sm border border-white/20 rounded-xl p-4 shadow-lg max-h-[80vh] overflow-y-auto">
+      <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-medium text-black tracking-wide">Area Insights</h3>
         <div className="flex items-center gap-2">
           {activeFilters.length > 0 && (
@@ -87,7 +93,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
           <Button
             variant="ghost"
             size="sm"
-            onClick={onClose}
+            onClick={handleClose}
             className="h-8 w-8 p-0 hover:bg-black hover:text-white transition-colors"
           >
             <X className="h-4 w-4" />
@@ -95,13 +101,13 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
         </div>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {filterCategories.map((category) => {
           const IconComponent = category.icon;
           const categoryHasActiveFilters = category.filters.some(filter => activeFilters.includes(filter.id));
           
           return (
-            <div key={category.title} className="space-y-3">
+            <div key={category.title} className="space-y-2">
               <div className="flex items-center gap-2">
                 <IconComponent className={`w-4 h-4 ${categoryHasActiveFilters ? 'text-black' : 'text-gray-600'}`} />
                 <h4 className={`text-sm font-medium ${categoryHasActiveFilters ? 'text-black' : 'text-gray-800'}`}>
@@ -113,7 +119,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
                   )}
                 </h4>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {category.filters.map((filter) => {
                   const isActive = activeFilters.includes(filter.id);
                   return (
@@ -121,7 +127,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
                       key={filter.id}
                       data-filter={filter.id}
                       onClick={() => handleFilterToggle(filter.id)}
-                      className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer min-h-[44px] touch-manipulation ${
+                      className={`px-3 py-2 rounded-lg text-xs font-medium transition-all duration-200 cursor-pointer min-h-[36px] touch-manipulation ${
                         isActive
                           ? 'bg-black text-white shadow-lg scale-105 border-2 border-black'
                           : 'bg-white text-black border-2 border-black hover:bg-black hover:text-white'
@@ -129,7 +135,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
                     >
                       {filter.label}
                       {isActive && (
-                        <span className="ml-2 text-xs">✓</span>
+                        <span className="ml-1 text-xs">✓</span>
                       )}
                     </button>
                   );
@@ -141,7 +147,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
       </div>
 
       {activeFilters.length > 0 && (
-        <div className="mt-6 pt-4 border-t border-gray-200">
+        <div className="mt-4 pt-3 border-t border-gray-200">
           <div className="flex items-center justify-between mb-2">
             <p className="text-xs text-gray-600">Active Filters:</p>
             <span className="text-xs bg-black text-white px-2 py-1 rounded-full">
@@ -165,9 +171,9 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
               ) : null;
             })}
           </div>
-          <div className="mt-3 p-3 bg-gray-50 rounded-lg">
+          <div className="mt-2 p-2 bg-gray-50 rounded-lg">
             <p className="text-xs text-gray-600 mb-1">Filter Results:</p>
-            <p className="text-sm text-black">
+            <p className="text-xs text-black">
               Showing {activeFilters.length} filter{activeFilters.length !== 1 ? 's' : ''} applied to the map area.
             </p>
           </div>

@@ -69,7 +69,7 @@ const Location = () => {
         
         {/* Map Controls Overlay - Only show when interactive mode is on */}
         {isMapInteractive && showFilters && (
-          <div className="absolute top-20 left-4 z-50 max-w-sm">
+          <div className="absolute top-20 left-4 z-50 max-w-sm max-h-[calc(100vh-140px)]">
             <MapFilters 
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}
