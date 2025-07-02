@@ -110,99 +110,117 @@ const RealTimeWeather = () => {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-light mb-12 text-black text-center">Dana Point Weather</h2>
         
-        {/* Current Weather - Hero Card */}
-        <Card className="border-0 shadow-2xl bg-gradient-to-br from-blue-50 via-white to-blue-50 mb-12 overflow-hidden">
+        {/* Weather Summary Section */}
+        <Card className="border-0 shadow-2xl bg-gradient-to-br from-slate-50 via-white to-blue-50 mb-12 overflow-hidden">
           <CardContent className="p-12">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-8">
-                <div className="p-4 bg-white/50 rounded-full shadow-lg">
+            <div className="text-center mb-8">
+              <div className="flex justify-center mb-6">
+                <div className="p-6 bg-white/80 rounded-full shadow-lg">
                   {getWeatherIcon(weather.condition)}
                 </div>
-                <div>
-                  <div className="text-7xl font-extralight text-black mb-2">
-                    {weather.temperature}°
-                  </div>
-                  <div className="text-xl text-gray-600 capitalize mb-2">
-                    {weather.description}
-                  </div>
-                  <div className="flex items-center text-gray-500">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    <span className="text-sm">Dana Point, California</span>
-                  </div>
-                </div>
               </div>
-              
-              <div className="text-right space-y-3">
-                <div className="text-sm text-gray-500">
-                  {new Date().toLocaleDateString('en-US', { 
-                    weekday: 'long', 
-                    month: 'long', 
-                    day: 'numeric' 
-                  })}
-                </div>
-                <div className="text-xs text-gray-400">
-                  {new Date().toLocaleTimeString('en-US', { 
-                    hour: 'numeric', 
-                    minute: '2-digit',
-                    hour12: true 
-                  })}
-                </div>
+              <div className="text-6xl font-extralight text-black mb-4">
+                {weather.temperature}°F
+              </div>
+              <div className="text-2xl text-gray-600 capitalize mb-2">
+                {weather.description}
+              </div>
+              <div className="flex items-center justify-center text-gray-500 mb-4">
+                <MapPin className="w-4 h-4 mr-2" />
+                <span>Dana Point, California</span>
+              </div>
+              <div className="text-sm text-gray-400">
+                {new Date().toLocaleDateString('en-US', { 
+                  weekday: 'long', 
+                  month: 'long', 
+                  day: 'numeric',
+                  year: 'numeric'
+                })} • {new Date().toLocaleTimeString('en-US', { 
+                  hour: 'numeric', 
+                  minute: '2-digit',
+                  hour12: true 
+                })}
+              </div>
+            </div>
+
+            {/* Quick Summary Stats */}
+            <div className="grid grid-cols-3 gap-8 text-center">
+              <div className="p-4">
+                <Wind className="w-6 h-6 text-blue-500 mx-auto mb-2" />
+                <div className="text-lg font-medium text-black">{weather.windSpeed} mph</div>
+                <div className="text-sm text-gray-500">Wind</div>
+              </div>
+              <div className="p-4">
+                <Droplets className="w-6 h-6 text-cyan-500 mx-auto mb-2" />
+                <div className="text-lg font-medium text-black">{weather.humidity}%</div>
+                <div className="text-sm text-gray-500">Humidity</div>
+              </div>
+              <div className="p-4">
+                <Thermometer className="w-6 h-6 text-orange-500 mx-auto mb-2" />
+                <div className="text-lg font-medium text-black">Perfect</div>
+                <div className="text-sm text-gray-500">Comfort</div>
               </div>
             </div>
           </CardContent>
         </Card>
 
-        {/* Weather Details */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <Card className="border-0 shadow-xl bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
-            <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
-                <Wind className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-light text-black mb-2">{weather.windSpeed} mph</div>
-              <div className="text-gray-600">Ocean Breeze</div>
-              <div className="text-sm text-gray-500 mt-2">Gentle coastal winds</div>
-            </CardContent>
-          </Card>
-          
-          <Card className="border-0 shadow-xl bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
-            <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
-                <Droplets className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-light text-black mb-2">{weather.humidity}%</div>
-              <div className="text-gray-600">Humidity</div>
-              <div className="text-sm text-gray-500 mt-2">Comfortable moisture levels</div>
-            </CardContent>
-          </Card>
-          
-          <Card className="border-0 shadow-xl bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
-            <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
-                <Thermometer className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-3xl font-light text-black mb-2">{weather.temperature}°F</div>
-              <div className="text-gray-600">Perfect Climate</div>
-              <div className="text-sm text-gray-500 mt-2">Year-round comfort</div>
-            </CardContent>
-          </Card>
+        {/* Current Weather Details */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-light text-black mb-8 text-center">Current Conditions</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-xl bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center">
+                  <Wind className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-3xl font-light text-black mb-2">{weather.windSpeed} mph</div>
+                <div className="text-gray-600 font-medium">Ocean Breeze</div>
+                <div className="text-sm text-gray-500 mt-2">Gentle coastal winds from the Pacific</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-0 shadow-xl bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
+                  <Droplets className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-3xl font-light text-black mb-2">{weather.humidity}%</div>
+                <div className="text-gray-600 font-medium">Humidity</div>
+                <div className="text-sm text-gray-500 mt-2">Comfortable moisture levels</div>
+              </CardContent>
+            </Card>
+            
+            <Card className="border-0 shadow-xl bg-white/95 backdrop-blur-sm hover:shadow-2xl transition-all duration-300">
+              <CardContent className="p-8 text-center">
+                <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center">
+                  <Thermometer className="w-8 h-8 text-white" />
+                </div>
+                <div className="text-3xl font-light text-black mb-2">{weather.temperature}°F</div>
+                <div className="text-gray-600 font-medium">Temperature</div>
+                <div className="text-sm text-gray-500 mt-2">Ideal for outdoor activities</div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
-        {/* Climate Highlights */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-light text-black mb-8">Mediterranean Excellence</h3>
+        {/* Climate Excellence Stats */}
+        <div className="text-center">
+          <h3 className="text-2xl font-light text-black mb-8">Mediterranean Climate Excellence</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-6">
+            <div className="p-6 bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl">
               <div className="text-4xl font-extralight text-black mb-2">275+</div>
-              <div className="text-gray-600">Sunny Days Per Year</div>
+              <div className="text-gray-600 font-medium">Sunny Days</div>
+              <div className="text-sm text-gray-500 mt-1">Per Year</div>
             </div>
-            <div className="p-6">
+            <div className="p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl">
               <div className="text-4xl font-extralight text-black mb-2">77°F</div>
-              <div className="text-gray-600">Average High Temperature</div>
+              <div className="text-gray-600 font-medium">Average High</div>
+              <div className="text-sm text-gray-500 mt-1">Year Round</div>
             </div>
-            <div className="p-6">
+            <div className="p-6 bg-gradient-to-br from-slate-50 to-gray-50 rounded-2xl">
               <div className="text-4xl font-extralight text-black mb-2">50°F</div>
-              <div className="text-gray-600">Average Low Temperature</div>
+              <div className="text-gray-600 font-medium">Average Low</div>
+              <div className="text-sm text-gray-500 mt-1">Comfortable Nights</div>
             </div>
           </div>
         </div>
