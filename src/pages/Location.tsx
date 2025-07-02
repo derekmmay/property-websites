@@ -86,21 +86,21 @@ const Location = () => {
         {!isMapInteractive && (
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none">
             <div className="text-center text-white z-10 max-w-4xl mx-auto px-4 pointer-events-auto">
-              <div className="mb-8">
-                <Button
-                  onClick={toggleMapInteractivity}
-                  variant="outline"
-                  className="px-6 py-2 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8 transition-all duration-300 bg-black/50 text-white hover:bg-black/70"
-                >
-                  Explore Interactive Map
-                </Button>
-              </div>
               <h1 className="text-6xl md:text-8xl font-extralight mb-12 tracking-[-0.02em] leading-none">
                 Unrivaled Location
               </h1>
               <p className="text-2xl md:text-3xl mb-8 font-light tracking-wide">
                 Dana Point's Most Exclusive Address
               </p>
+              <div className="mb-8">
+                <Button
+                  onClick={toggleMapInteractivity}
+                  variant="outline"
+                  className="px-6 py-2 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase transition-all duration-300 bg-black/50 text-white hover:bg-black/70"
+                >
+                  Explore Interactive Map
+                </Button>
+              </div>
             </div>
           </div>
         )}
