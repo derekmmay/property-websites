@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
 import MapFilters from "@/components/MapFilters";
@@ -9,6 +10,7 @@ import { MapPin, Clock, Car, Plane, Shield, Waves } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Location = () => {
+  const navigate = useNavigate();
   const [isMapInteractive, setIsMapInteractive] = useState(false);
   const [activeFilters, setActiveFilters] = useState<string[]>([]);
   const [showFilters, setShowFilters] = useState(false);
@@ -38,10 +40,6 @@ const Location = () => {
     } else {
       setShowFilters(false);
       setActiveFilters([]); // Clear filters when disabling interactive mode
-      // Navigate to location page when exiting interactive mode if we're not already there
-      if (window.location.pathname !== '/location') {
-        window.location.href = '/location';
-      }
     }
   };
 
