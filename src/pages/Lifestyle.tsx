@@ -56,40 +56,40 @@ const Lifestyle = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             <div className="relative h-80 rounded-2xl overflow-hidden group">
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Luxury coastal living"
+                src="https://images.unsplash.com/photo-1625029117304-2f0299e7b544?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Dana Point coastline"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
               <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-lg font-medium mb-1">Ocean Views</h3>
-                <p className="text-sm opacity-90">Wake up to endless Pacific horizons</p>
+                <h3 className="text-lg font-medium mb-1">Pacific Coastline</h3>
+                <p className="text-sm opacity-90">Pristine Dana Point beaches</p>
               </div>
             </div>
             
             <div className="relative h-80 rounded-2xl overflow-hidden group">
               <img 
-                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Marina lifestyle"
+                src="https://images.unsplash.com/photo-1596484552834-6a58f850e0a1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Harbor and marina lifestyle"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
               <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-lg font-medium mb-1">Harbor Living</h3>
-                <p className="text-sm opacity-90">Waterfront luxury at your doorstep</p>
+                <h3 className="text-lg font-medium mb-1">Dana Point Harbor</h3>
+                <p className="text-sm opacity-90">World-class marina lifestyle</p>
               </div>
             </div>
             
             <div className="relative h-80 rounded-2xl overflow-hidden group">
               <img 
-                src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                alt="Luxury dining"
+                src="https://images.unsplash.com/photo-1496104004320-65356cee6048?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                alt="Beach community lifestyle"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
               <div className="absolute bottom-6 left-6 text-white">
-                <h3 className="text-lg font-medium mb-1">Culinary Scene</h3>
-                <p className="text-sm opacity-90">World-class dining experiences</p>
+                <h3 className="text-lg font-medium mb-1">Beach Community</h3>
+                <p className="text-sm opacity-90">Active coastal living</p>
               </div>
             </div>
           </div>
