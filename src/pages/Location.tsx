@@ -127,7 +127,7 @@ const Location = () => {
           <div className="bg-gray-50 py-20">
             <div className="max-w-5xl mx-auto px-4">
               <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Seamless Connectivity</h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
                 <div className="text-center">
                   <div className="text-4xl font-extralight text-black mb-4">2 min</div>
                   <p className="text-gray-600 font-light">Beach Access</p>
@@ -137,12 +137,16 @@ const Location = () => {
                   <p className="text-gray-600 font-light">John Wayne Airport</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extralight text-black mb-4">45 min</div>
-                  <p className="text-gray-600 font-light">Beverly Hills</p>
+                  <div className="text-4xl font-extralight text-black mb-4">60 min</div>
+                  <p className="text-gray-600 font-light">LAX International</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extralight text-black mb-4">60 min</div>
-                  <p className="text-gray-600 font-light">LAX Airport</p>
+                  <div className="text-4xl font-extralight text-black mb-4">25 min</div>
+                  <p className="text-gray-600 font-light">Fashion Island Mall</p>
+                </div>
+                <div className="text-center">
+                  <div className="text-4xl font-extralight text-black mb-4">30 min</div>
+                  <p className="text-gray-600 font-light">Michelin Star Dining</p>
                 </div>
               </div>
             </div>
