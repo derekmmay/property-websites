@@ -127,48 +127,56 @@ const Location = () => {
           <div className="bg-gray-50 py-20">
             <div className="max-w-5xl mx-auto px-4">
               <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Seamless Connectivity</h2>
-              <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Waves className="w-8 h-8 text-white" />
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Waves className="w-10 h-10 text-white" />
                   </div>
-                  <div className="text-3xl font-extralight text-black mb-2">2 min</div>
-                  <p className="text-gray-600 font-light text-sm">Beach Access</p>
+                  <h3 className="text-2xl font-light text-black mb-4">Beach Access</h3>
+                  <div className="text-3xl font-extralight text-black mb-4">2 min</div>
+                  <p className="text-gray-600 font-light leading-relaxed">Private beach access, world-class surfing, and exclusive waterfront activities just steps away.</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Plane className="w-8 h-8 text-white" />
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Plane className="w-10 h-10 text-white" />
                   </div>
-                  <div className="text-3xl font-extralight text-black mb-2">20 min</div>
-                  <p className="text-gray-600 font-light text-sm">John Wayne Airport</p>
+                  <h3 className="text-2xl font-light text-black mb-4">John Wayne Airport</h3>
+                  <div className="text-3xl font-extralight text-black mb-4">20 min</div>
+                  <p className="text-gray-600 font-light leading-relaxed">Orange County's premier airport with direct flights to major business hubs and luxury destinations.</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Plane className="w-8 h-8 text-white" />
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Plane className="w-10 h-10 text-white" />
                   </div>
-                  <div className="text-3xl font-extralight text-black mb-2">60 min</div>
-                  <p className="text-gray-600 font-light text-sm">LAX International</p>
+                  <h3 className="text-2xl font-light text-black mb-4">LAX International</h3>
+                  <div className="text-3xl font-extralight text-black mb-4">60 min</div>
+                  <p className="text-gray-600 font-light leading-relaxed">Global connectivity through Los Angeles International Airport with worldwide luxury travel options.</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="text-center">
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <ShoppingBag className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-light text-black mb-4">Fashion Island Mall</h3>
+                  <div className="text-3xl font-extralight text-black mb-4">25 min</div>
+                  <p className="text-gray-600 font-light leading-relaxed">Newport Beach's luxury shopping destination featuring high-end boutiques and exclusive designer stores.</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                    <ShoppingBag className="w-8 h-8 text-white" />
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <UtensilsCrossed className="w-10 h-10 text-white" />
                   </div>
-                  <div className="text-3xl font-extralight text-black mb-2">25 min</div>
-                  <p className="text-gray-600 font-light text-sm">Fashion Island Mall</p>
+                  <h3 className="text-2xl font-light text-black mb-4">Michelin Star Dining</h3>
+                  <div className="text-3xl font-extralight text-black mb-4">30 min</div>
+                  <p className="text-gray-600 font-light leading-relaxed">World-renowned culinary experiences and award-winning restaurants throughout Orange County.</p>
                 </div>
                 <div className="text-center">
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                    <UtensilsCrossed className="w-8 h-8 text-white" />
+                  <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
+                    <Headphones className="w-10 h-10 text-white" />
                   </div>
-                  <div className="text-3xl font-extralight text-black mb-2">30 min</div>
-                  <p className="text-gray-600 font-light text-sm">Michelin Star Dining</p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Headphones className="w-8 h-8 text-white" />
-                  </div>
-                  <div className="text-3xl font-extralight text-black mb-2">15 min</div>
-                  <p className="text-gray-600 font-light text-sm">Private Concierge</p>
+                  <h3 className="text-2xl font-light text-black mb-4">Private Concierge</h3>
+                  <div className="text-3xl font-extralight text-black mb-4">15 min</div>
+                  <p className="text-gray-600 font-light leading-relaxed">Exclusive lifestyle management and personalized services available through luxury concierge providers.</p>
                 </div>
               </div>
             </div>
