@@ -101,15 +101,6 @@ const Location = () => {
                 Experience seamless connectivity to Southern California's finest destinations, 
                 from pristine beaches to world-class amenities, all within minutes of your doorstep.
               </p>
-              <div className="mb-8">
-                <Button
-                  onClick={toggleMapInteractivity}
-                  variant="outline"
-                  className="px-6 py-2 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase transition-all duration-300 bg-black/50 text-white hover:bg-black/70"
-                >
-                  Explore Interactive Map
-                </Button>
-              </div>
             </div>
           </div>
         )}
