@@ -16,45 +16,45 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
       title: "Convenience",
       icon: Car,
       filters: [
-        { id: "groceries", label: "Groceries", color: "bg-black" },
-        { id: "ev-chargers", label: "EV Chargers", color: "bg-black" },
-        { id: "airports", label: "Airports", color: "bg-black" }
+        { id: "grocery", label: "Groceries", color: "bg-black" },
+        { id: "gas_station", label: "Gas Stations", color: "bg-black" },
+        { id: "hospital", label: "Hospitals", color: "bg-black" }
       ]
     },
     {
-      title: "Luxury",
+      title: "Hospitality",
       icon: DollarSign,
       filters: [
-        { id: "luxury-shopping", label: "Shopping", color: "bg-black" },
-        { id: "luxury-hotels", label: "Resorts", color: "bg-black" },
-        { id: "marinas", label: "Private Marinas", color: "bg-black" }
+        { id: "lodging", label: "Hotels", color: "bg-black" },
+        { id: "tourist_attraction", label: "Attractions", color: "bg-black" },
+        { id: "bank", label: "Banks", color: "bg-black" }
       ]
     },
     {
-      title: "Leisure",
+      title: "Recreation",
       icon: Clock,
       filters: [
-        { id: "golf-courses", label: "Golf Courses", color: "bg-black" },
-        { id: "leisure-shopping", label: "Shopping", color: "bg-black" },
-        { id: "luxury-spas", label: "Spas", color: "bg-black" }
+        { id: "golf_course", label: "Golf Courses", color: "bg-black" },
+        { id: "park", label: "Parks", color: "bg-black" },
+        { id: "gym", label: "Fitness", color: "bg-black" }
       ]
     },
     {
       title: "Dining",
       icon: UtensilsCrossed,
       filters: [
-        { id: "dinner", label: "Dinner", color: "bg-black" },
-        { id: "drinks", label: "Drinks", color: "bg-black" },
-        { id: "coffee", label: "Coffee", color: "bg-black" }
+        { id: "restaurant", label: "Restaurants", color: "bg-black" },
+        { id: "bar", label: "Bars", color: "bg-black" },
+        { id: "cafe", label: "Cafes", color: "bg-black" }
       ]
     },
     {
-      title: "Schools",
+      title: "Education",
       icon: GraduationCap,
       filters: [
-        { id: "elementary", label: "Elementary", color: "bg-black" },
-        { id: "jr-high", label: "Jr. High", color: "bg-black" },
-        { id: "high-school", label: "High School", color: "bg-black" }
+        { id: "school", label: "Schools", color: "bg-black" },
+        { id: "university", label: "Universities", color: "bg-black" },
+        { id: "library", label: "Libraries", color: "bg-black" }
       ]
     }
   ];

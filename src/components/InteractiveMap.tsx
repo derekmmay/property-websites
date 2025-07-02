@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useSimpleMapbox } from '@/hooks/useSimpleMapbox';
-import { addLuxuryHeatmap } from '@/utils/mapLayers';
 import { useMapMarkers } from '@/hooks/useMapMarkers';
 
 interface InteractiveMapProps {
@@ -35,48 +34,34 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   const { 
     clearAllMarkers, 
     addPropertyValueMarkers, 
-    addSchoolMarkers, 
-    addLuxuryPOIMarkers 
+    addPOIMarkers 
   } = useMapMarkers();
 
-  // Only add layers when filters are active
+  // Add markers when filters are active
   useEffect(() => {
-    if (!map || !isMapReady || activeFilters.length === 0) {
-      // Clear any existing markers when no filters are active
-      if (map && isMapReady && activeFilters.length === 0) {
-        console.log('Clearing all markers due to no active filters');
-        clearAllMarkers();
-      }
-      return;
-    }
+    if (!map || !isMapReady) return;
 
-    console.log('Adding layers for active filters:', activeFilters);
+    console.log('Adding markers for active filters:', activeFilters);
     
     // Clear existing markers first
     clearAllMarkers();
     
-    // Add markers based on active filters
+    if (activeFilters.length === 0) {
+      console.log('No active filters, clearing all markers');
+      return;
+    }
+    
+    // Add property value markers if high-income filter is active
     if (activeFilters.includes('high-income')) {
       addPropertyValueMarkers(map);
     }
     
-    if (activeFilters.includes('education')) {
-      addSchoolMarkers(map);
+    // Add POI markers for all other filters
+    const poiFilters = activeFilters.filter(filter => filter !== 'high-income');
+    if (poiFilters.length > 0) {
+      addPOIMarkers(map, poiFilters);
     }
-    
-    // Add luxury POI markers based on their categories
-    addLuxuryPOIMarkers(map, activeFilters);
-    
-    // Add luxury heatmap only if luxury filters are active
-    const luxuryFilters = ['luxury-hotels', 'private-clubs', 'luxury-spas', 'marinas', 'fine-dining', 'golf-courses'];
-    if (activeFilters.some(filter => luxuryFilters.includes(filter))) {
-      try {
-        addLuxuryHeatmap(map);
-      } catch (error) {
-        console.log('Heatmap already exists or style not ready:', error);
-      }
-    }
-  }, [activeFilters, map, isMapReady]);
+  }, [activeFilters, map, isMapReady, clearAllMarkers, addPropertyValueMarkers, addPOIMarkers]);
 
   return (
     <div className={className}>

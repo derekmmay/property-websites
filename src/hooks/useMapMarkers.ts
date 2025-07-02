@@ -1,7 +1,8 @@
 
 import { useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
-import { propertyData, luxuryPOIs, schoolData, getPropertyValueColor } from '@/services/mapDataService';
+import { propertyData, getPropertyValueColor } from '@/services/mapDataService';
+import { searchPOIs, getCategoryColor, getCategoryIcon } from '@/services/mapboxPOIService';
 
 export const useMapMarkers = () => {
   const markersRef = useRef<mapboxgl.Marker[]>([]);
@@ -45,68 +46,65 @@ export const useMapMarkers = () => {
     });
   };
 
-  const addSchoolMarkers = (map: mapboxgl.Map) => {
-    console.log('Adding school markers');
+  const addPOIMarkers = async (map: mapboxgl.Map, activeFilters: string[]) => {
+    console.log('Adding POI markers for filters:', activeFilters);
     
-    schoolData.forEach((school) => {
-      const color = school.rating >= 9 ? '#22c55e' : school.rating >= 7 ? '#eab308' : '#ef4444';
-      
-      const marker = new mapboxgl.Marker({
-        color: color,
-        scale: 0.7
-      })
-        .setLngLat(school.coordinates)
-        .setPopup(
-          new mapboxgl.Popup({ offset: 15 })
-            .setHTML(`
-              <div class="p-2">
-                <h3 class="font-bold text-sm">${school.name}</h3>
-                <p class="text-xs text-gray-600">${school.type} school</p>
-                <p class="text-xs">Rating: ${school.rating}/10</p>
-                <p class="text-xs">${school.district}</p>
-              </div>
-            `)
-        )
-        .addTo(map);
-
-      markersRef.current.push(marker);
-    });
-  };
-
-  const addLuxuryPOIMarkers = (map: mapboxgl.Map, activeFilters: string[]) => {
-    console.log('Adding luxury POI markers for filters:', activeFilters);
+    if (activeFilters.length === 0) return;
     
-    luxuryPOIs.forEach((poi) => {
-      const shouldShow = activeFilters.includes(poi.category) || activeFilters.length === 0;
-      
-      if (shouldShow) {
-        const marker = new mapboxgl.Marker({
-          color: '#000',
-          scale: 0.6
-        })
-          .setLngLat(poi.coordinates)
-          .setPopup(
-            new mapboxgl.Popup({ offset: 15 })
-              .setHTML(`
-                <div class="p-2">
-                  <h3 class="font-bold text-sm">${poi.name}</h3>
-                  <p class="text-xs text-gray-600">${poi.description}</p>
-                  ${poi.rating ? `<p class="text-xs">Rating: ${'★'.repeat(poi.rating)}</p>` : ''}
-                  <p class="text-xs text-blue-600">${poi.category}</p>
-                </div>
-              `)
-          )
-          .addTo(map);
+    const center: [number, number] = [-117.7018, 33.4734]; // Dana Point coordinates
+    
+    // Search for POIs for each active filter
+    for (const filter of activeFilters) {
+      try {
+        const pois = await searchPOIs(map, filter, center);
+        console.log(`Found ${pois.length} POIs for ${filter}`);
+        
+        pois.forEach((poi) => {
+          const color = getCategoryColor(poi.category);
+          const icon = getCategoryIcon(poi.category);
+          
+          // Create custom marker element
+          const el = document.createElement('div');
+          el.className = 'custom-marker';
+          el.style.width = '30px';
+          el.style.height = '30px';
+          el.style.borderRadius = '50%';
+          el.style.backgroundColor = color;
+          el.style.border = '2px solid white';
+          el.style.display = 'flex';
+          el.style.alignItems = 'center';
+          el.style.justifyContent = 'center';
+          el.style.fontSize = '14px';
+          el.textContent = icon;
+          
+          const marker = new mapboxgl.Marker({ element: el })
+            .setLngLat(poi.coordinates)
+            .setPopup(
+              new mapboxgl.Popup({ offset: 15 })
+                .setHTML(`
+                  <div class="p-3">
+                    <h3 class="font-bold text-sm mb-1">${poi.name}</h3>
+                    ${poi.address ? `<p class="text-xs text-gray-600 mb-1">${poi.address}</p>` : ''}
+                    ${poi.phone ? `<p class="text-xs text-gray-600 mb-1">${poi.phone}</p>` : ''}
+                    <span class="inline-block text-xs px-2 py-1 rounded bg-gray-100 text-gray-800 capitalize">
+                      ${poi.category.replace('_', ' ')}
+                    </span>
+                  </div>
+                `)
+            )
+            .addTo(map);
 
-        markersRef.current.push(marker);
+          markersRef.current.push(marker);
+        });
+      } catch (error) {
+        console.error(`Error adding markers for ${filter}:`, error);
       }
-    });
+    }
   };
 
   return {
     clearAllMarkers,
     addPropertyValueMarkers,
-    addSchoolMarkers,
-    addLuxuryPOIMarkers
+    addPOIMarkers
   };
 };

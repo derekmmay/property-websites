@@ -31,8 +31,7 @@ export const useAdvancedMapbox = ({
   const { 
     clearAllMarkers, 
     addPropertyValueMarkers, 
-    addSchoolMarkers, 
-    addLuxuryPOIMarkers 
+    addPOIMarkers 
   } = useMapMarkers();
 
   useEffect(() => {
@@ -102,28 +101,28 @@ export const useAdvancedMapbox = ({
     add3DBuildings(map.current);
   };
 
-  const setupFilteredLayers = () => {
+  const setupFilteredLayers = async () => {
     if (!map.current || !isMapLoaded || !isStyleLoaded) return;
 
     console.log('Setting up filtered layers with filters:', activeFilters);
     
     clearAllMarkers();
     
-    // Add property markers if high-income filter is active or no filters
-    if (activeFilters.includes('high-income') || activeFilters.length === 0) {
+    if (activeFilters.length === 0) {
+      console.log('No active filters, clearing all markers');
+      return;
+    }
+    
+    // Add property markers if high-income filter is active
+    if (activeFilters.includes('high-income')) {
       addPropertyValueMarkers(map.current);
     }
     
-    // Add school markers if education filter is active or no filters
-    if (activeFilters.includes('education') || activeFilters.length === 0) {
-      addSchoolMarkers(map.current);
+    // Add POI markers for all other filters
+    const poiFilters = activeFilters.filter(filter => filter !== 'high-income');
+    if (poiFilters.length > 0) {
+      await addPOIMarkers(map.current, poiFilters);
     }
-    
-    // Add luxury POI markers based on their categories
-    addLuxuryPOIMarkers(map.current, activeFilters);
-    
-    // Add luxury heatmap (always visible for context)
-    addLuxuryHeatmap(map.current);
   };
 
   // Setup static layers when style loads
