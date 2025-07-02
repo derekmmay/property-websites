@@ -2,8 +2,13 @@ import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const PhotoGallery = () => {
+interface PhotoGalleryProps {
+  showLimited?: boolean;
+}
+
+const PhotoGallery = ({ showLimited = false }: PhotoGalleryProps) => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -173,7 +178,7 @@ const PhotoGallery = () => {
 
         {/* Scattered Grid Layout with Flutter Animations */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[200px]">
-          {photos.slice(1, 16).map((photo, index) => {
+          {photos.slice(1, showLimited ? 9 : 16).map((photo, index) => {
             const actualIndex = index + 1; // Adjust for sliced array
             const gridClasses = [
               "col-span-6 row-span-2", // Large
@@ -235,6 +240,20 @@ const PhotoGallery = () => {
             );
           })}
         </div>
+
+        {/* View All Button - Only show when limited */}
+        {showLimited && (
+          <div className="text-center mt-16">
+            <Link to="/visuals">
+              <Button 
+                size="lg" 
+                className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-lg font-light tracking-wide transition-all duration-300 hover:scale-105 shadow-xl"
+              >
+                View All Visuals
+              </Button>
+            </Link>
+          </div>
+        )}
 
         {/* Lightbox Modal */}
         {selectedImage !== null && (

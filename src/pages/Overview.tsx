@@ -11,7 +11,7 @@ const Overview = () => {
       <Navigation />
       <Hero />
       <PropertyDescription />
-      <PhotoGallery />
+      <PhotoGallery showLimited={true} />
       <Footer />
     </div>
   );
