@@ -16,19 +16,24 @@ export const searchPOIs = async (
   radius: number = 5000
 ): Promise<POIResult[]> => {
   try {
+    const url = `https://api.mapbox.com/search/searchbox/v1/suggest?q=${category}&proximity=${center[0]},${center[1]}&limit=10&access_token=${mapboxgl.accessToken}`;
+    console.log(`Fetching POIs for ${category} with URL:`, url);
+    
     // Use Mapbox Search API to find POIs
-    const response = await fetch(
-      `https://api.mapbox.com/search/searchbox/v1/suggest?q=${category}&proximity=${center[0]},${center[1]}&limit=10&access_token=${mapboxgl.accessToken}`
-    );
+    const response = await fetch(url);
+    
+    console.log(`Response status for ${category}:`, response.status);
     
     if (!response.ok) {
-      console.warn(`Failed to fetch POIs for ${category}`);
+      const errorText = await response.text();
+      console.error(`Failed to fetch POIs for ${category}:`, response.status, errorText);
       return [];
     }
     
     const data = await response.json();
+    console.log(`Raw data for ${category}:`, data);
     
-    return data.suggestions
+    const results = data.suggestions
       ?.filter((item: any) => item.feature_type === 'poi')
       ?.map((item: any) => ({
         id: item.mapbox_id || `${category}-${Math.random()}`,
@@ -38,6 +43,9 @@ export const searchPOIs = async (
         address: item.full_address,
         phone: item.metadata?.phone
       })) || [];
+    
+    console.log(`Processed POI results for ${category}:`, results);
+    return results;
   } catch (error) {
     console.error(`Error fetching POIs for ${category}:`, error);
     return [];
