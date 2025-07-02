@@ -26,6 +26,7 @@ export const useAdvancedMapbox = ({
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const [isMapLoaded, setIsMapLoaded] = useState(false);
+  const [isStyleLoaded, setIsStyleLoaded] = useState(false);
   
   const { 
     clearAllMarkers, 
@@ -75,6 +76,8 @@ export const useAdvancedMapbox = ({
       });
 
       map.current.on('style.load', () => {
+        console.log('Map style loaded');
+        setIsStyleLoaded(true);
         if (map.current) {
           map.current.setFog(MAP_CONFIG.fog);
         }
@@ -93,14 +96,14 @@ export const useAdvancedMapbox = ({
   }, [apiKey, latitude, longitude, zoom, isInteractive]);
 
   const setupStaticLayers = () => {
-    if (!map.current || !isMapLoaded) return;
+    if (!map.current || !isMapLoaded || !isStyleLoaded) return;
 
     addTravelTimeIsochrones(map.current);
     add3DBuildings(map.current);
   };
 
   const setupFilteredLayers = () => {
-    if (!map.current || !isMapLoaded) return;
+    if (!map.current || !isMapLoaded || !isStyleLoaded) return;
 
     console.log('Setting up filtered layers with filters:', activeFilters);
     
@@ -123,6 +126,13 @@ export const useAdvancedMapbox = ({
     addLuxuryHeatmap(map.current);
   };
 
+  // Setup static layers when style loads
+  useEffect(() => {
+    if (isStyleLoaded) {
+      setupStaticLayers();
+    }
+  }, [isStyleLoaded]);
+
   // Update map interactivity
   useEffect(() => {
     if (map.current) {
@@ -133,10 +143,10 @@ export const useAdvancedMapbox = ({
   // Update layers based on active filters
   useEffect(() => {
     console.log('Filter change detected:', activeFilters);
-    if (map.current && isMapLoaded) {
+    if (map.current && isMapLoaded && isStyleLoaded) {
       setupFilteredLayers();
     }
-  }, [activeFilters, isMapLoaded]);
+  }, [activeFilters, isMapLoaded, isStyleLoaded]);
 
   const flyToLocation = (coordinates: [number, number], zoom: number = 16) => {
     if (map.current) {
