@@ -85,12 +85,21 @@ const Location = () => {
         {/* Main Overlay content - Only show when NOT in interactive mode */}
         {!isMapInteractive && (
           <div className="absolute inset-0 bg-black/20 flex items-center justify-center pointer-events-none">
-            <div className="text-center text-white z-10 max-w-4xl mx-auto px-4 pointer-events-auto">
-              <h1 className="text-6xl md:text-8xl font-extralight mb-12 tracking-[-0.02em] leading-none">
+            <div className="text-center text-white z-10 max-w-6xl mx-auto px-4 pointer-events-auto">
+              <div className="mb-8">
+                <span className="inline-block px-6 py-2 bg-black/30 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8">
+                  Premium Location
+                </span>
+              </div>
+              <h1 className="text-7xl md:text-9xl font-extralight mb-12 tracking-[-0.02em] leading-none">
                 Unrivaled Location
               </h1>
-              <p className="text-2xl md:text-3xl mb-8 font-light tracking-wide">
+              <p className="text-2xl md:text-3xl mb-8 font-light tracking-wide opacity-95">
                 Dana Point's Most Exclusive Address
+              </p>
+              <p className="text-lg mb-16 max-w-4xl mx-auto opacity-90 leading-relaxed font-light">
+                Experience seamless connectivity to Southern California's finest destinations, 
+                from pristine beaches to world-class amenities, all within minutes of your doorstep.
               </p>
               <div className="mb-8">
                 <Button

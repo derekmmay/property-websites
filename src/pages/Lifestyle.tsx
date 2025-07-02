@@ -15,7 +15,7 @@ const Lifestyle = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')`
           }}
         />
         
@@ -40,13 +40,38 @@ const Lifestyle = () => {
         </div>
       </div>
 
+      {/* Lifestyle Stats Section */}
+      <div className="bg-gray-50 py-20">
+        <div className="max-w-5xl mx-auto px-4">
+          <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Coastal Living Excellence</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-4xl font-extralight text-black mb-4">275+</div>
+              <p className="text-gray-600 font-light">Sunny Days Per Year</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-extralight text-black mb-4">5-Star</div>
+              <p className="text-gray-600 font-light">Resort Amenities</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-extralight text-black mb-4">2 min</div>
+              <p className="text-gray-600 font-light">To Private Beach</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-extralight text-black mb-4">Year-Round</div>
+              <p className="text-gray-600 font-light">Perfect Climate</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-24">
         
         {/* Living Experience Section */}
         <div className="mb-32">
           <div className="text-center mb-20">
-            <h2 className="text-5xl font-light text-black mb-8 tracking-wide">Living in Dana Point</h2>
+            <h2 className="text-4xl font-light text-black mb-8 tracking-wide">Living in Dana Point</h2>
             <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto leading-relaxed">
               Experience the refined elegance of coastal California living, where every day feels like a retreat.
             </p>
@@ -97,7 +122,7 @@ const Lifestyle = () => {
 
         {/* Lifestyle Categories */}
         <div className="text-center mb-32">
-          <h2 className="text-5xl font-light text-black mb-20 tracking-wide">Daily Experiences</h2>
+          <h2 className="text-4xl font-light text-black mb-20 tracking-wide">Daily Experiences</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
             <div className="text-center group">
               <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-8 group-hover:bg-gray-800 transition-colors duration-300">
