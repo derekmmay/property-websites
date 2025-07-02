@@ -5,11 +5,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Routes, Route } from "react-router-dom";
 import Overview from "./pages/Overview";
-import Location from "./pages/Location";
-import Lifestyle from "./pages/Lifestyle";
-import Schools from "./pages/Schools";
-import Data from "./pages/Data";
-import Contact from "./pages/Contact";
+import Visuals from "./pages/Contact";
+import Locale from "./pages/Lifestyle";
+import Proximity from "./pages/Location";
+import Education from "./pages/Schools";
+import Insights from "./pages/Data";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -21,11 +21,11 @@ const App = () => (
       <Sonner />
       <Routes>
         <Route path="/" element={<Overview />} />
-        <Route path="/location" element={<Location />} />
-        <Route path="/lifestyle" element={<Lifestyle />} />
-        <Route path="/schools" element={<Schools />} />
-        <Route path="/data" element={<Data />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/visuals" element={<Visuals />} />
+        <Route path="/locale" element={<Locale />} />
+        <Route path="/proximity" element={<Proximity />} />
+        <Route path="/education" element={<Education />} />
+        <Route path="/insights" element={<Insights />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </TooltipProvider>
