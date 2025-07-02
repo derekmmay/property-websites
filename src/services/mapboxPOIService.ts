@@ -18,7 +18,7 @@ export const searchPOIs = async (
   try {
     // Use Mapbox Search API to find POIs
     const response = await fetch(
-      `https://api.mapbox.com/search/searchbox/v1/suggest?q=${category}&proximity=${center[0]},${center[1]}&limit=20&access_token=${mapboxgl.accessToken}`
+      `https://api.mapbox.com/search/searchbox/v1/suggest?q=${category}&proximity=${center[0]},${center[1]}&limit=10&access_token=${mapboxgl.accessToken}`
     );
     
     if (!response.ok) {
