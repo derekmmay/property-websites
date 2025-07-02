@@ -38,6 +38,10 @@ const Location = () => {
     } else {
       setShowFilters(false);
       setActiveFilters([]); // Clear filters when disabling interactive mode
+      // Navigate to location page when exiting interactive mode if we're not already there
+      if (window.location.pathname !== '/location') {
+        window.location.href = '/location';
+      }
     }
   };
 
