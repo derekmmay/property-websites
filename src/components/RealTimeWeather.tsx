@@ -89,7 +89,10 @@ const RealTimeWeather = () => {
     return (
       <div className="mb-20">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-light mb-12 text-black text-center">Dana Point Weather</h2>
+          <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Dana Point Weather</h2>
+          <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto mb-12 text-center leading-relaxed">
+            Real-time weather conditions and climate data for your oceanfront location.
+          </p>
           <div className="animate-pulse">
             <div className="h-48 bg-gray-200 rounded-2xl mb-8"></div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -108,7 +111,10 @@ const RealTimeWeather = () => {
   return (
     <div className="mb-20">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-light mb-12 text-black text-center">Dana Point Weather</h2>
+        <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Dana Point Weather</h2>
+        <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto mb-12 text-center leading-relaxed">
+          Real-time weather conditions and climate data for your oceanfront location.
+        </p>
         
         {/* Weather Summary Section */}
         <Card className="border-0 shadow-2xl bg-gradient-to-br from-slate-50 via-white to-blue-50 mb-12 overflow-hidden">

@@ -4,7 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 const ClimateInfo = () => {
   return (
     <div className="mb-20">
-      <h2 className="text-4xl font-light mb-12 text-slate-800 text-center">Mediterranean Climate Excellence</h2>
+      <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Mediterranean Climate Excellence</h2>
+      <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto mb-12 text-center leading-relaxed">
+        Experience year-round perfect weather with 275+ days of sunshine and optimal temperatures.
+      </p>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <Card className="border-0 shadow-xl bg-gradient-to-br from-amber-50 to-yellow-50 overflow-hidden">
           <CardContent className="p-10 text-center relative">

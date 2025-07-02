@@ -11,8 +11,10 @@ const PropertyMap = () => {
     <div className="py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-light text-black mb-4 tracking-wide">Property Location</h2>
-          <p className="text-gray-600 font-light">Interactive map of 126 Monarch Bay Drive, Dana Point</p>
+          <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Property Location</h2>
+          <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto mb-12 text-center leading-relaxed">
+            Interactive map of 126 Monarch Bay Drive in the exclusive Monarch Bay community.
+          </p>
         </div>
         <InteractiveMap 
           latitude={latitude}

@@ -31,7 +31,10 @@ const EventsCalendar = () => {
 
   return (
     <div className="text-center">
-      <h2 className="text-5xl font-light mb-20 text-black tracking-wide">Exclusive Community Events</h2>
+      <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Exclusive Community Events</h2>
+      <p className="text-xl text-gray-600 font-light max-w-3xl mx-auto mb-12 text-center leading-relaxed">
+        Join prestigious annual celebrations and cultural festivities in the heart of Dana Point.
+      </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {events.map((event, index) => (
           <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-105 bg-white overflow-hidden group">
