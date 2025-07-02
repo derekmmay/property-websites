@@ -12,35 +12,48 @@ interface MapFiltersProps {
 const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, onClose }) => {
   const filterCategories = [
     {
-      title: "Seamless Connectivity",
-      icon: Building,
+      title: "Convenience",
+      icon: Car,
       filters: [
-        { id: "beach-access", label: "Beach Access", color: "bg-black" },
-        { id: "medical-centers", label: "Medical Centers", color: "bg-black" },
-        { id: "airports", label: "Airports", color: "bg-black" },
-        { id: "luxury-shopping", label: "Luxury Shopping", color: "bg-black" },
-        { id: "michelin-dining", label: "Michelin Star Dining", color: "bg-black" },
-        { id: "international-airports", label: "International Airports", color: "bg-black" }
+        { id: "groceries", label: "Groceries", color: "bg-black" },
+        { id: "ev-chargers", label: "EV Chargers", color: "bg-black" },
+        { id: "airports", label: "Airports", color: "bg-black" }
       ]
     },
     {
-      title: "Real Estate Market",
-      icon: Building,
+      title: "Luxury",
+      icon: DollarSign,
       filters: [
-        { id: "high-income", label: "Property Values", color: "bg-black" },
-        { id: "education", label: "Top Schools", color: "bg-black" },
-        { id: "professionals", label: "Executive Areas", color: "bg-black" }
+        { id: "luxury-shopping", label: "Shopping", color: "bg-black" },
+        { id: "luxury-hotels", label: "Resorts", color: "bg-black" },
+        { id: "marinas", label: "Private Marinas", color: "bg-black" }
       ]
     },
     {
-      title: "Luxury Amenities",
-      icon: Building,
+      title: "Leisure",
+      icon: Clock,
       filters: [
-        { id: "luxury-hotels", label: "5-Star Hotels", color: "bg-black" },
-        { id: "private-clubs", label: "Private Clubs", color: "bg-black" },
-        { id: "luxury-spas", label: "Luxury Spas", color: "bg-black" },
-        { id: "marinas", label: "Private Marinas", color: "bg-black" },
-        { id: "golf-courses", label: "Golf Courses", color: "bg-black" }
+        { id: "golf-courses", label: "Golf Courses", color: "bg-black" },
+        { id: "leisure-shopping", label: "Shopping", color: "bg-black" },
+        { id: "luxury-spas", label: "Spas", color: "bg-black" }
+      ]
+    },
+    {
+      title: "Dining",
+      icon: UtensilsCrossed,
+      filters: [
+        { id: "dinner", label: "Dinner", color: "bg-black" },
+        { id: "drinks", label: "Drinks", color: "bg-black" },
+        { id: "coffee", label: "Coffee", color: "bg-black" }
+      ]
+    },
+    {
+      title: "Schools",
+      icon: GraduationCap,
+      filters: [
+        { id: "elementary", label: "Elementary", color: "bg-black" },
+        { id: "jr-high", label: "Jr. High", color: "bg-black" },
+        { id: "high-school", label: "High School", color: "bg-black" }
       ]
     }
   ];
