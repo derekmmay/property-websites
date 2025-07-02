@@ -60,7 +60,7 @@ const LocationHero = ({
               <Button
                 onClick={onToggleMapInteractivity}
                 variant="outline"
-                className="border-2 border-white/80 text-white bg-transparent hover:bg-white hover:text-black px-8 py-3 text-sm font-light tracking-[0.2em] uppercase transition-all duration-500 hover:scale-105 backdrop-blur-sm"
+                className="border-2 border-white/80 text-black bg-white hover:bg-transparent hover:text-white px-8 py-3 text-sm font-light tracking-[0.2em] uppercase transition-all duration-500 hover:scale-105 backdrop-blur-sm"
               >
                 Explore Interactive Map
               </Button>
