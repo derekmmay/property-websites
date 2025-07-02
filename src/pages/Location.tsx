@@ -6,7 +6,7 @@ import InteractiveMap from "@/components/InteractiveMap";
 import MapFilters from "@/components/MapFilters";
 import ClimateInfo from "@/components/ClimateInfo";
 import Footer from "@/components/Footer";
-import { Waves, Plane, ShoppingBag, UtensilsCrossed, Ship, Headphones } from "lucide-react";
+import { Waves, Plane, ShoppingBag, UtensilsCrossed, Ship, Cross } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Location = () => {
@@ -172,11 +172,11 @@ const Location = () => {
                 </div>
                 <div className="text-center">
                   <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Headphones className="w-10 h-10 text-white" />
+                    <Cross className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-light text-black mb-4">Private Concierge</h3>
+                  <h3 className="text-2xl font-light text-black mb-4">Medical Center</h3>
                   <div className="text-3xl font-extralight text-black mb-4">15 min</div>
-                  <p className="text-gray-600 font-light leading-relaxed">Exclusive lifestyle management and personalized services available through luxury concierge providers.</p>
+                  <p className="text-gray-600 font-light leading-relaxed">Access to Hoag Hospital Newport Beach and world-class healthcare facilities for peace of mind.</p>
                 </div>
               </div>
             </div>
