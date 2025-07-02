@@ -6,7 +6,7 @@ import InteractiveMap from "@/components/InteractiveMap";
 import MapFilters from "@/components/MapFilters";
 import ClimateInfo from "@/components/ClimateInfo";
 import Footer from "@/components/Footer";
-import { MapPin, Clock, Car, Plane, Shield, Waves } from "lucide-react";
+import { Waves, Plane, ShoppingBag, UtensilsCrossed, Ship, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Location = () => {
@@ -127,26 +127,48 @@ const Location = () => {
           <div className="bg-gray-50 py-20">
             <div className="max-w-5xl mx-auto px-4">
               <h2 className="text-4xl font-light text-black mb-16 text-center tracking-wide">Seamless Connectivity</h2>
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+              <div className="grid grid-cols-2 md:grid-cols-6 gap-8">
                 <div className="text-center">
-                  <div className="text-4xl font-extralight text-black mb-4">2 min</div>
-                  <p className="text-gray-600 font-light">Beach Access</p>
+                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Waves className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-extralight text-black mb-2">2 min</div>
+                  <p className="text-gray-600 font-light text-sm">Beach Access</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extralight text-black mb-4">20 min</div>
-                  <p className="text-gray-600 font-light">John Wayne Airport</p>
+                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Plane className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-extralight text-black mb-2">20 min</div>
+                  <p className="text-gray-600 font-light text-sm">John Wayne Airport</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extralight text-black mb-4">60 min</div>
-                  <p className="text-gray-600 font-light">LAX International</p>
+                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Plane className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-extralight text-black mb-2">60 min</div>
+                  <p className="text-gray-600 font-light text-sm">LAX International</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extralight text-black mb-4">25 min</div>
-                  <p className="text-gray-600 font-light">Fashion Island Mall</p>
+                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+                    <ShoppingBag className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-extralight text-black mb-2">25 min</div>
+                  <p className="text-gray-600 font-light text-sm">Fashion Island Mall</p>
                 </div>
                 <div className="text-center">
-                  <div className="text-4xl font-extralight text-black mb-4">30 min</div>
-                  <p className="text-gray-600 font-light">Michelin Star Dining</p>
+                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+                    <UtensilsCrossed className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-extralight text-black mb-2">30 min</div>
+                  <p className="text-gray-600 font-light text-sm">Michelin Star Dining</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Headphones className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="text-3xl font-extralight text-black mb-2">15 min</div>
+                  <p className="text-gray-600 font-light text-sm">Private Concierge</p>
                 </div>
               </div>
             </div>
