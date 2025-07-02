@@ -20,7 +20,7 @@ const LocationHero = ({
   onCloseFilters,
 }: LocationHeroProps) => {
   return (
-    <div className={`h-screen relative ${isMapInteractive ? 'fixed inset-0 z-40' : ''}`}>
+    <div className={`h-[80vh] relative ${isMapInteractive ? 'fixed inset-0 z-40' : ''}`}>
       <InteractiveMap 
         latitude={33.4734}
         longitude={-117.7018}
