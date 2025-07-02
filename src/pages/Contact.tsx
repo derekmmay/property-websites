@@ -61,7 +61,7 @@ const Contact = () => {
         </div>
 
         {/* Full Photo Gallery */}
-        <PhotoGallery />
+        <PhotoGallery skipHero={true} />
         
         <Footer />
       </div>

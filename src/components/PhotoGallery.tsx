@@ -6,9 +6,10 @@ import { Link } from "react-router-dom";
 
 interface PhotoGalleryProps {
   showLimited?: boolean;
+  skipHero?: boolean;
 }
 
-const PhotoGallery = ({ showLimited = false }: PhotoGalleryProps) => {
+const PhotoGallery = ({ showLimited = false, skipHero = false }: PhotoGalleryProps) => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
@@ -94,6 +95,76 @@ const PhotoGallery = ({ showLimited = false }: PhotoGalleryProps) => {
       url: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=2032&q=80",
       title: "Spa Bathroom",
       category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Chef's Pantry",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Ocean View Balcony",
+      category: "Exterior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Breakfast Nook",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Guest Powder Room",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Walk-in Closet",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Laundry Room",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Entertainment Deck",
+      category: "Exterior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Pool Cabana",
+      category: "Exterior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Guest Bathroom",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Mudroom",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Butler's Pantry",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Art Gallery Hallway",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
+      title: "Ocean Meditation Room",
+      category: "Interior"
+    },
+    {
+      url: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
+      title: "Private Beach Access",
+      category: "Exterior"
     }
   ];
 
@@ -150,35 +221,37 @@ const PhotoGallery = ({ showLimited = false }: PhotoGalleryProps) => {
   return (
     <section id="photo-gallery" className="py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero Image - Full Width */}
-        <div className="mb-16">
-          <Card
-            className={`relative overflow-hidden cursor-pointer group border-0 shadow-2xl h-[70vh] transition-all duration-1500 ${
-              heroVisible 
-                ? 'opacity-100 translate-y-0 scale-100' 
-                : 'opacity-0 translate-y-12 scale-95'
-            }`}
-            style={{
-              transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
-            }}
-            onClick={() => openLightbox(0)}
-          >
-            <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500 z-10"></div>
-            <img
-              src={photos[0].url}
-              alt={photos[0].title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
-              <p className="text-2xl font-light mb-2">{photos[0].title}</p>
-              <p className="text-lg opacity-80">{photos[0].category}</p>
-            </div>
-          </Card>
-        </div>
+        {/* Hero Image - Full Width - Only show if not skipped */}
+        {!skipHero && (
+          <div className="mb-16">
+            <Card
+              className={`relative overflow-hidden cursor-pointer group border-0 shadow-2xl h-[70vh] transition-all duration-1500 ${
+                heroVisible 
+                  ? 'opacity-100 translate-y-0 scale-100' 
+                  : 'opacity-0 translate-y-12 scale-95'
+              }`}
+              style={{
+                transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)'
+              }}
+              onClick={() => openLightbox(0)}
+            >
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500 z-10"></div>
+              <img
+                src={photos[0].url}
+                alt={photos[0].title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
+                <p className="text-2xl font-light mb-2">{photos[0].title}</p>
+                <p className="text-lg opacity-80">{photos[0].category}</p>
+              </div>
+            </Card>
+          </div>
+        )}
 
         {/* Scattered Grid Layout with Flutter Animations */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[200px]">
-          {photos.slice(1, showLimited ? 9 : 16).map((photo, index) => {
+          {photos.slice(1, showLimited ? 9 : photos.length).map((photo, index) => {
             const actualIndex = index + 1; // Adjust for sliced array
             const gridClasses = [
               "col-span-6 row-span-2", // Large
