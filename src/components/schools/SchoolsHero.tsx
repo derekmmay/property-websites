@@ -11,11 +11,6 @@ const SchoolsHero = () => {
       
       <div className="relative z-10 flex items-center justify-center h-full text-center text-white">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="mb-8">
-            <span className="inline-block px-6 py-2 bg-black/30 backdrop-blur-sm border border-white/20 rounded-full text-sm tracking-[0.2em] uppercase mb-8">
-              Academic Excellence
-            </span>
-          </div>
           <h1 className="text-7xl md:text-9xl font-extralight mb-12 tracking-[-0.02em] text-white leading-none">
             Premier Education
           </h1>
