@@ -24,7 +24,11 @@ const Hero = () => {
             </p>
             <div className="flex justify-center">
               <Link to="/contact">
-                <Button size="lg" className="bg-black hover:bg-gray-900 text-white px-16 py-6 text-lg font-light tracking-wide transition-all duration-300 hover:scale-105 border border-white/20">
+                <Button 
+                  variant="outline" 
+                  size="lg" 
+                  className="border-2 border-white/80 text-white bg-transparent hover:bg-white hover:text-black px-12 py-6 text-base font-light tracking-[0.2em] uppercase transition-all duration-500 hover:scale-105 backdrop-blur-sm"
+                >
                   Private Viewing
                 </Button>
               </Link>
