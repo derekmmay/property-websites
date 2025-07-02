@@ -78,6 +78,7 @@ const Location = () => {
               activeFilters={activeFilters}
               onFilterChange={handleFilterChange}
               onClose={handleCloseFilters}
+              onExitInteractiveMode={toggleMapInteractivity}
             />
           </div>
         )}
@@ -109,19 +110,6 @@ const Location = () => {
           </div>
         )}
 
-        {/* Interactive Mode Exit Button - Top Center with proper spacing from nav */}
-        {isMapInteractive && (
-          <div className="absolute top-20 left-1/2 transform -translate-x-1/2 z-50">
-            <Button
-              onClick={toggleMapInteractivity}
-              variant="outline"
-              className="px-6 py-3 bg-white/95 backdrop-blur-sm border-2 border-black rounded-xl text-sm font-medium text-black hover:bg-black hover:text-white transition-all duration-300 shadow-lg min-h-[48px] touch-manipulation"
-              type="button"
-            >
-              Exit Interactive Mode
-            </Button>
-          </div>
-        )}
       </div>
 
       {/* Content below - only visible when not in interactive mode */}

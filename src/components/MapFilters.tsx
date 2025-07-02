@@ -7,9 +7,10 @@ interface MapFiltersProps {
   activeFilters: string[];
   onFilterChange: (filters: string[]) => void;
   onClose: () => void;
+  onExitInteractiveMode: () => void;
 }
 
-const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, onClose }) => {
+const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, onClose, onExitInteractiveMode }) => {
   const filterCategories = [
     {
       title: "Convenience",
@@ -196,6 +197,18 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
           </div>
         </div>
       )}
+
+      {/* Exit Interactive Mode Button */}
+      <div className="mt-4 pt-3 border-t border-gray-200">
+        <Button
+          onClick={onExitInteractiveMode}
+          variant="outline"
+          className="w-full px-6 py-3 bg-white/95 backdrop-blur-sm border-2 border-black rounded-xl text-sm font-medium text-black hover:bg-black hover:text-white transition-all duration-300 shadow-lg"
+          type="button"
+        >
+          Exit Interactive Mode
+        </Button>
+      </div>
     </div>
   );
 };
