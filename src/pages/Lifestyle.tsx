@@ -116,14 +116,14 @@ const Lifestyle = () => {
         </div>
 
         
-        {/* Events Calendar Section */}
+        {/* Luxury Destinations Section */}
         <div className="mb-32">
-          <EventsCalendar />
+          <LuxuryDestinations />
         </div>
 
-        {/* Luxury Destinations Section */}
+        {/* Events Calendar Section */}
         <div className="mb-24">
-          <LuxuryDestinations />
+          <EventsCalendar />
         </div>
       </div>
       
