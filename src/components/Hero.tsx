@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { Shield, Waves, MapPin, Diamond } from "lucide-react";
+import { Shield, Waves, MapPin, Gem } from "lucide-react";
 
 const Hero = () => {
   return (
@@ -76,7 +76,7 @@ const Hero = () => {
               </div>
               <div className="text-center group">
                 <div className="flex items-center justify-center mx-auto mb-10">
-                  <Diamond className="w-10 h-10 text-white" />
+                  <Gem className="w-10 h-10 text-white" />
                 </div>
                 <h3 className="text-2xl font-light text-white mb-8">Luxury Amenities</h3>
                 <p className="text-gray-300 font-light leading-relaxed">
