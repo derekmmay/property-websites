@@ -12,6 +12,18 @@ interface MapFiltersProps {
 const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, onClose }) => {
   const filterCategories = [
     {
+      title: "Seamless Connectivity",
+      icon: Building,
+      filters: [
+        { id: "beach-access", label: "Beach Access", color: "bg-black" },
+        { id: "medical-centers", label: "Medical Centers", color: "bg-black" },
+        { id: "airports", label: "Airports", color: "bg-black" },
+        { id: "luxury-shopping", label: "Luxury Shopping", color: "bg-black" },
+        { id: "michelin-dining", label: "Michelin Star Dining", color: "bg-black" },
+        { id: "international-airports", label: "International Airports", color: "bg-black" }
+      ]
+    },
+    {
       title: "Real Estate Market",
       icon: Building,
       filters: [
@@ -28,17 +40,7 @@ const MapFilters: React.FC<MapFiltersProps> = ({ activeFilters, onFilterChange, 
         { id: "private-clubs", label: "Private Clubs", color: "bg-black" },
         { id: "luxury-spas", label: "Luxury Spas", color: "bg-black" },
         { id: "marinas", label: "Private Marinas", color: "bg-black" },
-        { id: "fine-dining", label: "Fine Dining", color: "bg-black" },
         { id: "golf-courses", label: "Golf Courses", color: "bg-black" }
-      ]
-    },
-    {
-      title: "Transportation & Utilities",
-      icon: Car,
-      filters: [
-        { id: "ev-charging", label: "EV Charging", color: "bg-black" },
-        { id: "airports", label: "Private Aviation", color: "bg-black" },
-        { id: "commute-hubs", label: "Transit Hubs", color: "bg-black" }
       ]
     }
   ];
