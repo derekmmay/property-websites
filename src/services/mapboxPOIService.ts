@@ -16,10 +16,10 @@ export const searchPOIs = async (
   radius: number = 5000
 ): Promise<POIResult[]> => {
   try {
-    const url = `https://api.mapbox.com/search/searchbox/v1/suggest?q=${category}&proximity=${center[0]},${center[1]}&limit=10&access_token=${mapboxgl.accessToken}`;
+    // Use Mapbox Geocoding API with categories instead of Search API
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${category}.json?proximity=${center[0]},${center[1]}&types=poi&limit=10&access_token=${mapboxgl.accessToken}`;
     console.log(`Fetching POIs for ${category} with URL:`, url);
     
-    // Use Mapbox Search API to find POIs
     const response = await fetch(url);
     
     console.log(`Response status for ${category}:`, response.status);
@@ -33,16 +33,14 @@ export const searchPOIs = async (
     const data = await response.json();
     console.log(`Raw data for ${category}:`, data);
     
-    const results = data.suggestions
-      ?.filter((item: any) => item.feature_type === 'poi')
-      ?.map((item: any) => ({
-        id: item.mapbox_id || `${category}-${Math.random()}`,
-        name: item.name || item.full_address || 'Unknown',
-        coordinates: item.geometry?.coordinates || center,
-        category: category,
-        address: item.full_address,
-        phone: item.metadata?.phone
-      })) || [];
+    const results = data.features?.map((item: any) => ({
+      id: item.id || `${category}-${Math.random()}`,
+      name: item.text || item.place_name || 'Unknown',
+      coordinates: item.center || center,
+      category: category,
+      address: item.place_name,
+      phone: item.properties?.phone
+    })) || [];
     
     console.log(`Processed POI results for ${category}:`, results);
     return results;
