@@ -7,6 +7,7 @@ export const useMapMarkers = () => {
   const markersRef = useRef<mapboxgl.Marker[]>([]);
 
   const clearAllMarkers = () => {
+    console.log('clearAllMarkers called, removing', markersRef.current.length, 'markers');
     markersRef.current.forEach(marker => marker.remove());
     markersRef.current = [];
   };

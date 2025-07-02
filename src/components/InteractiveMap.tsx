@@ -44,6 +44,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
     if (!map || !isMapReady || activeFilters.length === 0) {
       // Clear any existing markers when no filters are active
       if (map && isMapReady && activeFilters.length === 0) {
+        console.log('Clearing all markers due to no active filters');
         clearAllMarkers();
       }
       return;
