@@ -37,7 +37,7 @@ const Contact = () => {
         <Navigation />
         
         {/* Hero Section */}
-        <div className="relative h-[60vh] md:h-[80vh] overflow-hidden">
+        <div className="relative h-[80vh] overflow-hidden">
           <div 
             className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
             style={{
@@ -47,13 +47,13 @@ const Contact = () => {
           
           <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-4">
             <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-7xl lg:text-8xl font-extralight mb-4 md:mb-8 tracking-[-0.02em] text-white leading-none">
+              <h1 className="text-5xl md:text-7xl font-extralight mb-8 tracking-[-0.02em] text-white leading-none">
                 Visual Gallery
               </h1>
-              <p className="text-lg md:text-xl lg:text-2xl mb-4 md:mb-6 opacity-95 font-light tracking-wide">
+              <p className="text-xl md:text-2xl mb-6 opacity-95 font-light tracking-wide">
                 Experience 126 Monarch Bay
               </p>
-              <p className="text-base md:text-lg mb-8 md:mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed font-light px-4">
+              <p className="text-lg mb-12 max-w-3xl mx-auto opacity-90 leading-relaxed font-light px-4">
                 Discover every exquisite detail of this oceanfront masterpiece through our comprehensive visual collection.
               </p>
             </div>

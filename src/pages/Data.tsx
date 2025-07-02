@@ -13,7 +13,7 @@ const Data = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="relative h-[100vh] flex items-center justify-center bg-black">
+      <div className="relative h-[80vh] flex items-center justify-center bg-black">
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -24,7 +24,7 @@ const Data = () => {
         </div>
         
         <div className="relative z-10 text-center text-white px-4">
-          <h1 className="text-6xl md:text-7xl font-light mb-6 tracking-wide">
+          <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-wide">
             Property Data
           </h1>
           <p className="text-xl md:text-2xl font-light tracking-wide max-w-2xl mx-auto">
