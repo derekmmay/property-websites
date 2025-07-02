@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import InteractiveMap from "@/components/InteractiveMap";
 import MapFilters from "@/components/MapFilters";
-import ClimateInfo from "@/components/ClimateInfo";
+import RealTimeWeather from "@/components/RealTimeWeather";
 import Footer from "@/components/Footer";
 import { Waves, Plane, ShoppingBag, UtensilsCrossed, Ship, Cross } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -185,7 +185,7 @@ const Location = () => {
           {/* Main Content */}
           <div className="max-w-7xl mx-auto px-4 py-24">
             {/* Climate Information */}
-            <ClimateInfo />
+            <RealTimeWeather />
           </div>
           
           <Footer />
