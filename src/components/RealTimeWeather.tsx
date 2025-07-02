@@ -16,44 +16,9 @@ const RealTimeWeather = () => {
 
   // Simulate real-time weather data for Dana Point
   useEffect(() => {
-    const fetchWeather = async () => {
-      try {
-        // Using a free weather service that doesn't require API keys
-        const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=33.4734&longitude=-117.7018&current=temperature_2m,relative_humidity_2m,wind_speed_10m,weather_code&daily=temperature_2m_max,temperature_2m_min,weather_code&temperature_unit=fahrenheit&wind_speed_unit=mph&timezone=America%2FLos_Angeles');
-        
-        if (response.ok) {
-          const data = await response.json();
-          const current = data.current;
-          
-          // Map weather codes to conditions
-          const getCondition = (code: number) => {
-            if (code === 0) return { condition: 'clear', description: 'Clear sky' };
-            if (code <= 3) return { condition: 'clouds', description: 'Partly cloudy' };
-            if (code <= 67) return { condition: 'rain', description: 'Light rain' };
-            return { condition: 'clear', description: 'Clear' };
-          };
-          
-          const conditionData = getCondition(current.weather_code);
-          
-          setWeather({
-            temperature: Math.round(current.temperature_2m),
-            condition: conditionData.condition,
-            description: conditionData.description,
-            humidity: current.relative_humidity_2m,
-            windSpeed: Math.round(current.wind_speed_10m)
-          });
-        } else {
-          // Fallback to typical Dana Point weather
-          setWeather({
-            temperature: 72,
-            condition: 'clear',
-            description: 'Sunny',
-            humidity: 65,
-            windSpeed: 8
-          });
-        }
-      } catch (error) {
-        // Fallback to typical Dana Point weather
+    const fetchWeather = () => {
+      // Mock weather data to avoid any external API calls causing popups
+      setTimeout(() => {
         setWeather({
           temperature: 72,
           condition: 'clear',
@@ -61,15 +26,11 @@ const RealTimeWeather = () => {
           humidity: 65,
           windSpeed: 8
         });
-      } finally {
         setLoading(false);
-      }
+      }, 1000);
     };
 
     fetchWeather();
-    // Update every 10 minutes
-    const interval = setInterval(fetchWeather, 600000);
-    return () => clearInterval(interval);
   }, []);
 
   const getWeatherIcon = (condition: string) => {
