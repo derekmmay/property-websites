@@ -118,23 +118,27 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
     }
   }, [isInteractive, isMapReady]);
 
-  const handleZoomIn = () => {
-    console.log('Zoom in clicked, interactive:', isInteractive, 'map exists:', !!mapRef.current);
+  const handleZoomIn = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Zoom in clicked!', 'interactive:', isInteractive, 'map exists:', !!mapRef.current);
     if (mapRef.current) {
       const currentLevel = mapRef.current.getZoom();
-      console.log('Current zoom:', currentLevel, 'new zoom:', currentLevel + 1);
-      // Force zoom change
+      console.log('Current zoom:', currentLevel, 'setting to:', currentLevel + 1);
       mapRef.current.setZoom(currentLevel + 1);
+      console.log('Zoom set, new level:', mapRef.current.getZoom());
     }
   };
 
-  const handleZoomOut = () => {
-    console.log('Zoom out clicked, interactive:', isInteractive, 'map exists:', !!mapRef.current);
+  const handleZoomOut = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('Zoom out clicked!', 'interactive:', isInteractive, 'map exists:', !!mapRef.current);
     if (mapRef.current) {
       const currentLevel = mapRef.current.getZoom();
-      console.log('Current zoom:', currentLevel, 'new zoom:', Math.max(0, currentLevel - 1));
-      // Force zoom change
+      console.log('Current zoom:', currentLevel, 'setting to:', Math.max(0, currentLevel - 1));
       mapRef.current.setZoom(Math.max(0, currentLevel - 1));
+      console.log('Zoom set, new level:', mapRef.current.getZoom());
     }
   };
 
@@ -144,22 +148,28 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
       
       {/* Custom Zoom Controls - Only show in interactive mode */}
       {isInteractive && (
-        <div className="absolute top-6 right-6 z-50 flex flex-col gap-1">
+        <div className="absolute top-6 right-6 z-[60] flex flex-col gap-2 pointer-events-auto">
           <button
             onClick={handleZoomIn}
-            className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
+            onMouseDown={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
+            className="w-12 h-12 bg-white/95 backdrop-blur-sm rounded-lg border border-gray-200 shadow-xl flex items-center justify-center hover:bg-white hover:shadow-2xl transition-all duration-200 cursor-pointer select-none"
             aria-label="Zoom in"
             type="button"
+            style={{ pointerEvents: 'auto' }}
           >
-            <ZoomIn className="w-4 h-4 text-gray-700 pointer-events-none" />
+            <ZoomIn className="w-5 h-5 text-gray-700" />
           </button>
           <button
             onClick={handleZoomOut}
-            className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
+            onMouseDown={(e) => e.stopPropagation()}
+            onTouchStart={(e) => e.stopPropagation()}
+            className="w-12 h-12 bg-white/95 backdrop-blur-sm rounded-lg border border-gray-200 shadow-xl flex items-center justify-center hover:bg-white hover:shadow-2xl transition-all duration-200 cursor-pointer select-none"
             aria-label="Zoom out"
             type="button"
+            style={{ pointerEvents: 'auto' }}
           >
-            <ZoomOut className="w-4 h-4 text-gray-700 pointer-events-none" />
+            <ZoomOut className="w-5 h-5 text-gray-700" />
           </button>
         </div>
       )}
