@@ -1,6 +1,5 @@
-import React from "react";
 import { Button } from "@/components/ui/button";
-import MapboxMap from "@/components/MapboxMap";
+import InteractiveMap from "@/components/InteractiveMap";
 import MapFilters from "@/components/MapFilters";
 
 interface LocationHeroProps {
@@ -20,18 +19,15 @@ const LocationHero = ({
   onFilterChange,
   onCloseFilters,
 }: LocationHeroProps) => {
-  const [mapInstance, setMapInstance] = React.useState<any>(null);
-
   return (
     <div className={`h-[80vh] relative ${isMapInteractive ? 'fixed inset-0 z-40' : ''}`}>
-      <MapboxMap 
+      <InteractiveMap 
         latitude={33.4734}
         longitude={-117.7018}
         zoom={12}
         className="w-full h-full"
         isInteractive={isMapInteractive}
         activeFilters={activeFilters}
-        onMapLoad={setMapInstance}
       />
       
       {/* Map Controls Overlay - Top Left Corner */}

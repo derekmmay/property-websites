@@ -34,20 +34,11 @@ export const useLocationState = () => {
   };
 
   const handleFilterChange = (filters: string[]) => {
-    console.log('=== FILTER CHANGE CALLED ===');
-    console.log('Previous filters:', activeFilters);
-    console.log('New filters:', filters);
-    console.log('Current interactive state:', isMapInteractive);
-    
     setActiveFilters(filters);
-    
     // Enable interactive mode when filters are applied
     if (filters.length > 0 && !isMapInteractive) {
-      console.log('Enabling interactive mode due to filters');
       setIsMapInteractive(true);
     }
-    
-    console.log('Filter change complete');
   };
 
   const handleCloseFilters = () => {

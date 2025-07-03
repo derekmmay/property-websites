@@ -1,6 +1,6 @@
 
 import React from 'react';
-import MapboxMap from './MapboxMap';
+import InteractiveMap from './InteractiveMap';
 
 const PropertyMap = () => {
   // Coordinates for Dana Point city center
@@ -16,7 +16,7 @@ const PropertyMap = () => {
             Interactive map of 126 Monarch Bay Drive in the exclusive Monarch Bay community.
           </p>
         </div>
-        <MapboxMap 
+        <InteractiveMap 
           latitude={latitude}
           longitude={longitude}
           zoom={15}
