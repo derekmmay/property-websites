@@ -96,6 +96,8 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
   // Update map interactivity
   useEffect(() => {
     if (mapRef.current && isMapReady) {
+      console.log('Updating map interactivity:', isInteractive);
+      
       if (isInteractive) {
         mapRef.current.dragPan.enable();
         mapRef.current.scrollZoom.enable();
@@ -104,6 +106,10 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
         mapRef.current.keyboard.enable();
         mapRef.current.doubleClickZoom.enable();
         mapRef.current.touchZoomRotate.enable();
+        
+        // Ensure zoom is enabled programmatically
+        mapRef.current.getCanvas().style.cursor = 'grab';
+        console.log('All interactive controls enabled, including scroll zoom');
       } else {
         mapRef.current.dragPan.disable();
         mapRef.current.scrollZoom.disable();
@@ -112,9 +118,10 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
         mapRef.current.keyboard.disable();
         mapRef.current.doubleClickZoom.disable();
         mapRef.current.touchZoomRotate.disable();
+        
+        mapRef.current.getCanvas().style.cursor = 'default';
+        console.log('All interactive controls disabled');
       }
-      // Always keep programmatic zoom enabled for our custom buttons
-      // Zoom controls should work regardless of interactive state
     }
   }, [isInteractive, isMapReady]);
 
