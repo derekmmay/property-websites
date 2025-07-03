@@ -119,14 +119,31 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
   }, [isInteractive, isMapReady]);
 
   const handleZoomIn = (e: React.MouseEvent) => {
+    console.log('=== ZOOM IN BUTTON CLICKED ===');
+    console.log('Event:', e);
+    console.log('Interactive:', isInteractive);
+    console.log('Map exists:', !!mapRef.current);
+    console.log('Map ready:', isMapReady);
+    
     e.preventDefault();
     e.stopPropagation();
-    console.log('Zoom in clicked!', 'interactive:', isInteractive, 'map exists:', !!mapRef.current);
+    
     if (mapRef.current) {
       const currentLevel = mapRef.current.getZoom();
-      console.log('Current zoom:', currentLevel, 'setting to:', currentLevel + 1);
-      mapRef.current.setZoom(currentLevel + 1);
-      console.log('Zoom set, new level:', mapRef.current.getZoom());
+      console.log('Current zoom level:', currentLevel);
+      
+      try {
+        mapRef.current.setZoom(currentLevel + 1);
+        console.log('Zoom command sent, new target:', currentLevel + 1);
+        
+        setTimeout(() => {
+          console.log('Actual zoom after command:', mapRef.current?.getZoom());
+        }, 100);
+      } catch (error) {
+        console.error('Error setting zoom:', error);
+      }
+    } else {
+      console.error('NO MAP REFERENCE AVAILABLE');
     }
   };
 
