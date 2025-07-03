@@ -52,15 +52,7 @@ export const useSimpleMapbox = ({
         console.log('Simple map loaded successfully!');
         setIsMapReady(true);
         
-        // Always add navigation controls for better UX
-        if (map.current) {
-          map.current.addControl(
-            new mapboxgl.NavigationControl({
-              visualizePitch: true,
-            }),
-            'top-right'
-          );
-        }
+        // Navigation controls will be handled by custom component
 
         // Add main property marker
         if (map.current) {

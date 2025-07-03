@@ -1,6 +1,8 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import InteractiveMap from "@/components/InteractiveMap";
 import MapFilters from "@/components/MapFilters";
+import MapZoomControls from "@/components/MapZoomControls";
 
 interface LocationHeroProps {
   isMapInteractive: boolean;
@@ -19,6 +21,8 @@ const LocationHero = ({
   onFilterChange,
   onCloseFilters,
 }: LocationHeroProps) => {
+  const [mapInstance, setMapInstance] = React.useState<any>(null);
+
   return (
     <div className={`h-[80vh] relative ${isMapInteractive ? 'fixed inset-0 z-40' : ''}`}>
       <InteractiveMap 
@@ -28,7 +32,13 @@ const LocationHero = ({
         className="w-full h-full"
         isInteractive={isMapInteractive}
         activeFilters={activeFilters}
+        onMapLoad={setMapInstance}
       />
+      
+      {/* Custom Zoom Controls - Always Visible */}
+      <div className="absolute top-6 right-6 z-50">
+        <MapZoomControls map={mapInstance} />
+      </div>
       
       {/* Map Controls Overlay - Top Left Corner */}
       {isMapInteractive && showFilters && (

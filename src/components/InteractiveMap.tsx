@@ -11,6 +11,7 @@ interface InteractiveMapProps {
   className?: string;
   isInteractive?: boolean;
   activeFilters?: string[];
+  onMapLoad?: (map: any) => void;
 }
 
 const InteractiveMap: React.FC<InteractiveMapProps> = ({ 
@@ -19,7 +20,8 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   zoom = 12,
   className = "w-full h-96",
   isInteractive = true,
-  activeFilters = []
+  activeFilters = [],
+  onMapLoad
 }) => {
   const [apiKey] = useState<string>('pk.eyJ1IjoiZGVyZWttbWF5IiwiYSI6ImNtY2ptMXcxZjA0cGQybXB2NnphemRhNWkifQ.gBYDOal4M8tAzN7BIo6UTg');
   
@@ -37,6 +39,13 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
     addPropertyValueMarkers, 
     addPOIMarkers 
   } = useMapMarkers();
+
+  // Notify parent component when map is loaded
+  useEffect(() => {
+    if (map && isMapReady && onMapLoad) {
+      onMapLoad(map);
+    }
+  }, [map, isMapReady, onMapLoad]);
 
   // Add markers when filters are active
   useEffect(() => {
