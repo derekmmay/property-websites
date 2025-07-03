@@ -52,14 +52,8 @@ export const useSimpleMapbox = ({
         console.log('Simple map loaded successfully!');
         setIsMapReady(true);
         
-        if (map.current && isInteractive) {
-          map.current.addControl(
-            new mapboxgl.NavigationControl({
-              visualizePitch: true,
-            }),
-            'top-right'
-          );
-        }
+        // Custom zoom controls are handled in InteractiveMap component
+        // No default navigation controls needed
 
         // Add main property marker
         if (map.current) {

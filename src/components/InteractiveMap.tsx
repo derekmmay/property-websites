@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useSimpleMapbox } from '@/hooks/useSimpleMapbox';
 import { useMapMarkers } from '@/hooks/useMapMarkers';
+import MapZoomControls from './MapZoomControls';
 
 interface InteractiveMapProps {
   latitude?: number;
@@ -65,8 +66,14 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   }, [activeFilters, map, isMapReady, clearAllMarkers, addPropertyValueMarkers, addPOIMarkers]);
 
   return (
-    <div className={className}>
+    <div className={`relative ${className}`}>
       <div ref={mapContainer} className="w-full h-full rounded-lg shadow-lg" />
+      {isInteractive && (
+        <MapZoomControls 
+          map={map} 
+          className="absolute bottom-6 right-6 z-10" 
+        />
+      )}
     </div>
   );
 };
