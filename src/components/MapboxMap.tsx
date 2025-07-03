@@ -117,18 +117,20 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
   }, [isInteractive, isMapReady]);
 
   const handleZoomIn = () => {
+    console.log('Zoom in clicked, map ready:', isMapReady, 'map exists:', !!mapRef.current);
     if (mapRef.current && isMapReady) {
-      const newZoom = currentZoom + 1;
-      mapRef.current.setZoom(newZoom);
-      setCurrentZoom(newZoom);
+      const currentLevel = mapRef.current.getZoom();
+      console.log('Current zoom:', currentLevel);
+      mapRef.current.zoomTo(currentLevel + 1);
     }
   };
 
   const handleZoomOut = () => {
+    console.log('Zoom out clicked, map ready:', isMapReady, 'map exists:', !!mapRef.current);
     if (mapRef.current && isMapReady) {
-      const newZoom = Math.max(0, currentZoom - 1);
-      mapRef.current.setZoom(newZoom);
-      setCurrentZoom(newZoom);
+      const currentLevel = mapRef.current.getZoom();
+      console.log('Current zoom:', currentLevel);
+      mapRef.current.zoomTo(Math.max(0, currentLevel - 1));
     }
   };
 
@@ -140,19 +142,19 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
       <div className="absolute top-6 right-6 z-50 flex flex-col gap-1">
         <button
           onClick={handleZoomIn}
-          className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200"
+          className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
           aria-label="Zoom in"
-          disabled={!isMapReady}
+          type="button"
         >
-          <Plus className="w-4 h-4 text-gray-700" />
+          <Plus className="w-4 h-4 text-gray-700 pointer-events-none" />
         </button>
         <button
           onClick={handleZoomOut}
-          className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200"
+          className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
           aria-label="Zoom out"
-          disabled={!isMapReady}
+          type="button"
         >
-          <Minus className="w-4 h-4 text-gray-700" />
+          <Minus className="w-4 h-4 text-gray-700 pointer-events-none" />
         </button>
       </div>
     </div>
