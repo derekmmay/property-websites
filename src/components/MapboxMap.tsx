@@ -113,24 +113,26 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
         mapRef.current.doubleClickZoom.disable();
         mapRef.current.touchZoomRotate.disable();
       }
+      // Always keep programmatic zoom enabled for our custom buttons
+      // Zoom controls should work regardless of interactive state
     }
   }, [isInteractive, isMapReady]);
 
   const handleZoomIn = () => {
-    console.log('Zoom in clicked, map ready:', isMapReady, 'map exists:', !!mapRef.current);
-    if (mapRef.current && isMapReady) {
+    console.log('Zoom in clicked, map ready:', isMapReady, 'map exists:', !!mapRef.current, 'interactive:', isInteractive);
+    if (mapRef.current) {
       const currentLevel = mapRef.current.getZoom();
       console.log('Current zoom:', currentLevel);
-      mapRef.current.zoomTo(currentLevel + 1);
+      mapRef.current.easeTo({ zoom: currentLevel + 1, duration: 300 });
     }
   };
 
   const handleZoomOut = () => {
-    console.log('Zoom out clicked, map ready:', isMapReady, 'map exists:', !!mapRef.current);
-    if (mapRef.current && isMapReady) {
+    console.log('Zoom out clicked, map ready:', isMapReady, 'map exists:', !!mapRef.current, 'interactive:', isInteractive);
+    if (mapRef.current) {
       const currentLevel = mapRef.current.getZoom();
       console.log('Current zoom:', currentLevel);
-      mapRef.current.zoomTo(Math.max(0, currentLevel - 1));
+      mapRef.current.easeTo({ zoom: Math.max(0, currentLevel - 1), duration: 300 });
     }
   };
 
