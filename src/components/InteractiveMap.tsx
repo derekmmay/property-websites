@@ -28,7 +28,8 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
     longitude,
     zoom,
     apiKey,
-    isInteractive
+    isInteractive,
+    isDarkMode: !isInteractive
   });
 
   const { 

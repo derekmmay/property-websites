@@ -8,6 +8,7 @@ interface UseSimpleMapboxProps {
   zoom: number;
   apiKey: string;
   isInteractive?: boolean;
+  isDarkMode?: boolean;
 }
 
 export const useSimpleMapbox = ({ 
@@ -15,7 +16,8 @@ export const useSimpleMapbox = ({
   longitude, 
   zoom, 
   apiKey, 
-  isInteractive = true 
+  isInteractive = true,
+  isDarkMode = false
 }: UseSimpleMapboxProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
@@ -39,7 +41,7 @@ export const useSimpleMapbox = ({
       
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: MAP_CONFIG.style,
+        style: isDarkMode ? MAP_CONFIG.style.dark : MAP_CONFIG.style.light,
         center: [longitude, latitude],
         zoom: zoom,
         pitch: MAP_CONFIG.pitch,
@@ -95,7 +97,7 @@ export const useSimpleMapbox = ({
         map.current = null;
       }
     };
-  }, [apiKey, latitude, longitude, zoom, isInteractive]);
+  }, [apiKey, latitude, longitude, zoom, isInteractive, isDarkMode]);
 
   // Update map interactivity
   useEffect(() => {
@@ -119,6 +121,14 @@ export const useSimpleMapbox = ({
       }
     }
   }, [isInteractive, isMapReady]);
+
+  // Update map style when isDarkMode changes
+  useEffect(() => {
+    if (map.current && isMapReady) {
+      const newStyle = isDarkMode ? MAP_CONFIG.style.dark : MAP_CONFIG.style.light;
+      map.current.setStyle(newStyle);
+    }
+  }, [isDarkMode, isMapReady]);
 
   return { mapContainer, map: map.current, isMapReady };
 };

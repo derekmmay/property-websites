@@ -1,6 +1,9 @@
 
 export const MAP_CONFIG = {
-  style: 'mapbox://styles/mapbox/light-v11',
+  style: {
+    dark: 'mapbox://styles/mapbox/dark-v11',
+    light: 'mapbox://styles/mapbox/light-v11'
+  },
   pitch: 45,
   fog: {
     color: 'rgb(255, 255, 255)',

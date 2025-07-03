@@ -43,7 +43,7 @@ export const useMapbox = ({ latitude, longitude, zoom, apiKey, isInteractive = t
       // Initialize map
       map.current = new mapboxgl.Map({
         container: mapContainer.current,
-        style: MAP_CONFIG.style,
+        style: MAP_CONFIG.style.light,
         center: [longitude, latitude],
         zoom: zoom,
         pitch: MAP_CONFIG.pitch,
