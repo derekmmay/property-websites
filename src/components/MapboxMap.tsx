@@ -127,7 +127,8 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
 
   const handleZoomIn = (e: React.MouseEvent) => {
     console.log('=== ZOOM IN BUTTON CLICKED ===');
-    console.log('Event:', e);
+    console.log('Event target:', e.target);
+    console.log('Current target:', e.currentTarget);
     console.log('Interactive:', isInteractive);
     console.log('Map exists:', !!mapRef.current);
     console.log('Map ready:', isMapReady);
@@ -140,12 +141,16 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
       console.log('Current zoom level:', currentLevel);
       
       try {
-        mapRef.current.setZoom(currentLevel + 1);
-        console.log('Zoom command sent, new target:', currentLevel + 1);
+        // Try using easeTo for smoother transition
+        mapRef.current.easeTo({
+          zoom: currentLevel + 1,
+          duration: 300
+        });
+        console.log('Zoom easeTo command sent, new target:', currentLevel + 1);
         
         setTimeout(() => {
-          console.log('Actual zoom after command:', mapRef.current?.getZoom());
-        }, 100);
+          console.log('Actual zoom after easeTo:', mapRef.current?.getZoom());
+        }, 400);
       } catch (error) {
         console.error('Error setting zoom:', error);
       }
@@ -155,16 +160,40 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
   };
 
   const handleZoomOut = (e: React.MouseEvent) => {
+    console.log('=== ZOOM OUT BUTTON CLICKED ===');
+    console.log('Event target:', e.target);
+    console.log('Current target:', e.currentTarget);
+    console.log('Interactive:', isInteractive);
+    console.log('Map exists:', !!mapRef.current);
+    console.log('Map ready:', isMapReady);
+    
     e.preventDefault();
     e.stopPropagation();
-    console.log('Zoom out clicked!', 'interactive:', isInteractive, 'map exists:', !!mapRef.current);
+    
     if (mapRef.current) {
       const currentLevel = mapRef.current.getZoom();
-      console.log('Current zoom:', currentLevel, 'setting to:', Math.max(0, currentLevel - 1));
-      mapRef.current.setZoom(Math.max(0, currentLevel - 1));
-      console.log('Zoom set, new level:', mapRef.current.getZoom());
+      console.log('Current zoom level:', currentLevel);
+      
+      try {
+        const newZoom = Math.max(0, currentLevel - 1);
+        // Try using easeTo for smoother transition
+        mapRef.current.easeTo({
+          zoom: newZoom,
+          duration: 300
+        });
+        console.log('Zoom easeTo command sent, new target:', newZoom);
+        
+        setTimeout(() => {
+          console.log('Actual zoom after easeTo:', mapRef.current?.getZoom());
+        }, 400);
+      } catch (error) {
+        console.error('Error setting zoom:', error);
+      }
+    } else {
+      console.error('NO MAP REFERENCE AVAILABLE');
     }
   };
+
 
   return (
     <div className={`relative ${className}`}>
