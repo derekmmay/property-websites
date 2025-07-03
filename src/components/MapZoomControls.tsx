@@ -9,14 +9,20 @@ interface MapZoomControlsProps {
 
 const MapZoomControls: React.FC<MapZoomControlsProps> = ({ map, className = "" }) => {
   const handleZoomIn = () => {
+    console.log('Zoom in clicked, map:', map);
     if (map) {
-      map.zoomIn();
+      console.log('Current zoom level:', map.getZoom());
+      map.setZoom(map.getZoom() + 1);
+      console.log('New zoom level:', map.getZoom());
     }
   };
 
   const handleZoomOut = () => {
+    console.log('Zoom out clicked, map:', map);
     if (map) {
-      map.zoomOut();
+      console.log('Current zoom level:', map.getZoom());
+      map.setZoom(map.getZoom() - 1);
+      console.log('New zoom level:', map.getZoom());
     }
   };
 
