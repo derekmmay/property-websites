@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { Plus, Minus } from 'lucide-react';
+import { ZoomIn, ZoomOut } from 'lucide-react';
 
 interface MapboxMapProps {
   latitude?: number;
@@ -119,20 +119,22 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
   }, [isInteractive, isMapReady]);
 
   const handleZoomIn = () => {
-    console.log('Zoom in clicked, map ready:', isMapReady, 'map exists:', !!mapRef.current, 'interactive:', isInteractive);
+    console.log('Zoom in clicked, interactive:', isInteractive, 'map exists:', !!mapRef.current);
     if (mapRef.current) {
       const currentLevel = mapRef.current.getZoom();
-      console.log('Current zoom:', currentLevel);
-      mapRef.current.easeTo({ zoom: currentLevel + 1, duration: 300 });
+      console.log('Current zoom:', currentLevel, 'new zoom:', currentLevel + 1);
+      // Force zoom change
+      mapRef.current.setZoom(currentLevel + 1);
     }
   };
 
   const handleZoomOut = () => {
-    console.log('Zoom out clicked, map ready:', isMapReady, 'map exists:', !!mapRef.current, 'interactive:', isInteractive);
+    console.log('Zoom out clicked, interactive:', isInteractive, 'map exists:', !!mapRef.current);
     if (mapRef.current) {
       const currentLevel = mapRef.current.getZoom();
-      console.log('Current zoom:', currentLevel);
-      mapRef.current.easeTo({ zoom: Math.max(0, currentLevel - 1), duration: 300 });
+      console.log('Current zoom:', currentLevel, 'new zoom:', Math.max(0, currentLevel - 1));
+      // Force zoom change
+      mapRef.current.setZoom(Math.max(0, currentLevel - 1));
     }
   };
 
@@ -140,25 +142,27 @@ const MapboxMap: React.FC<MapboxMapProps> = ({
     <div className={`relative ${className}`}>
       <div ref={mapContainer} className="w-full h-full rounded-lg shadow-lg" />
       
-      {/* Custom Zoom Controls */}
-      <div className="absolute top-6 right-6 z-50 flex flex-col gap-1">
-        <button
-          onClick={handleZoomIn}
-          className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
-          aria-label="Zoom in"
-          type="button"
-        >
-          <Plus className="w-4 h-4 text-gray-700 pointer-events-none" />
-        </button>
-        <button
-          onClick={handleZoomOut}
-          className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
-          aria-label="Zoom out"
-          type="button"
-        >
-          <Minus className="w-4 h-4 text-gray-700 pointer-events-none" />
-        </button>
-      </div>
+      {/* Custom Zoom Controls - Only show in interactive mode */}
+      {isInteractive && (
+        <div className="absolute top-6 right-6 z-50 flex flex-col gap-1">
+          <button
+            onClick={handleZoomIn}
+            className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
+            aria-label="Zoom in"
+            type="button"
+          >
+            <ZoomIn className="w-4 h-4 text-gray-700 pointer-events-none" />
+          </button>
+          <button
+            onClick={handleZoomOut}
+            className="w-8 h-8 bg-white/90 backdrop-blur-sm rounded border border-white/20 shadow-lg flex items-center justify-center hover:bg-white transition-all duration-200 cursor-pointer"
+            aria-label="Zoom out"
+            type="button"
+          >
+            <ZoomOut className="w-4 h-4 text-gray-700 pointer-events-none" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
