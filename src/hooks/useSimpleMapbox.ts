@@ -52,7 +52,8 @@ export const useSimpleMapbox = ({
         console.log('Simple map loaded successfully!');
         setIsMapReady(true);
         
-        if (map.current && isInteractive) {
+        // Always add navigation controls for better UX
+        if (map.current) {
           map.current.addControl(
             new mapboxgl.NavigationControl({
               visualizePitch: true,
