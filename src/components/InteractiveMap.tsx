@@ -16,7 +16,7 @@ interface InteractiveMapProps {
 const InteractiveMap: React.FC<InteractiveMapProps> = ({ 
   latitude = 33.4734, 
   longitude = -117.7018, 
-  zoom = 15,
+  zoom = 12,
   className = "w-full h-96",
   isInteractive = true,
   activeFilters = []

@@ -24,7 +24,7 @@ const LocationHero = ({
       <InteractiveMap 
         latitude={33.4734}
         longitude={-117.7018}
-        zoom={15}
+        zoom={12}
         className="w-full h-full"
         isInteractive={isMapInteractive}
         activeFilters={activeFilters}
