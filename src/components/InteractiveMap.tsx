@@ -68,7 +68,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   return (
     <div className={`relative ${className}`}>
       <div ref={mapContainer} className="w-full h-full rounded-lg shadow-lg" />
-      {isInteractive && (
+      {isInteractive && isMapReady && map && (
         <MapZoomControls 
           map={map} 
           className="absolute bottom-6 right-6 z-10" 
