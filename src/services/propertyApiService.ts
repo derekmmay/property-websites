@@ -1,23 +1,23 @@
-import { createClient } from '@supabase/supabase-js';
-
-const supabaseUrl = 'https://ghysnghgmsnhqxwltqgp.supabase.co';
-const supabaseKey = 'YOUR_ANON_KEY'; // You'll need to provide this
-
-const supabase = createClient(supabaseUrl, supabaseKey);
+import { supabase } from '@/integrations/supabase/client';
 
 export interface PropertyData {
-  id: string;
-  address: string;
-  city: string;
-  state: string;
-  zip_code: string;
-  price: number;
-  bedrooms: number;
-  bathrooms: number;
-  square_feet: number;
-  description?: string;
-  images?: string[];
+  id: number;
+  address: string | null;
+  city: string | null;
+  state: string | null;
+  zip_code?: string | null;
+  price: string | null;
+  beds: string | null;
+  baths: string | null;
+  area: string | null;
+  description?: string | null;
+  images?: any;
   county: string;
+  listing_agent?: string | null;
+  listing_date?: string | null;
+  days_on_market?: string | null;
+  hoa?: string | null;
+  year_build?: string | null;
   // Add other fields as needed based on your database schema
 }
 

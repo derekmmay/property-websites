@@ -22,24 +22,24 @@ const PropertyDescription = ({ property }: PropertyDescriptionProps) => {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-8">
         <div className="text-center">
           <div className="text-4xl font-extralight text-black mb-2">
-            ${property?.price?.toLocaleString() || "13,500,000"}
+            ${property?.price?.replace(/[^0-9.-]+/g,"")?.replace(/\B(?=(\d{3})+(?!\d))/g, ",") || "13,500,000"}
           </div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Sales Price</div>
         </div>
         
         <div className="text-center">
-          <div className="text-2xl font-light text-black mb-2">{property?.bedrooms || "5"}</div>
+          <div className="text-2xl font-light text-black mb-2">{property?.beds || "5"}</div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Bedrooms</div>
         </div>
 
         <div className="text-center">
-          <div className="text-2xl font-light text-black mb-2">{property?.bathrooms || "5"}</div>
+          <div className="text-2xl font-light text-black mb-2">{property?.baths || "5"}</div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Bathrooms</div>
         </div>
 
         <div className="text-center">
           <div className="text-4xl font-extralight text-black mb-2">
-            {property?.square_feet?.toLocaleString() || "5,452"}
+            {property?.area || "5,452"}
           </div>
           <div className="text-sm text-gray-600 uppercase tracking-wide">Square Feet</div>
         </div>
