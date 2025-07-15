@@ -4,12 +4,15 @@ import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
+import { PropertyData } from "@/services/propertyApiService";
+
 interface PhotoGalleryProps {
   showLimited?: boolean;
   skipHero?: boolean;
+  property?: PropertyData;
 }
 
-const PhotoGallery = ({ showLimited = false, skipHero = false }: PhotoGalleryProps) => {
+const PhotoGallery = ({ showLimited = false, skipHero = false, property }: PhotoGalleryProps) => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);

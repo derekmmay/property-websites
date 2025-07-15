@@ -10,6 +10,7 @@ import Locale from "./pages/Lifestyle";
 import Proximity from "./pages/Location";
 import Education from "./pages/Schools";
 import Insights from "./pages/Data";
+import PropertyPage from "./pages/PropertyPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
         <Route path="/proximity" element={<Proximity />} />
         <Route path="/education" element={<Education />} />
         <Route path="/insights" element={<Insights />} />
+        <Route path="/:propertyAddress" element={<PropertyPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </TooltipProvider>
