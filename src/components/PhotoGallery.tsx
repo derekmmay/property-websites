@@ -3,8 +3,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
-
 import { PropertyData } from "@/services/propertyApiService";
+import { usePropertyConfig } from "@/hooks/usePropertyConfig";
 
 interface PhotoGalleryProps {
   showLimited?: boolean;
@@ -17,159 +17,27 @@ const PhotoGallery = ({ showLimited = false, skipHero = false, property }: Photo
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const [heroVisible, setHeroVisible] = useState(false);
+  const config = usePropertyConfig();
 
-  const photos = [
-    {
-      url: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=2071&q=80",
-      title: "Grand Oceanfront Facade",
-      category: "Exterior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=2075&q=80",
-      title: "Living Room with Ocean Views",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
-      title: "Gourmet Kitchen",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
-      title: "Master Suite Sanctuary",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2153&q=80",
-      title: "Private Terrace",
-      category: "Exterior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Dining Room",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80",
-      title: "Wine Cellar",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Infinity Pool",
-      category: "Exterior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2158&q=80",
-      title: "Home Theater",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Master Bathroom",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&auto=format&fit=crop&w=2080&q=80",
-      title: "Library Study",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1571624436279-b272aff752b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2072&q=80",
-      title: "Guest Suite",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1615873968403-89e068629265?ixlib=rb-4.0.3&auto=format&fit=crop&w=2032&q=80",
-      title: "Private Gym",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Garden Courtyard",
-      category: "Exterior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Executive Office",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=2032&q=80",
-      title: "Spa Bathroom",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Chef's Pantry",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Ocean View Balcony",
-      category: "Exterior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Breakfast Nook",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Guest Powder Room",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Walk-in Closet",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Laundry Room",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Entertainment Deck",
-      category: "Exterior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1554995207-c18c203602cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Pool Cabana",
-      category: "Exterior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Guest Bathroom",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Mudroom",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Butler's Pantry",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Art Gallery Hallway",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1566195992011-5f6b21e539aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
-      title: "Ocean Meditation Room",
-      category: "Interior"
-    },
-    {
-      url: "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?ixlib=rb-4.0.3&auto=format&fit=crop&w=2074&q=80",
-      title: "Private Beach Access",
-      category: "Exterior"
-    }
-  ];
+  // Use property images if available from API, otherwise use config
+  const propertyImages = property?.images ? 
+    (Array.isArray(property.images) ? property.images : [property.images]) : 
+    [];
+  
+  const photos = propertyImages.length > 0 ? 
+    propertyImages.map((img: any, index: number) => ({
+      url: typeof img === 'string' ? img : img.url,
+      title: typeof img === 'string' ? `Property Image ${index + 1}` : img.title || `Property Image ${index + 1}`,
+      category: typeof img === 'string' ? 'Interior' : img.category || 'Interior'
+    })) : 
+    config.galleryImages.map((img) => ({
+      url: img.url,
+      title: img.title,
+      category: img.category
+    }));
+
+  // Use final photos array or fallback to config images
+  const finalPhotos = photos.length > 0 ? photos : config.galleryImages;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -191,11 +59,11 @@ const PhotoGallery = ({ showLimited = false, skipHero = false, property }: Photo
   }, []);
 
   const nextImage = () => {
-    setCurrentIndex((prev) => (prev + 1) % photos.length);
+    setCurrentIndex((prev) => (prev + 1) % finalPhotos.length);
   };
 
   const prevImage = () => {
-    setCurrentIndex((prev) => (prev - 1 + photos.length) % photos.length);
+    setCurrentIndex((prev) => (prev - 1 + finalPhotos.length) % finalPhotos.length);
   };
 
   const openLightbox = (index: number) => {
@@ -240,13 +108,13 @@ const PhotoGallery = ({ showLimited = false, skipHero = false, property }: Photo
             >
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-all duration-500 z-10"></div>
               <img
-                src={photos[0].url}
-                alt={photos[0].title}
+                src={finalPhotos[0].url}
+                alt={finalPhotos[0].title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute bottom-0 left-0 right-0 p-8 text-white z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-black/80 to-transparent">
-                <p className="text-2xl font-light mb-2">{photos[0].title}</p>
-                <p className="text-lg opacity-80">{photos[0].category}</p>
+                <p className="text-2xl font-light mb-2">{finalPhotos[0].title}</p>
+                <p className="text-lg opacity-80">{finalPhotos[0].category}</p>
               </div>
             </Card>
           </div>
@@ -254,7 +122,7 @@ const PhotoGallery = ({ showLimited = false, skipHero = false, property }: Photo
 
         {/* Scattered Grid Layout with Flutter Animations */}
         <div className="grid grid-cols-12 gap-4 auto-rows-[200px]">
-          {photos.slice(1, showLimited ? 9 : photos.length).map((photo, index) => {
+          {finalPhotos.slice(1, showLimited ? 9 : finalPhotos.length).map((photo, index) => {
             const actualIndex = index + 1; // Adjust for sliced array
             const gridClasses = [
               "col-span-6 row-span-2", // Large
@@ -364,15 +232,15 @@ const PhotoGallery = ({ showLimited = false, skipHero = false, property }: Photo
 
               <div className="max-w-6xl max-h-full animate-in zoom-in-50 duration-500">
                 <img
-                  src={photos[currentIndex].url}
-                  alt={photos[currentIndex].title}
+                  src={finalPhotos[currentIndex].url}
+                  alt={finalPhotos[currentIndex].title}
                   className="max-w-full max-h-full object-contain transition-all duration-500"
                 />
                 <div className="text-center mt-4 text-white animate-in slide-in-from-bottom-4 duration-500">
-                  <h3 className="text-2xl font-light mb-2">{photos[currentIndex].title}</h3>
-                  <p className="text-gray-300">{photos[currentIndex].category}</p>
+                  <h3 className="text-2xl font-light mb-2">{finalPhotos[currentIndex].title}</h3>
+                  <p className="text-gray-300">{finalPhotos[currentIndex].category}</p>
                   <p className="text-sm text-gray-400 mt-2">
-                    {currentIndex + 1} of {photos.length}
+                    {currentIndex + 1} of {finalPhotos.length}
                   </p>
                 </div>
               </div>

@@ -14,6 +14,39 @@ export type Database = {
   }
   public: {
     Tables: {
+      demo_sites: {
+        Row: {
+          county: string
+          created_at: string
+          demo_url: string
+          expires_at: string
+          id: string
+          is_active: boolean
+          property_data: Json | null
+          property_id: number
+        }
+        Insert: {
+          county: string
+          created_at?: string
+          demo_url: string
+          expires_at: string
+          id?: string
+          is_active?: boolean
+          property_data?: Json | null
+          property_id: number
+        }
+        Update: {
+          county?: string
+          created_at?: string
+          demo_url?: string
+          expires_at?: string
+          id?: string
+          is_active?: boolean
+          property_data?: Json | null
+          property_id?: number
+        }
+        Relationships: []
+      }
       "Los Angeles County $2.5M+": {
         Row: {
           address: string | null

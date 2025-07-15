@@ -2,19 +2,14 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useSiteConfig } from "@/hooks/usePropertyConfig";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { navigation } = useSiteConfig();
 
-  const navItems = [
-    { name: "Overview", path: "/" },
-    { name: "Visuals", path: "/visuals" },
-    { name: "Lifestyle", path: "/locale" },
-    { name: "Proximity", path: "/proximity" },
-    { name: "Education", path: "/education" },
-    { name: "Insights", path: "/insights" },
-  ];
+  const navItems = navigation;
 
   return (
     <nav className="absolute top-0 left-0 right-0 z-50">
